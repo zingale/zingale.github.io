@@ -588,6 +588,37 @@ ul.style span {
 /* research */
 .research img
 {
-    border: 0;
-    vertical-align: middle;
+    position: static;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+ul.research {
+    padding-top: 1em;
+}
+
+ul.research li {
+    position: relative;
+    padding: 3em 2em 3em 4em;
+    /* border-top: solid 1px rgba(255, 255, 255, 0.2); */
+}
+
+ul.research > :first-child {
+    border-top: none;
+}
+
+
+ul.research h3 {
+    margin-bottom: 0.80em;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 2em;
+    color: #000;
+}
+
+ul.research span {
+    line-height: 180%;
+    color: #000;
 }
