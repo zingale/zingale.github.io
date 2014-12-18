@@ -1,0 +1,13 @@
+dt {
+    padding-top: 0.5em;
+    padding-left: 0.25em;
+    padding-bottom: 0.25em;
+    font-style: italic;
+    color: yellow;
+}
+
+dd {
+    padding-left: 1.0em;
+    padding-bottom: 1.0em;
+}
+
