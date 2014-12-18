@@ -510,6 +510,25 @@ ul.style span {
 }
 
 
+/* black banner -- for no sidebar pages */
+#blacksubbanner,
+#blackbanner {
+    text-align: center;
+    color: #fff;
+    padding: 0em 4em;
+    margin-bottom: 0em;
+}
+
+#blacksubbanner p,
+#blackbanner p {
+    font-size: 2.5em;
+    line-height: 1em;
+    color: black;
+    padding: 0em;
+    margin: 0;
+}
+
+
 /* Main */
 
 /* Footer */
