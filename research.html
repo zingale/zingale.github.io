@@ -48,141 +48,174 @@
       
       <!-- Page -->
       <div id="page" class="container">
-	<div class="research">
-	<section>
+	<div class="row"> 
+	    
+	  <!-- Content -->
+	  <div class="6u">
+	    <section>
+	      <ul class="research">
+		
+		<li><h3>White Dwarf Mergers</h3>
+		  <span>
+		    <A HREF="../wdmerger/">
+		      <IMG SRC="research_images/wdmerger.png" ALT="wd merger"></A>
+		    <br>We are modeling the inspiral of binary white
+		    dwarfs to explore the double degenerate
+		    mechanism for Type Ia supernovae.
+		    
+		    <br>(in collaboration with Max Katz, Alan
+		    Calder, Doug Swesty (Stony Brook); Ann
+		    Almgren, and John
+		    Bell <a HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
+		    supported by the NSF)</span> </li>
+		
+		<li><h3>sub-Chandra SN Ia</h3>
+		  <span>
+		    <A HREF="../subchandra/">
+		      <IMG SRC="research_images/subCh_on.png" ALT="sub Ch"></A>
+		    <br>We are exploring the convective burning
+		    leading up to the ignition of a burning front in
+		    a helium layer on the surface of a white dwarf.
+		    
+		    <br>(in collaboration with Adam Jacobs, Ann
+                    Almgren, John Bell, and Andy
+                    Nonaka <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
+                    supported by DOE Office of Nuclear Physics)</span></li>				
+	      </ul>
+	    </section>
+	  </div>
 
-	  <!-- <header class="major"> -->
-	  <!--   <h2>publications</h2> -->
-	  <!-- </header> -->
+	  <div class="6u">
+	    <section>
+	      <ul class="research">
+		<li><h3>X-ray bursts</h3>
+		  <span>
+		    <A HREF="../xrb/">
+		      <IMG SRC="research_images/c12_convection.png" ALT="sub Ch"></A>
+		    <br>X-ray bursts are the thermonuclear explosion
+		    of a thin H/He layer on the surface of a neutron
+		    star. Our multi-dimensional simulations capture
+		    the dynamics of the convection leading up to the
+		    burst, using the low Mach number hydrodynamics
+		    code, MAESTRO. The calculations allow us to
+		    understand the role of the convection on the
+		    nucleosynthesis,
 
-	  <TABLE width="95%" cellpadding=15>
+		    <br>(in collaboration with Chris Malone (LANL) and Ann
+                    Almgren, John Bell, and Andy
+                    Nonaka <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
+                    supported by DOE Office of Nuclear Physics)</span></li>				
 
-	    <!-- ********** wdmerger ********** -->
-	    <TR>
-	      <TD ALIGN="right"><H2>White Dwarf Mergers</H2>
-		<span>in collaboration with Max Katz, Alan Calder, Doug
-                  Swesty (Stony Brook); Ann Almgren, and John
-                  Bell <a HREF="http://ccse.lbl.gov">(CCSE/LBL)</a></span></TD>
+		<li><h3>Maestro</h3>
+		  <span>
+		    <A HREF="http://bender.astro.sunysb.edu/Maestro/">
+		      <IMG SRC="research_images/lowMach_on.png"  ALT="low Mach number modeling"></a>
+		    
+		    <br>Traditional astrophysical hydrodynamics codes have
+		    timesteps that are limited by the sound-crossing
+		    time across a zone.  For very subsonic flows, this
+		    is inefficient.  We developed a new algorithm for
+		    the efficient simulation of reaction-driven
+		    convection in stars.  By filtering out soundwaves,
+		    we are able to evolve the star for long periods of
+		    time.  The resulting code, Maestro, is publicly
+		    available.
 
-	      <TD ALIGN="left" rowspan=2>
-		<A HREF="../wdmerger/">
-		  <IMG SRC="research_images/wdmerger.png" WIDTH="295" HEIGHT="198" 
-                       ALT="wd merger"></A></TD>
-	    </tr>
-
-	    <TR>
-	      <TD>We are modeling the inspiral of binary white dwarfs
-		to explore the double degenerate mechanism for Type Ia
-		supernovae.
-
-		<p><br>(supported by the NSF)
-	      </TD>
-
-	    </TR>
-
-
-	    <!-- ********** sub Chandra ********** -->
-	    <TR>
-	      <TD ALIGN="right" rowspan=2>
-		<A HREF="../subchandra/">
-		  <IMG SRC="subCh_off.png" WIDTH="282" HEIGHT="280" 
-                       ALT="sub Ch"></A></TD>
-
-	      <TD ALIGN="left"><H2>Convection in Sub-Chandrasekhar
-                  Models of SNe Ia</H2> <H3>in collaboration with Adam
-                  Jacobs, Ann Almgren, John Bell, and Andy
-                  Nonaka <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a></H3></TD></TR>
-	    <TR>
-	      <TD>We are exploring the convective burning leading up
-		to the ignition of a burning front in a helium layer on the
-		surface of a white dwarf.
-
-		<p><br>(supported by DOE Office of Nuclear Physics)
-	      </TD>
-
-	    </TR>
-
-
-<!-- ******** Chris's stuff ******** -->
-<TR>
-<TD ALIGN="right"><H2>Type I X-ray bursts</H2>
-                 <H3>Led by former graduate student Chris Malone (now
-                     at UCSC) along with Ann Almgren, John Bell, and
-                     Andy Nonaka
-                     <A HREF="http://ccse.lbl.gov/">(CCSE/LBL)</A>
-                     on <A HREF="../xrb/">
-                     modeling Type I X-ray bursts</A> with Maestro</H3>
-</TD>
-<td rowspan="2">
-      <A HREF="../xrb" onMouseOver = "iswp('xrb_bar','xrb2')" 
-                           onMouseOut = "iswp('xrb_bar','xrb1')">
-      <IMG SRC="./c12_convection_bw.png" WIDTH="253" HEIGHT="210" 
-                              ALT="X-ray burst simulations"
-                              NAME="xrb_bar"></A></TD>
-</TR>
-
-<TR>
-  <td>X-ray bursts are the thermonuclear explosion of a thin H/He
-      layer on the surface of a neutron star.  Our multi-dimensional
-      simulations capture the dynamics of the convection leading up to
-      the burst, using the low Mach number hydrodynamics code, MAESTRO.
-      The calculations allow us to understand the role of the convection
-      on the nucleosynthesis. 
-
-      <p><br>(supported by DOE Office of Nuclear Physics)
-  </td>
-  
-</TR>
-
-<TR>
-  <TD>&nbsp;<BR>&nbsp;</TD> 
-  <TD>&nbsp;<BR>&nbsp;</TD> 
-</TR>
+		    <br>(in collaboration with Ann Almgren, John Bell, and Andy Nonaka
+		    <A HREF="http://ccse.lbl.gov/">(CCSE/LBL)</A>,
+		    supported by DOE Office of Nuclear Physics)
+		    </span> </li>
+	      </ul>
+	    </section>
+	  </div>
+	</div>  <!-- row div end -->
 
 
+	<div class="row"> 
+	    
+	  <!-- Content -->
+	  <div class="6u">
+	    <section>
+	      <ul class="research">
+		
+		<li><h3>White Dwarf Mergers</h3>
+		  <span>
+		    <A HREF="../wdmerger/">
+		      <IMG SRC="research_images/wdmerger.png" ALT="wd merger"></A>
+		    <br>We are modeling the inspiral of binary white
+		    dwarfs to explore the double degenerate
+		    mechanism for Type Ia supernovae.
+		    
+		    <br>(in collaboration with Max Katz, Alan
+		    Calder, Doug Swesty (Stony Brook); Ann
+		    Almgren, and John
+		    Bell <a HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
+		    supported by the NSF)</span> </li>
+		
+		<li><h3>sub-Chandra SN Ia</h3>
+		  <span>
+		    <A HREF="../subchandra/">
+		      <IMG SRC="research_images/subCh_on.png" ALT="sub Ch"></A>
+		    <br>We are exploring the convective burning
+		    leading up to the ignition of a burning front in
+		    a helium layer on the surface of a white dwarf.
+		    
+		    <br>(in collaboration with Adam Jacobs, Ann
+                    Almgren, John Bell, and Andy
+                    Nonaka <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
+                    supported by DOE Office of Nuclear Physics)</span></li>				
+	      </ul>
+	    </section>
+	  </div>
 
-<!-- ********** Low Mach ********** -->
-<TR>
-   <TD align="right" rowspan=2>
-      <A HREF="http://bender.astro.sunysb.edu/Maestro/" onMouseOver = "iswp('lmn_bar','lmn2')" 
-                           onMouseOut = "iswp('lmn_bar','lmn1')">
-      <IMG SRC="../lowMach/lowMach_off.png" WIDTH="188" HEIGHT="208" 
-                              ALT="low Mach number modeling"
-                              NAME="lmn_bar"></A></TD>
+	  <div class="6u">
+	    <section>
+	      <ul class="research">
+		<li><h3>X-ray bursts</h3>
+		  <span>
+		    <A HREF="../xrb/">
+		      <IMG SRC="research_images/c12_convection.png" ALT="sub Ch"></A>
+		    <br>X-ray bursts are the thermonuclear explosion
+		    of a thin H/He layer on the surface of a neutron
+		    star. Our multi-dimensional simulations capture
+		    the dynamics of the convection leading up to the
+		    burst, using the low Mach number hydrodynamics
+		    code, MAESTRO. The calculations allow us to
+		    understand the role of the convection on the
+		    nucleosynthesis,
 
- <TD ALIGN="left"><H2>Maestro: A Low Mach Number Stellar Hydrodynamics Code</H2>
- <H3>in collaboration with Ann Almgren, John Bell, and Andy Nonaka
- <A HREF="http://ccse.lbl.gov/">(CCSE/LBL)</A></H3></TD>
+		    <br>(in collaboration with Chris Malone (LANL) and Ann
+                    Almgren, John Bell, and Andy
+                    Nonaka <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
+                    supported by DOE Office of Nuclear Physics)</span></li>				
 
+		<li><h3>Maestro</h3>
+		  <span>
+		    <A HREF="http://bender.astro.sunysb.edu/Maestro/">
+		      <IMG SRC="research_images/lowMach_on.png"  ALT="low Mach number modeling"></a>
+		    
+		    <br>Traditional astrophysical hydrodynamics codes have
+		    timesteps that are limited by the sound-crossing
+		    time across a zone.  For very subsonic flows, this
+		    is inefficient.  We developed a new algorithm for
+		    the efficient simulation of reaction-driven
+		    convection in stars.  By filtering out soundwaves,
+		    we are able to evolve the star for long periods of
+		    time.  The resulting code, Maestro, is publicly
+		    available.
 
-</TR>
-<TR>
-  <TD>Traditional astrophysical hydrodynamics codes have timesteps
-  that are limited by the sound-crossing time across a zone.  For very
-  subsonic flows, this is inefficient.  We developed a new
-  algorithm for the efficient simulation of reaction-driven convection
-  in stars.  By filtering out soundwaves, we are able to evolve the
-  star for long periods of time.  The resulting code, Maestro, is
-  publicly available.
+		    <br>(in collaboration with Ann Almgren, John Bell, and Andy Nonaka
+		    <A HREF="http://ccse.lbl.gov/">(CCSE/LBL)</A>,
+		    supported by DOE Office of Nuclear Physics)
+		    </span> </li>
+	      </ul>
+	    </section>
+	  </div>
+	</div>  <!-- row div end -->
+	
+      </div> <!-- page div end -->
+    </div> <!-- wrapper div end -->
 
-  <p><br>(supported by DOE Office of Nuclear Physics)
-
-  </TD>
-</TR>
-
-
-
-<TR>
-  <TD>&nbsp;<BR>&nbsp;</TD> 
-  <TD>&nbsp;<BR>&nbsp;</TD> 
-</TR>
-
-</table>
-	</section>
-	</div> <!-- research -->
-	</div>
-      <!-- /Page -->
-
-
+      
   </body>
 </html>
