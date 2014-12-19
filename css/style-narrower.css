@@ -163,9 +163,6 @@ header.major .byline {
     color: #0f1116;
 }
 
-.button.fit {
-    width: 100%;
-}
 
 .button.small {
     font-size: 0.8em;
@@ -174,10 +171,6 @@ header.major .byline {
 .button.medium {
     padding: 0.80em 2em;
     font-size: 1.2em;
-}
-
-ul.icons {
-    float: none;
 }
 
 ul.style {

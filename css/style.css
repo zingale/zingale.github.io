@@ -87,10 +87,6 @@ blockquote {
     padding: 1em 0 1em 2em;
 }
 
-section.special, article.special {
-    text-align: center;
-}
-
 header.major {
     padding-bottom: 3em;
     text-transform: uppercase;
@@ -135,15 +131,6 @@ footer.major {
 .image {
     border: 0;
     position: relative;
-}
-
-.image.fit {
-    display: block;
-}
-
-.image.fit img {
-    display: block;
-    width: 100%;
 }
 
 .image.feature {
@@ -213,44 +200,6 @@ ul.default li {
 
 ul.default li:first-child {
     border-top: none;
-}
-
-ul.icons {
-    cursor: default;
-    text-align: center;
-}
-
-ul.icons li {
-    display: inline-block;
-    padding: 0em 0.20em;
-}
-
-ul.icons li:first-child {
-    padding-left: 0;
-}
-
-ul.icons li span {
-    display: none;
-}
-
-ul.icons li a {
-    display: inline-block;
-    color: #828282;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-}
-
-ul.icons li a:before {
-    display: inline-block;
-    border: 1px solid #828282;
-    width: 2em;
-    height: 2em;
-    line-height: 2em;
-    font-size: 1em;
-    color: #828282;
-    border-radius: 100%;
-    text-align: center;
 }
 
 ul.actions {
@@ -364,9 +313,6 @@ ul.style span {
     color: #c0c05e;
 }
 
-.button.fit {
-    width: 100%;
-}
 
 .button.small {
     font-size: 0.8em;
