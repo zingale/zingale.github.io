@@ -270,6 +270,21 @@ ul.style span {
     color: #FFF;
 }
 
+ul.style span.collab {
+    line-height: 120%;
+    font-size: 0.8em;
+    color: #cccccc;
+}
+
+.style img
+{
+    position: static;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 95%;
+    height: auto;
+}
 
 
 /* Button */
@@ -471,7 +486,7 @@ ul.style span {
     font-size: 2.5em;
     font-weight: 800;
     text-transform: uppercase;
-    color: #522969;
+    color: #ffffca;
     line-height: 1em;
     padding: 0em;
     margin: 0;
