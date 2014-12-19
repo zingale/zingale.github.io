@@ -88,7 +88,7 @@ blockquote {
 }
 
 header.major {
-    padding-bottom: 3em;
+    padding-bottom: 1em;
     text-transform: uppercase;
 }
 
@@ -493,6 +493,23 @@ ul.style span.collab {
     margin: 0;
 }
 
+.blackheading {
+    text-align: center;
+    color: #fff;
+    padding: 2em 0em;
+    margin-bottom: 0em;
+}
+
+.blackheading p {
+    font-size: 2.0em;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #ffffca;
+    line-height: 1em;
+    padding: 0em;
+    margin: 0;
+}
+    
 
 /* Main */
 
@@ -513,7 +530,7 @@ ul.style span.collab {
 #page {
     position: relative;
     background: #FFF;
-    padding: 3em 4em 3em 4em;
+    padding: 2em 4em 2em 4em;
     border-radius: 6px;
     margin-bottom: 1em;
 }
