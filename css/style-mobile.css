@@ -50,3 +50,9 @@ ul.style li {
 #page {
     padding: 2em 1em;
 }
+
+#page h1 {
+    font-size: 1.5em;
+    color: #522969;
+    margin-left: -0.25em;
+}

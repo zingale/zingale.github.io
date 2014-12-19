@@ -379,6 +379,7 @@ ul.style span.collab {
 }
 
 #logo h1 {
+    font-size: 1.2em;    
     display: inline-block;
     text-transform: uppercase;
 }
@@ -531,6 +532,12 @@ ul.style span.collab {
     padding-bottom: 1.0em;
 }
 
+
+#page h1 {
+    font-size: 2em;
+    color: #522969;
+    margin-left: -0.25em;
+}
 
 /* Sidebar */
 
