@@ -271,6 +271,7 @@ ul.style span {
 }
 
 
+
 /* Button */
 
 .button {
@@ -468,8 +469,10 @@ ul.style span {
 #blacksubbanner p,
 #blackbanner p {
     font-size: 2.5em;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #522969;
     line-height: 1em;
-    color: black;
     padding: 0em;
     margin: 0;
 }
@@ -586,4 +589,10 @@ ul.research h3 {
 ul.research span {
     line-height: 180%;
     color: #000;
+}
+
+ul.research span.collab {
+    line-height: 120%;
+    font-size: 0.8em;
+    color: #444444;
 }
