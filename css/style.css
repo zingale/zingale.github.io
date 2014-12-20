@@ -305,12 +305,12 @@ ul.style span.collab {
     border: 0;
     cursor: pointer;
     display: inline-block;
-    padding: 0.75em 1.5em;
+    padding: 0.5em 1.25em;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1.0em;
     font-weight: 600;
     color: #522969 !important;
 }
@@ -569,12 +569,15 @@ ul.style span.collab {
 /* Box */
 
 .box {
-    padding: 3em 2em;
+    padding: 1.5em 1.25em;
     background: #FFF;
     text-align: center;
     border-radius: 0px 0px 6px 6px;
 }
 
+.box p {
+    margin-bottom: 1em;
+}
 
 /* research */
 .research img
