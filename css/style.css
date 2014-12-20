@@ -260,8 +260,8 @@ ul.style > :first-child {
 ul.style h3 {
     margin-bottom: 0.80em;
     text-transform: uppercase;
-    font-weight: 800;
-    font-size: 2em;
+    font-weight: 700;
+    font-size: 1.75em;
     color: #FFF;
 }
 
@@ -473,26 +473,7 @@ ul.style span.collab {
 }
 
 
-/* black banner -- for no sidebar pages */
-#blacksubbanner,
-#blackbanner {
-    text-align: center;
-    color: #fff;
-    padding: 0em 4em;
-    margin-bottom: 0em;
-}
-
-#blacksubbanner p,
-#blackbanner p {
-    font-size: 2.5em;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #ffffca;
-    line-height: 1em;
-    padding: 0em;
-    margin: 0;
-}
-
+/* black heading -- for no sidebar pages */
 .blackheading {
     text-align: center;
     color: #fff;
@@ -535,6 +516,9 @@ ul.style span.collab {
     margin-bottom: 1em;
 }
 
+#page p.tight {
+    margin: 0;
+}
 
 #page dt {
     padding-top: 0.5em;
