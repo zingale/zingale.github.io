@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+  <TITLE>3-D Reactive Rayleigh-Taylor</TITLE> 
+
+  <link rel="stylesheet" type="text/css" href="../main.css">
+
+</HEAD> 
+
+<BODY BGCOLOR="#000000" TEXT="#ddccdd" LINK="5588ff" VLINK="3366ff">
+
+
+<CENTER>
+<H1>3-D Reactive Rayleigh-Taylor</H1>
+
+<div id="ref">
+<P>Zingale, M., Woosley, S. E. Rendleman, C. A., Day, M. S., Bell, J. B. 2006, ApJ, 632, 1021; <br>
+   Zingale, M., Woosley, S. E., Bell, J. B., Day, M. S., & Rendleman, C. A. 2005, Proceedings of SciDAC 2005, Journal of Physics: Conference Series, 16, 405
+</div>
+
+<P>in collaboration with the <a href="http://ccse.lbl.gov/">CCSE/LBL</a> group.
+</CENTER>
+
+<P>&nbsp;
+
+
+<p>We have extended our <a href="../SNrt">two-dimensional reactive
+Rayleigh-Taylor study</a> to three-dimensions, focusing on the
+flamelet regime.  We want to understand the nature of flame-generated
+turbulence in 3d, and to determine whether the less computationally
+expensive 2d calculations provide an accurate description of the
+flame.  All of these calculations are fully resolved---no flame model
+is used.  These are large calculations, encompassing over 170 million
+zones at the end.
+
+<p>This calculation is at a density of 1.5 x 10<sup>7</sup> g/cc,
+appropriate to the late stages of a Type Ia supernova.  The energy
+generation is a single C12+C12 thermonuclear fusion rate.
+
+<P>Power spectrum of the 3d RT.  The solid curve is the uncorrected
+velocity power spectrum.  The dashed curve is after projecting out the
+expansion components, and the dotted straight line is a n=-5/3 power
+law.  At late times, we get a Kolmogorov power spectrum for the
+kinetic energy.
+
+
+<P><BR>
+<center>
+<TABLE BORDER=0>
+<TR><TD ALIGN=CENTER><FONT SIZE="+1">Image</FONT></TD>
+    <TD ALIGN=CENTER><FONT SIZE="+1">Power Spectrum</FONT></TD></TR>
+
+<TR><TD COLSPAN=3 ALIGN=CENTER BGCOLOR="YELLOW"><FONT COLOR="BLACK">step = 0, time = 0 s</FONT></TD></TR>
+<TR><TD><IMG SRC="snframe_step=0000.png" WIDTH=509 HEIGHT=494></TD>
+    <TD><IMG SRC="spectrum_0_4_bw.png" WIDTH=432 HEIGHT=432></TD>
+</TR>
+
+<TR><TD>&nbsp;<BR>&nbsp</TD></TR>
+
+
+<TR><TD COLSPAN=3 ALIGN=CENTER BGCOLOR="YELLOW"><FONT COLOR="BLACK">step = 120, time = 6.62e-4 s</FONT></TD></TR>
+<TR><TD><IMG SRC="snframe_step=0120.png" WIDTH=509 HEIGHT=494></TD>
+    <TD><IMG SRC="spectrum_120_4_bw.png" WIDTH=432 HEIGHT=432></TD>
+</TR>
+
+<TR><TD>&nbsp;<BR>&nbsp</TD></TR>
+
+
+<TR><TD COLSPAN=3 ALIGN=CENTER BGCOLOR="YELLOW"><FONT COLOR="BLACK">step = 240, time = 9.43e-4 s</FONT></TD></TR>
+<TR><TD><IMG SRC="snframe_step=0240.png" WIDTH=509 HEIGHT=494></TD>
+    <TD><IMG SRC="spectrum_240_4_bw.png" WIDTH=432 HEIGHT=432></TD>
+</TR>
+
+<TR><TD>&nbsp;<BR>&nbsp</TD></TR>
+
+
+<TR><TD COLSPAN=3 ALIGN=CENTER BGCOLOR="YELLOW"><FONT COLOR="BLACK">step = 360, time = 1.16e-3 s</FONT></TD></TR>
+<TR><TD><IMG SRC="snframe_step=0360.png" WIDTH=509 HEIGHT=494></TD>
+    <TD><IMG SRC="spectrum_360_4_bw.png" WIDTH=432 HEIGHT=432></TD>
+</TR>
+</TABLE>
+</center>
+
+
+<P>&nbsp;
+<p><H2>Animation</H2>
+<center>
+<P><iframe width="640" height="480" src="http://www.youtube.com/embed/ztrbl5_ySSY?rel=0" frameborder="0" allowfullscreen></iframe></center>
+<br>
+Animation of the carbon mass fraction for this simulation.
+Also available as an <A HREF="rt_1.5e7_3d_new.avi">AVI movie</A>.
+
+<P>&nbsp;
+<P><img src="spectrum_2d_3d_bw.png" width="328" height="403" class="me">
+<P><H2>Comparison of 2-D and 3-D Reactive RT</H2>
+
+
+<P>As shown above, the kinetic energy power spectrum for the 3-D
+simulation follows the familiar Kolmogorov -5/3 scaling.  From the
+results of our <A HREF="../SNrt/">2-D study</A>, we can look at how
+the power spectrum differs with the dimensionality.
+
+<P>The figure on the right shows the power spectrum from the 3-D run
+(yellow) and the two dimensional run (cyan).  The solid line is a -5/3
+power law and the dotted line is a -11/5 power law.  As we see, only
+the 3-D simulation appears to obey Kolmogorov statistics.  The 2-D
+simulation is more consistent with Bolgiano-Obukov turbulence -- that
+arising from a potential energy cascade.
+
+<P>In generating this data, it is essential to run a large enough
+simulation such that there are a lot of RT bubbles that merge together.
+
+
+<p>&nbsp;
+<p>&nbsp;
+<p>These calculations were carried out on the NERSC IBM/SP seaborg and
+the NASA/Ames Columbia machine.  This research is supported by DOE
+grant No. DE-FC02-01ER41176 to the Supernova Science Center/UCSC.
+
+</BODY> 
+</HTML>
