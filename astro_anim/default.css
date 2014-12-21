@@ -1,0 +1,630 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background: #D4C792 url(images/img01.gif);
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 13px;
+   color: #333333;
+}
+
+h1, h2, h3 
+{
+   color: #AA2808;
+}
+
+
+p, blockquote, ul, ol 
+{
+   margin-bottom: 20px;
+   line-height: 1.6em;
+}
+
+
+a {
+   text-decoration: underline;
+   color: #323B51;
+}
+
+a:hover 
+{
+   text-decoration: none;
+   color: #FF0000;
+}
+
+/* Wrapper */
+
+#wrapper 
+{
+}
+
+
+/* Header */
+
+#header 
+{
+   width: 710px;
+   height: 96px;
+   margin: 0 auto;
+   background: url(images/img05.gif) no-repeat left bottom;
+}
+
+#header2 
+{
+   width: 710px;
+   height: 96px;
+   margin: 0 auto;
+}
+
+
+/* Logo */
+
+#logo
+{
+   float: left;
+   padding: 20px 0 0 15px;
+}
+
+#logo h1 
+{
+   margin: 0;
+   padding: 0;
+   font: normal 32px "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#logo h2 
+{
+   margin: -5px 0 0 0;
+   padding: 0;
+   text-transform: lowercase;
+   letter-spacing: 2px;
+   font-size: 12px;
+   font-weight: normal;
+   color: #D4C792;
+}
+
+#logo a 
+{
+   text-decoration: none;
+   color: #FFFFFF;
+}
+
+
+/* Menu */
+
+#menu 
+{
+   float: right;
+   width: 420px;
+   height: 70px;
+   padding-right: 5px;
+   background: url(images/img03.gif) no-repeat left top;
+}
+
+#menu ul 
+{
+   margin: 0;
+   padding: 37px 0 0 0;
+   list-style: none;
+   line-height: normal;
+   margin-left: 30px;
+   text-align: center;
+}
+
+#menu li 
+{
+   display: inline;
+   text-align: center;
+}
+
+#menu a 
+{
+   display: block;
+   float: left;
+   height: 20px;
+   padding: 10px 15px 0 15px;
+   text-align: center;
+   text-transform: none;
+   font-size: 13px;
+   font-weight: bold;
+   color: #FFFFFF;
+}
+
+#menu a:hover 
+{
+   color: #FF8828;
+}
+
+#menu .active a 
+{
+   color: #FF8828;
+   text-decoration: none;
+}
+
+
+/* Page */
+
+#page 
+{
+   width: 710px;
+   margin: 0 auto;
+   background: #D4C792 url(images/img04.gif) repeat-y;
+}
+
+
+/* Content */
+
+#content 
+{
+   float: left;
+   width: 388px;
+   padding: 30px 0 0 35px;
+}
+
+#content h1, #content h2, #content h3 
+{
+   margin-bottom: 20px;
+}
+
+#content h1 
+{
+   font: normal 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+   display: inline;
+}
+
+#content h2 
+{
+   font-size: 107%;
+}
+
+#content h3 
+{
+   font-size: 90%;
+   color: #AAAAAA;
+   display: inline;
+}
+
+#content p 
+{
+   margin: 10px auto;
+}
+
+#content ul, #content ol 
+{
+   list-style-position: inside;
+}
+
+
+/* Welcome */
+
+#welcome 
+{
+   padding-bottom: 20px;
+}
+
+
+/* whatsnew */
+
+#whatsnew{
+}
+
+#whatsnew h2 
+{
+   padding: 5px 20px;
+   border-bottom: 1px dotted #888888;
+   font-size: 100%;
+   color: #AA2808;
+}
+
+#whatsnew p
+{
+   line-height: 120%;
+}
+
+/* Sidebar */
+
+#sidebar 
+{
+   float: right;
+   width: 208px;
+   padding: 0 35px 0 0;
+}
+
+#sidebar ul 
+{
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   line-height: normal;
+}
+
+#sidebar li 
+{
+   margin-bottom: 1px;
+   padding: 20px 0;
+}
+
+#sidebar li ul 
+{
+}
+
+#sidebar li li 
+{
+   margin: 0;
+   padding: 7px 20px;
+   border: none;
+}
+
+#sidebar h2 
+{
+   padding: 5px 20px;
+   border-bottom: 1px dotted #FFFFFF;
+   font-size: 100%;
+   color: #D4C792;
+}
+
+#sidebar h3 
+{
+   font-size: 77%;
+   color: #D4C792;
+}
+
+#sidebar p 
+{
+   margin: 0;
+   line-height: normal;
+   color: #D4C792;
+}
+
+#sidebar a 
+{
+   border: none;
+   text-decoration: none;
+   color: #FFFFFF;
+}
+
+#sidebar a:hover 
+{
+   text-decoration: underline;
+}
+
+/* Submenu */
+
+#submenu 
+{
+}
+
+
+/* Submenu2 */
+
+#submenu2 
+{
+}
+
+
+/* News */
+
+#news 
+{
+}
+
+#news a 
+{
+   font-size: 85%;
+}
+
+#news p 
+{
+          color: #FFFFFF;
+}
+
+
+/* Footer */
+
+#footer 
+{
+   width: 710px;
+   height: 50px;
+   margin: 0 auto;
+   padding: 40px 0 0 0;
+   background: url(images/img06.gif) no-repeat;
+   color: #888888;
+}
+
+#footer p 
+{
+   margin: 0;
+   text-align: center;
+   font-size: 80%;
+   float: right;
+}
+
+#footer a 
+{
+   text-decoration: underline;
+   color: #888888;
+}
+
+#footer a:hover 
+{
+   text-decoration: none;
+}
+
+
+
+/* Footer 2 */
+
+#footer2 
+{
+   width: 710px;
+   height: 50px;
+   margin: 0 auto;
+   padding: 40px 0 0 0;
+   color: #888888;
+}
+
+#footer2 p 
+{
+   margin: 0;
+   text-align: center;
+   font-size: 80%;
+   float: right;
+}
+
+#footer2 a 
+{
+   text-decoration: underline;
+   color: #888888;
+}
+
+#footer2 a:hover 
+{
+   text-decoration: none;
+}
+
+
+
+/* Normal */
+
+#normal 
+{
+   width: 90%;
+   margin: 0em 2em 2em 2em;
+   color: #FFFFFF;
+   font-size: 14px;
+}
+
+#normal p 
+{
+   color: #FFFFFF;
+}
+
+
+#normal td 
+{
+   font-size: 14px;
+}
+
+
+dt.links 
+{
+   padding-top: 0.5em;
+   padding-left: 0.25em;
+   padding-bottom: 0.125em;
+}
+
+dd.links 
+{
+   padding-left: 0.0em;
+   padding-bottom: 1.0em;
+   margin-left: 2em;
+}
+
+
+dt.paper 
+{
+   padding-top: 0.5em;
+   padding-left: 0.25em;
+   padding-bottom: 0.25em;
+   font-style: italic;
+   color: yellow;
+}
+
+dd.paper 
+{
+   padding-left: 1.0em;
+   padding-bottom: 1.0em;
+}
+
+
+dt.teaching 
+{
+   font-size: medium;
+   padding-top: 0.5em;
+   padding-left: 0.25em;
+   padding-bottom: 0.125em;
+}
+
+dd.teaching 
+{
+   padding-left: 0.0em;
+   padding-bottom: 1.0em;
+   margin-left: 2em;
+}
+
+
+h1.center
+{
+    text-align: center;
+}
+
+#normal H1   
+{
+   font: normal 28px "Trebuchet MS", Arial, Helvetica, sans-serif;
+   color: red;
+   font-weight: normal;
+}
+
+#normal H2 
+{
+   font-size: large;
+   color: #AA66FF;
+   font-weight: normal;
+   font-variant: small-caps;
+}
+
+#normal H3   
+{
+   font-size: medium;
+   color: yellow;
+   line-height: 1.0;
+   display: inline; 	
+   padding-bottom: 0em;
+   font-weight: normal;
+   font-variant: small-caps;
+}
+
+#normal a {
+   text-decoration: underline;
+   color: #AAAAFF;
+}
+
+#normal a:hover 
+{
+   text-decoration: none;
+   color: #FF8828;
+}
+
+#normal ul 
+{
+   margin-left: 2em;
+   margin-top: 1em;
+}
+
+#normal td 
+{
+   color: #FFFFFF;
+   padding: 5px;
+}
+
+
+#normal table 
+{
+   margin-left: auto;
+   margin-right: auto;
+}
+
+
+#normal h2.center 
+{
+   text-align: center;
+}
+
+
+/* research specific */
+
+#research 
+{
+}
+
+#research p.center 
+{
+   text-align: center;
+}
+
+
+#research img 
+{
+   border: 0;
+   vertical-align: middle;
+}
+  
+
+
+/* a centered heading for research pages */
+
+#plainhead 
+{
+   margin-top: 1em;
+   text-align: center;
+}
+
+
+#researchsimple 
+{
+}
+
+
+#researchsimple p.center 
+{
+   text-align: center;
+}
+
+
+#researchsimple p.acknowledgement 
+{
+   color: gray;
+}
+
+
+/* special tags */
+
+IMG.me 
+{
+   float: right;
+   margin: 2em; 
+}
+
+
+p.indent 
+{
+   padding-left: 10%;
+   padding-right: 10%;
+}
+
+
+A.big 
+{
+   font-size: large;
+}
+
+TABLE.anim 
+{
+   width: 95%;
+   padding: 0px; 
+   margin-left: auto;
+   margin-right: auto;
+   border-collapse: collapse;
+   border-color: #555555;
+   border-width: 0 0 3px 3px;
+   border-style: solid; 
+}
+
+td.anim_desc 
+{
+   padding: 8px;
+   margin: 2px; 
+   border-color: #555555;
+   border-width: 3px 0 0 0;
+   border-style: solid; 
+}
+
+td.anim_image 
+{
+   padding: 4px;
+   margin: 4px;
+   width: 210px;
+   text-align: center; 
+   border-color: #555555;
+   border-width: 3px 3px 0 0;
+   border-style: solid; 
+}
+
