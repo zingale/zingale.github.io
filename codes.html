@@ -232,38 +232,58 @@
 		<ul class="style">
 		  <li>
 		    <h3>pyro: hydro by example</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>A tutorial code and set of notes to
+		      introduce new students into computational
+		      hydrodynamics.  The (mostly) python code
+		      implements 2-d solvers for linear advection,
+		      compressible hydrodynamics, multigrid, implicit
+		      diffusion, and incompressible hydrodynamics.
+		      
+		      <br>&nbsp;<br>The code and documentation can be
+		      found on the
+		      <a href="http://bender.astro.sunysb.edu/hydro_by_example/">pyro
+			website</a></span> </li>
+
 		  <li>
 		    <h3>hydro1d: a 1-d compressible hydro solver</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>A simple 1-d compressible hydrodynamics code
+		      that implements piecewise constant (Godunov),
+		      piecewise linear, and piecewise parabolic (PPM)
+		      slope reconstruction in a finite-volume
+		      framework.  Some simple test problems (e.g. Sod)
+		      are included.
+
+		      <br>&nbsp;<br><a href="http://bender.astro.sunysb.edu/hydro1d">Download
+		      available on the code page</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
+
 	    <div class="6u">
 	      <section>
 		<ul class="style">
 		  <li>
 		    <h3>Castro: an AMR parallel hydro code</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>Castro solves the equations of compressible
+		      hydrodynamics using a dimensionally unsplit PPM
+		      method, includes reactions, support for a
+		      general equation of state, and self gravity, and
+		      uses an adaptive mesh refinement integration
+		      strategy with subcycling in time.  Castro is
+		      developed primarily by my collaborators at
+		      CCSE/LBL (I've hacked a bit on the hydro and
+		      microphysics).  Castro is open-source and
+		      distributed via git.
+
+		      <br>&nbsp;<br><a href="https://ccse.lbl.gov/Downloads/downloadCASTRO.html">Get Castro</a></span> </li>
 		  <li>
 		    <h3>Maestro: low Mach number stellar hydro</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>Maestro is optimized to solve low speed
+		      convective flow problems in tight hydrostatic
+		      equilibrium.  A full description can be found on
+		      the <a href="http://bender.astro.sunysb.edu/Maestro">Maestro
+		      page</a>.  Maestro can be downloaded from that
+		      page.</span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -283,19 +303,22 @@
 	      <section>
 		<ul class="style">
 		  <li>
-		    <h3>Integer ultrices</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>OpenMP Relaxation Solver of Poisson's Equation</h3>
+		    <span>Solve the 2-d Poisson equation with pure
+		      relaxation (we do a fixed number of iterations).
+		      This is parallelized with OpenMP.
+
+		      <br>&nbsp;<br><a href="./codes/relax-omp.f90">relax-omp.f90</a></span> </li>
+
 		  <li>
-		    <h3>Aliquam luctus</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>MPI Relaxation Solver of Poisson's Equation</h3>
+		    <span>Solve the 2-d Poisson equation with pure
+		      relaxation (we do a fixed number of iterations).
+		      This is parallelized with MPI, doing a
+		      one-dimensional domain decomposition in the x
+		      direction.
+
+		      <br>&nbsp;<br><a href="./codes/relax-mpi.f90">relax-mpi.f90</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -303,19 +326,12 @@
 	      <section>
 		<ul class="style">
 		  <li>
-		    <h3>Integer ultrices</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
-		  <li>
-		    <h3>Aliquam luctus</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>Parallel I/O Tutorial</h3>
+		    <span>A simple tutorial showing various ways to
+		      output data from a parallel hydrodynamics code
+		      into a single HDF5 file.
+
+		      <br>&nbsp;<br><A HREF="./io_tutorial">I/O tutorial</A></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -334,39 +350,23 @@
 	      <section>
 		<ul class="style">
 		  <li>
-		    <h3>Integer ultrices</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
-		  <li>
-		    <h3>Aliquam luctus</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>Matplotlib Examples</h3>
+		    <span><a href="./matplotlib">Some useful bits</a> for
+			matplotlib that I've used.</span> </li>
 		</ul>
 	      </section>
 	    </div>
+	    
 	    <div class="6u">
 	      <section>
 		<ul class="style">
 		  <li>
-		    <h3>Integer ultrices</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
-		  <li>
-		    <h3>Aliquam luctus</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>Monte Carlo Demo (Poker Odds)</h3>
+		    <span>A simple demonstration of Monte Carlo
+		      techniques&mdash;computing the odds of the
+		      different hands in a straight 5-card poker game.
+
+		      <BR>&nbsp;<br><A HREF="./codes/poker.py">poker.py</A></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -385,19 +385,34 @@
 	      <section>
 		<ul class="style">
 		  <li>
-		    <h3>Integer ultrices</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>Simple Backup Script</h3>
+		    <span>A simple script for automatically backing up
+		      several directories in your home directory to
+		      another disk mounted on your local system.  To
+		      have this run automatically, set it up as a cron
+		      job.
+
+		      <br>&nbsp;<br><a href="https://github.com/zingale/backup_machine/blob/master/backup-machine.py">backup-machine.py</a></span> </li>
+
 		  <li>
-		    <h3>Aliquam luctus</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>Fortran Makefile Dependency Generator</h3>
+		    <span>A simple simply python script to generate
+		      dependency pairs for Fortran 90 source files for
+		      use in makefiles.
+
+		      <BR>&nbsp;<br><A HREF="./dep.py">dep.py</A></span> </li>
+
+		  <li>
+		    <h3>ApJ Submission Formatter</h3>
+		    <span>A simple python script that takes a LaTeX
+		      ApJ manuscript and renames all the figures (both
+		      in the file and on disk) to conform to the
+		      f1.eps, f2.eps, ...  naming convention that ApJ
+		      wants.  <em>Use at your own risk--this is still
+		      beta quality.  See the notes contained
+		      within.</em>
+
+		      <BR>&nbsp;<br><A HREF="apjify.py">apjify.py</A></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -405,19 +420,25 @@
 	      <section>
 		<ul class="style">
 		  <li>
-		    <h3>Integer ultrices</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>Makefile Examples</h3>
+		    <span>Makefile examples of increasing complexity,
+		      showing how to use macros, the clean target,
+		      file interdependencies, debug/production builds,
+		      debugging the makefile itself, and storing the
+		      git hash of your project into your source code
+		      at build time.
+
+		      <br>&nbsp;<br><a href="./makefiles.tar">makefiles.tar</a></span> </li>
 		  <li>
-		    <h3>Aliquam luctus</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <h3>mencoder Wrapper</h3>
+		    <span>A simple python script that can be used to
+		      convert a series of PNG images into AVI and MP4
+		      movies (with MPEG-4 encoding).  Supports
+		      doubling frames and adding some extra frames at
+		      the end.  The mencoder options picked seem to be
+		      supported on most platforms.
+
+		      <br>&nbsp;<br><a href="https://github.com/zingale/astro_animations/blob/master/scripts/mkmovie.py">mkmovie.py</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
