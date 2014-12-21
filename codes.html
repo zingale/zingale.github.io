@@ -65,6 +65,45 @@
 
 	  <div class="blackheading">
 	    <section>
+	      <p>Astronomy Education</p>
+	    </section>
+	  </div>
+
+	  <div class="row"> 
+	    
+	    <!-- Content -->
+	    <div class="6u">
+	      <section>
+		<ul class="style">
+		  <li>
+		    <h3>Introductory Astronomy Codes</h3>
+		    <span>A <A href="astro/">set of introductory
+			astronomy animations</A> (Kepler's laws,
+			Doppler shifts, parallax, ...) coded in
+			python.  These are
+			also <a href="http://www.youtube.com/playlist?list=PL5D1C3702F5D1E571&amp;feature=plcp">available
+			on YouTube</a>. </span> </li>
+		</ul>
+	      </section>
+	    </div>
+	    <div class="6u">
+	      <section>
+		<ul class="style">
+		  <li>
+		    <h3>Codes from my Numerical Methods Class</h3>
+		    <span>There are a number of examples of various
+		      methods (mostly in python) on my course
+		      webpage: <A href="http://bender.astro.sunysb.edu/classes/phy688_spring2013/">Numerical
+		      Methods for (Astro)Physics</A>.  Some of these
+		      are repeated below. </span> </li>
+		</ul>
+	      </section>
+	    </div>
+	  </div>
+
+	  
+	  <div class="blackheading">
+	    <section>
 	      <p>Simple Numerical PDE Examples</p>
 	    </section>
 	  </div>
@@ -77,57 +116,107 @@
 		<ul class="style">
 		  <li>
 		    <h3>Godunov methods for linear advection</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>A
+		      simple <A href="./codes/advect.f90">second-order
+		      accurate finite-volume method for the linear
+		      advection equation</a> in one-dimension.  A
+		      choice of reconstruction is provided: Godunov
+		      (piecewise constant), Piecewise Linear, and
+		      Piecewise Parabolic (PPM).  This advects the
+		      initial condition through a periodic domain.
+		      The code is structured to with the subroutines
+		      you would find in a typical hydrodynamics
+		      code.
+
+		      <br>&nbsp;<br><a href="./codes/ppm.png">Sample output</a>
+		      showing a tophat advected for 5 periods with 128 zones.
+
+		      <br>&nbsp;<br>A python version (without ppm) is available
+		      on my github
+		      page: <a href="https://github.com/zingale/hydro_examples/blob/master/advection/advection.py">advection.py</a></span> </li>
+
 		  <li>
 		    <h3>2<sup>nd</sup> order finite volume method for Burgers' equation</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>A simple
+		      Fortran <A href="./codes/burger.f90">second-order
+		      accurate finite-volume method for the 1-d
+		      Inviscid Burgers' Equation</a>: <br>u<sub>t</sub> +
+		       [1/2 u<sup>2</sup>]<sub>x</sub> = 0<br>  A choice
+		      of limiters is provided, and periodic BCs are
+		      implemented.  The code is structured to with the
+		      subroutines you would find in a typical
+		      hydrodynamics code.
+
+		      <br>&nbsp;<br>An alternate python version is
+		      available on my github
+		      page: <a href="https://github.com/zingale/hydro_examples/blob/master/burgers/burgers.py">burgers.py</a></span> </li>
+
 		  <li>
 		    <h3>Viscous Burgers' equation solver</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>Solve:<br> u<sub>t</sub> + [ 1/2
+		      u<sup>2</sup> ]<sub>x</sub> = &epsilon;
+		      u<sub>xx</sub> <br> using a second-order Godunov
+		      method for advection and Crank-Nicolson implicit
+		      diffusion for the viscous term.  The two
+		      processes are coupled together.
+<br>&nbsp;<br><a href="https://github.com/zingale/hydro_examples/blob/master/multiphysics/burgersvisc.py">burgervisc.py</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
+	    
 	    <div class="6u">
 	      <section>
 		<ul class="style">
+
 		  <li>
 		    <h3>Multigrid examples</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>A simple python class for solving 1-d
+		      Poisson and constant-coefficient Helmholtz
+		      equations on a finite-volume grid.  The driver
+		      program (mg_test.py) solves u<sub>xx</sub> =
+		      sin(x), u(0)=0, u(1)=0.  The discretization is
+		      second order.
+
+		      <br>&nbsp;<br><a href="https://github.com/zingale/hydro_examples/tree/master/multigrid">simple
+		      multigrid solver</a> on my github page.
+
+		      <br><a href="./codes/multigrid_python/mg-converge.png">mg-converge.png</a>
+		      (a convergence plot)
+
+		      <br>&nbsp;<br>Also
+		      see <a href="http://bender.astro.sunysb.edu/hydro_by_example/">pyro</a>
+		      for a 2-d solver.</span> </li>
+
 		  <li>
 		    <h3>Diffusion</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>Simple 1-d second-order explicit and
+		      implicit diffusion codes.  The implicit code
+		      uses a Crank-Nicolson time discretization and
+		      the banded matrix solver from SciPy.
+
+		      <br>&nbsp;<br><a href="https://github.com/zingale/hydro_examples/blob/master/diffusion/diffusion-explicit.py">diffusion-explicit.py</a>
+<a href="https://github.com/zingale/hydro_examples/blob/master/diffusion/diffusion-implicit.py">diffusion-implicit.py</a>
+
+                      <br>&nbsp;<br>Also
+		      see <a href="http://bender.astro.sunysb.edu/hydro_by_example/">pyro</a>
+		      for a 2-d solver.</span> </li>
+
 		  <li>
 		    <h3>Diffusion-reaction equation</h3>
-		    <span>In posuere eleifend odio. Quisque semper
-		    augue mattis wisi. Maecenas ligula. Pellentesque
-		    viverra vulputate enim. Aliquam erat
-		    volutpat. Maecenas condimentum enim tincidunt
-		    risus accumsan.</span> </li>
+		    <span>Solve:<br>
+
+		      &phi;<sub>t</sub> = &kappa;
+		      &phi;<sub>xx</sub> + (1/&tau;) R(&phi;)
+
+		      <br>using Crank-Nicolson diffusion and
+		      Strang-split reactions.  This setup gives rises
+		      to a spreading burning front.
+<br>&nbsp;<br><a href="https://github.com/zingale/hydro_examples/blob/master/multiphysics/diffusion-reaction.py">diffreact.py</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
 	  </div>
-
+	  
 
 	  <div class="blackheading">
 	    <section>
