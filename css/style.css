@@ -88,6 +88,7 @@ blockquote {
 }
 
 header.major {
+    padding-top: 1em;
     padding-bottom: 1em;
     text-transform: uppercase;
 }
@@ -201,6 +202,11 @@ ul.default li {
 ul.default li:first-child {
     border-top: none;
 }
+
+span.tiny {
+    font-size: 0.75em;
+}
+
 
 ul.actions {
     cursor: default;
@@ -622,3 +628,9 @@ ul.research span.collab {
     font-size: 0.8em;
     color: #444444;
 }
+
+
+.about_pic img {
+    margin: 0 auto;
+}
+
