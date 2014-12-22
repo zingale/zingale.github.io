@@ -1,0 +1,148 @@
+BODY, H1, H2, H3, H4, H5  {font-family: "Bitstream Vera Sans",
+                                        "Arial",
+                                        "Helvetica",
+                                        sans-serif;}
+
+BODY {background-color: #000000;
+      color: #EEDDEE;}
+
+BODY.white {background-color: #FFFFFF;
+            color: #222222;}
+
+PRE {font-family: "Bitstream Vera Sans Mono",
+                  "Monospace",
+                  monospace;
+     color : #666666;}
+
+TT  {font-family: "Bitstream Vera Sans Mono", 
+                  "Monospace",
+                  monospace;
+     color : #666666;}
+
+
+A:LINK {text-decoration: none;
+        color: #77ccdd;}
+A:VISITED {text-decoration: none;
+           color: #77ccdd;}
+A:HOVER {text-decoration: underline;
+         color: red;}
+
+A.big {font-size: large;}
+
+    
+H1   {font-size: x-large;
+      color: red;
+      font-weight: normal;
+      font-variant: small-caps}
+
+H1.title {display:inline;}
+
+H2   {font-size: large;
+      color: red;
+      font-weight: normal;
+      font-variant: small-caps}
+
+H3   {font-size: medium;
+      color: yellow;
+      line-height: 1.0;
+      display: inline; 	
+      padding-bottom: 0em;
+      font-weight: normal;
+      font-variant: small-caps}
+
+TABLE.contact {color: white;
+	       margin-top: 4em; 
+               border-collapse: collapse;
+	       white-space: nowrap;
+               border-width: 0px;
+               border: 0px;}
+
+
+TD.contact {padding: 5px;}
+
+
+
+TABLE.classtitle {border-collapse: collapse;
+                  border: 0px;}
+
+TR.classtitle {background-color: #000000;}
+TD.classtitle {font-size: x-large;}
+
+p.indent {padding-left: 10%;
+          padding-right: 10%;}
+
+A.classtitle:LINK {background: #66CCFF;
+                   color: blue;}
+A.classtitle:VISITED {background: #66CCFF;
+                      color: blue;}	
+A.classtitle:HOVER {background: blue;
+                    color: #66CCFF;
+                    text-decoration: none;}
+	      
+IMG.me {float: right;
+        margin: 2em; }
+
+
+FONT.caption {font-size: small;}
+
+li {padding: 0.5em;}
+
+
+dt.paper {padding-top: 0.5em;
+          padding-left: 0.25em;
+          padding-bottom: 0.25em;
+          font-style: italic;
+          color: yellow;}
+
+dd.paper {padding-left: 0.0em;
+          padding-bottom: 1.0em;}
+
+
+dt.links {padding-top: 0.5em;
+          padding-left: 0.25em;
+          padding-bottom: 0.125em;}
+
+dd.links {padding-left: 0.0em;
+          padding-bottom: 1.0em;
+          margin-left: 2em;}
+
+
+dt.teaching {font-size: large;
+             padding-top: 0.5em;
+             padding-left: 0.25em;
+             padding-bottom: 0.125em;}
+
+dd.teaching {padding-left: 0.0em;
+             padding-bottom: 1.0em;
+             margin-left: 2em;}
+
+
+ul.menu {white-space: nowrap;
+         padding: 0;
+         margin: 0;
+         padding-top: 1em;}
+
+ul.menu li {background: black;
+            color: yellow;
+            display: inline;
+            list-style-type: none;
+            font-size: large;
+            font-weight: normal;
+            padding: 0;
+            margin: 0;}
+
+ul.menu a {text-decoration: none;
+           display: inline;
+           color: yellow;
+           padding: 2px;}
+
+ul.menu a:hover {color: black;
+                 background-color: yellow;}
+
+ul.menu li.current {padding: 2px;
+                    display: inline;
+                    background: black;
+                    color: gray;}
+
+
+p.close {margin-top: 4em;}
