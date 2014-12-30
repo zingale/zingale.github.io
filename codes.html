@@ -117,39 +117,43 @@
 		  <li>
 		    <h3>Godunov methods for linear advection</h3>
 		    <span>A
-		      simple <A href="./codes/advect.f90">second-order
+		      simple second-order
 		      accurate finite-volume method for the linear
-		      advection equation</a> in one-dimension.  A
+		      advection equation in one-dimension.  A
 		      choice of reconstruction is provided: Godunov
 		      (piecewise constant), Piecewise Linear, and
 		      Piecewise Parabolic (PPM).  This advects the
 		      initial condition through a periodic domain.
 		      The code is structured to with the subroutines
 		      you would find in a typical hydrodynamics
-		      code.
+		      code. <a href="./codes/ppm.png">Sample output</a>
+		      showing a tophat advected for 5 periods with 128 zones.</span>
 
-		      <br>&nbsp;<br><a href="./codes/ppm.png">Sample output</a>
-		      showing a tophat advected for 5 periods with 128 zones.
+		    <br><span class="fa fa-download"> <A href="./codes/advect.f90">advect.f90</a></span>
 
-		      <br>&nbsp;<br>A python version (without ppm) is available
-		      on my github
-		      page: <a href="https://github.com/zingale/hydro_examples/blob/master/advection/advection.py">advection.py</a></span> </li>
+		    <br>&nbsp;<br><span>A python version (without ppm)
+		      is available on my github page:</span>
+
+		    <br><span class="fa fa-download"> <a href="https://github.com/zingale/hydro_examples/blob/master/advection/advection.py">advection.py</a></span> </li>
 
 		  <li>
 		    <h3>2<sup>nd</sup> order finite volume method for Burgers' equation</h3>
-		    <span>A simple
-		      Fortran <A href="./codes/burger.f90">second-order
-		      accurate finite-volume method for the 1-d
-		      Inviscid Burgers' Equation</a>: <br>u<sub>t</sub> +
-		       [1/2 u<sup>2</sup>]<sub>x</sub> = 0<br>  A choice
-		      of limiters is provided, and periodic BCs are
+		    <span>A simple Fortran second-order accurate
+		      finite-volume method for the 1-d Inviscid
+		      Burgers' Equation: <br>u<sub>t</sub> + [1/2
+		      u<sup>2</sup>]<sub>x</sub> = 0<br> A choice of
+		      limiters is provided, and periodic BCs are
 		      implemented.  The code is structured to with the
 		      subroutines you would find in a typical
-		      hydrodynamics code.
+		      hydrodynamics code.</span>
 
-		      <br>&nbsp;<br>An alternate python version is
-		      available on my github
-		      page: <a href="https://github.com/zingale/hydro_examples/blob/master/burgers/burgers.py">burgers.py</a></span> </li>
+		    <br><span class="fa fa-download"> <A href="./codes/burger.f90">burger.f90</a></span>
+
+		    <br>&nbsp;<br><span>An alternate python version is
+		      available on my github page:</span>
+
+		    <br><span class="fa
+		    fa-download"> <a href="https://github.com/zingale/hydro_examples/blob/master/burgers/burgers.py">burgers.py</a></span> </li>
 
 		  <li>
 		    <h3>Viscous Burgers' equation solver</h3>
@@ -158,8 +162,9 @@
 		      u<sub>xx</sub> <br> using a second-order Godunov
 		      method for advection and Crank-Nicolson implicit
 		      diffusion for the viscous term.  The two
-		      processes are coupled together.
-<br>&nbsp;<br><a href="https://github.com/zingale/hydro_examples/blob/master/multiphysics/burgersvisc.py">burgervisc.py</a></span> </li>
+		      processes are coupled together. </span>
+
+		      <br><span class="fa fa-download"> <a href="https://github.com/zingale/hydro_examples/blob/master/multiphysics/burgersvisc.py">burgervisc.py</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -175,15 +180,11 @@
 		      equations on a finite-volume grid.  The driver
 		      program (mg_test.py) solves u<sub>xx</sub> =
 		      sin(x), u(0)=0, u(1)=0.  The discretization is
-		      second order.
+		      second order (<a href="./codes/mg-converge.png">mg-converge.png</a>).</span>
 
-		      <br>&nbsp;<br><a href="https://github.com/zingale/hydro_examples/tree/master/multigrid">simple
-		      multigrid solver</a> on my github page.
+		    <br><span class="fa fa-download"> <a href="https://github.com/zingale/hydro_examples/tree/master/multigrid">multigrid solver github page</a></span>
 
-		      <br><a href="./codes/mg-converge.png">mg-converge.png</a>
-		      (a convergence plot)
-
-		      <br>&nbsp;<br>Also
+		      <br>&nbsp;<br><span>Also
 		      see <a href="http://bender.astro.sunysb.edu/hydro_by_example/">pyro</a>
 		      for a 2-d solver.</span> </li>
 
@@ -192,12 +193,12 @@
 		    <span>Simple 1-d second-order explicit and
 		      implicit diffusion codes.  The implicit code
 		      uses a Crank-Nicolson time discretization and
-		      the banded matrix solver from SciPy.
+		      the banded matrix solver from SciPy.</span>
 
-		      <br>&nbsp;<br><a href="https://github.com/zingale/hydro_examples/blob/master/diffusion/diffusion-explicit.py">diffusion-explicit.py</a>
-<a href="https://github.com/zingale/hydro_examples/blob/master/diffusion/diffusion-implicit.py">diffusion-implicit.py</a>
+		      <br><span class="fa fa-download"> <a href="https://github.com/zingale/hydro_examples/blob/master/diffusion/diffusion-explicit.py">diffusion-explicit</a></span> &nbsp;
+                          <span class="fa fa-download"> <a href="https://github.com/zingale/hydro_examples/blob/master/diffusion/diffusion-implicit.py">diffusion-implicit.py</a></span>
 
-                      <br>&nbsp;<br>Also
+                      <br>&nbsp;<br><span>Also
 		      see <a href="http://bender.astro.sunysb.edu/hydro_by_example/">pyro</a>
 		      for a 2-d solver.</span> </li>
 
@@ -210,8 +211,9 @@
 
 		      <br>using Crank-Nicolson diffusion and
 		      Strang-split reactions.  This setup gives rises
-		      to a spreading burning front.
-<br>&nbsp;<br><a href="https://github.com/zingale/hydro_examples/blob/master/multiphysics/diffusion-reaction.py">diffreact.py</a></span> </li>
+		      to a spreading burning front.</span>
+
+		    <br><span class="fa fa-download"> <a href="https://github.com/zingale/hydro_examples/blob/master/multiphysics/diffusion-reaction.py">diffreact.py</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -251,10 +253,9 @@
 		      piecewise linear, and piecewise parabolic (PPM)
 		      slope reconstruction in a finite-volume
 		      framework.  Some simple test problems (e.g. Sod)
-		      are included.
+		      are included.</span>
 
-		      <br>&nbsp;<br><a href="http://bender.astro.sunysb.edu/hydro1d">Download
-		      available on the code page</a></span> </li>
+		    <br><span class="fa fa-download"> <a href="http://bender.astro.sunysb.edu/hydro1d">get hydro1d</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -273,9 +274,10 @@
 		      developed primarily by my collaborators at
 		      CCSE/LBL (I've hacked a bit on the hydro and
 		      microphysics).  Castro is open-source and
-		      distributed via git.
+		      distributed via git.</span>
 
-		      <br>&nbsp;<br><a href="https://ccse.lbl.gov/Downloads/downloadCASTRO.html">Get Castro</a></span> </li>
+		    <br><span class="fa fa-download"> <a href="https://ccse.lbl.gov/Downloads/downloadCASTRO.html">get Castro</a></span> </li>
+
 		  <li>
 		    <h3>Maestro: low Mach number stellar hydro</h3>
 		    <span>Maestro is optimized to solve low speed
@@ -306,9 +308,9 @@
 		    <h3>OpenMP Relaxation Solver of Poisson's Equation</h3>
 		    <span>Solve the 2-d Poisson equation with pure
 		      relaxation (we do a fixed number of iterations).
-		      This is parallelized with OpenMP.
+		      This is parallelized with OpenMP.</span>
 
-		      <br>&nbsp;<br><a href="./codes/relax-omp.f90">relax-omp.f90</a></span> </li>
+		      <br><span class="fa fa-download"> <a href="./codes/relax-omp.f90">relax-omp.f90</a></span> </li>
 
 		  <li>
 		    <h3>MPI Relaxation Solver of Poisson's Equation</h3>
@@ -316,9 +318,9 @@
 		      relaxation (we do a fixed number of iterations).
 		      This is parallelized with MPI, doing a
 		      one-dimensional domain decomposition in the x
-		      direction.
+		      direction.</span>
 
-		      <br>&nbsp;<br><a href="./codes/relax-mpi.f90">relax-mpi.f90</a></span> </li>
+		    <br><span class="fa fa-download"> <a href="./codes/relax-mpi.f90">relax-mpi.f90</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -327,11 +329,11 @@
 		<ul class="style">
 		  <li>
 		    <h3>Parallel I/O Tutorial</h3>
-		    <span>A simple tutorial showing various ways to
+		    <span>A <A HREF="./io_tutorial">simple parallel I/O tutorial</a> showing various ways to
 		      output data from a parallel hydrodynamics code
 		      into a single HDF5 file.
 
-		      <br>&nbsp;<br><A HREF="./io_tutorial">I/O tutorial</A></span> </li>
+		      <br>&nbsp;<br></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -364,9 +366,9 @@
 		    <h3>Monte Carlo Demo (Poker Odds)</h3>
 		    <span>A simple demonstration of Monte Carlo
 		      techniques&mdash;computing the odds of the
-		      different hands in a straight 5-card poker game.
+		      different hands in a straight 5-card poker game.</span>
 
-		      <BR>&nbsp;<br><A HREF="./codes/poker.py">poker.py</A></span> </li>
+		    <br><span class="fa fa-download"> <A HREF="./codes/poker.py">poker.py</A></span> </li>
 		</ul>
 	      </section>
 	    </div>
@@ -390,17 +392,17 @@
 		      several directories in your home directory to
 		      another disk mounted on your local system.  To
 		      have this run automatically, set it up as a cron
-		      job.
+		      job.</span>
 
-		      <br>&nbsp;<br><a href="https://github.com/zingale/backup_machine/blob/master/backup-machine.py">backup-machine.py</a></span> </li>
+		    <br><span class="fa fa-download"> <a href="https://github.com/zingale/backup_machine/blob/master/backup-machine.py">backup-machine.py</a></span> </li>
 
 		  <li>
 		    <h3>Fortran Makefile Dependency Generator</h3>
 		    <span>A simple simply python script to generate
 		      dependency pairs for Fortran 90 source files for
-		      use in makefiles.
+		      use in makefiles.</span>
 
-		      <BR>&nbsp;<br><A HREF="./dep.py">dep.py</A></span> </li>
+		    <br><span class="fa fa-download"> <A HREF="./dep.py">dep.py</A></span> </li>
 
 		  <li>
 		    <h3>ApJ Submission Formatter</h3>
@@ -410,25 +412,41 @@
 		      f1.eps, f2.eps, ...  naming convention that ApJ
 		      wants.  <em>Use at your own risk--this is still
 		      beta quality.  See the notes contained
-		      within.</em>
+		      within.</em></span>
 
-		      <BR>&nbsp;<br><A HREF="apjify.py">apjify.py</A></span> </li>
+		      <br><span class="fa fa-download"> <A HREF="apjify.py">apjify.py</A></span> </li>
 		</ul>
 	      </section>
 	    </div>
 	    <div class="6u">
 	      <section>
 		<ul class="style">
-		  <li>
+		  <li>                
+		    <h3>Research Journal</h3>
+		    <span>A python script to manage a research journal
+		      / logbook in LaTeX.  It is distributed (uses git
+		      under the hood), so you can use it on all of the
+		      machines you work on and keep things in sync,
+		      and it is commandline driven, so the barrier to
+		      entry to make a journal entry is very low.  It
+		      supports images in an entry, editing previous
+		      entries, and has simple sub-commands to build
+		      and display your PDF journal.</span>
+
+		    <br><span class="fa fa-download"> <a href="http://github.com/zingale/pyjournal/">pyjournal</a>
+		      </span> </li>
+
+		  <li>                
 		    <h3>Makefile Examples</h3>
 		    <span>Makefile examples of increasing complexity,
 		      showing how to use macros, the clean target,
 		      file interdependencies, debug/production builds,
 		      debugging the makefile itself, and storing the
 		      git hash of your project into your source code
-		      at build time.
+		      at build time.</span>
 
-		      <br>&nbsp;<br><a href="./makefiles.tar">makefiles.tar</a></span> </li>
+		    <br><span class="fa fa-download"> <a href="./makefiles.tar">makefiles.tar</a></span> </li>
+
 		  <li>
 		    <h3>mencoder Wrapper</h3>
 		    <span>A simple python script that can be used to
@@ -436,9 +454,9 @@
 		      movies (with MPEG-4 encoding).  Supports
 		      doubling frames and adding some extra frames at
 		      the end.  The mencoder options picked seem to be
-		      supported on most platforms.
+		      supported on most platforms.</span>
 
-		      <br>&nbsp;<br><a href="https://github.com/zingale/astro_animations/blob/master/scripts/mkmovie.py">mkmovie.py</a></span> </li>
+		      <br><span class="fa fa-download"> <a href="https://github.com/zingale/astro_animations/blob/master/scripts/mkmovie.py">mkmovie.py</a></span> </li>
 		</ul>
 	      </section>
 	    </div>
