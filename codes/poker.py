@@ -51,16 +51,10 @@ class deck:
 
         self.cards = []
 
-        rank = self.minrank
-        while (rank <= self.maxrank):
-
-            suit = 1
-            while (suit <= self.nsuits):
+        for rank in range(self.minrank, self.maxrank+1):
+            for suit in range(1, self.nsuits+1):
                 currentCard = card(rank=rank, suit=suit)
                 self.cards.append(currentCard)
-
-                suit += 1
-            rank += 1
 
     def shuffle(self):
         random.shuffle(self.cards)
@@ -68,10 +62,8 @@ class deck:
     def getCards(self, num=1):
         hand = []
 
-        n = 0
-        while n < num:
+        for n in range(num):
             hand.append(self.cards.pop())
-            n += 1
 
         return hand
     
@@ -82,10 +74,7 @@ class deck:
         return string
 
 
-def play():
-
-    nmax = 5000000
-    n = 0
+def play(nmax):
 
     nStraightFlush = 0
     nFourOfAKind = 0
@@ -96,7 +85,7 @@ def play():
     nTwoPair = 0
     nOnePair = 0
     
-    while (n < nmax):
+    for n in range(nmax):
 
         # create a deck
         mydeck = deck()
@@ -230,24 +219,21 @@ def play():
                 found = True
 
 
-        
-        n += 1
-
-
     print "Number of hands: ", nmax
     print " "
-    print "  Straight Flush:  ", nStraightFlush, nStraightFlush/float(nmax)
-    print "  Four of a kind:  ", nFourOfAKind, nFourOfAKind/float(nmax)
-    print "  Full House:      ", nFullHouse, nFullHouse/float(nmax)
-    print "  Flush:           ", nFlush, nFlush/float(nmax)
-    print "  Straight:        ", nStraight, nStraight/float(nmax)
-    print "  Three of a kind: ", nThreeOfAKind, nThreeOfAKind/float(nmax)
-    print "  Two pair:        ", nTwoPair, nTwoPair/float(nmax)
-    print "  One pair:        ", nOnePair, nOnePair/float(nmax)
+    print "  Straight Flush: ({:9d})  {}".format(nStraightFlush, nStraightFlush/float(nmax))
+    print "  Four of a kind: ({:9d})  {}".format(nFourOfAKind, nFourOfAKind/float(nmax))
+    print "  Full House:     ({:9d})  {}".format(nFullHouse, nFullHouse/float(nmax))
+    print "  Flush:          ({:9d})  {}".format(nFlush, nFlush/float(nmax))
+    print "  Straight:       ({:9d})  {}".format(nStraight, nStraight/float(nmax))
+    print "  Three of a kind:({:9d})  {}".format(nThreeOfAKind, nThreeOfAKind/float(nmax))
+    print "  Two pair:       ({:9d})  {}".format(nTwoPair, nTwoPair/float(nmax))
+    print "  One pair:       ({:9d})  {}".format(nOnePair, nOnePair/float(nmax))
     
     
 if __name__== "__main__":
-    play()
+    play(1000000)
+
 
 
     
