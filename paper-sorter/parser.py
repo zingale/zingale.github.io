@@ -32,41 +32,39 @@ class Paper(object):
             else:
                 return cmp(self.year, other.year)
 
-    def jprint(self):
-        print self.title
+    def jstring(self):
+        t_str = self.title
+        out_str = name_string(self.authors)
 
-        
-        print name_string(self.authors)
 
-        other_str = ""
-
-        other_str += "{}, ".format(self.year)
+        out_str += "{}, ".format(self.year)
 
         if not self.journal == None:
-            other_str += "{}, ".format(self.journal)
+            out_str += "{}, ".format(self.journal)
 
         if not self.booktitle == None:
-            other_str += "in {}, ".format(self.booktitle)
+            out_str += "in {}, ".format(self.booktitle)
 
         if not self.editors == None:
-            other_str += "ed. {}, ".format(name_string(self.editors))
+            out_str += "ed. {}, ".format(name_string(self.editors))
             
         if not self.volume == None:
-            other_str += "{}, ".format(self.volume)
+            out_str += "{}, ".format(self.volume)
 
         if not self.pages == None:
-            other_str += "p. {}, ".format(self.pages)
+            out_str += "p. {}, ".format(self.pages)
+
+        out_str = out_str.strip()
+
+        if len(out_str) > 0:
+            if out_str[len(out_str)-1] == ",":
+                out_str = out_str[:len(out_str)-1]
 
         if not self.link == None:
-            other_str += "{}".format(self.link)
+            l_str = "{}".format(self.link)
 
-        other_str = other_str.strip()
 
-        if len(other_str) > 0:
-            if other_str[len(other_str)-1] == ",":
-                other_str = other_str[:len(other_str)-1]
-
-        print other_str
+        return t_str, out_str, l_str
 
         
 
@@ -76,7 +74,7 @@ def name_string(names):
         if n < len(names)-1:
             astr = "{}, "
         else:
-            astr = " &amp; {}"
+            astr = "&amp; {}"
         nm_str += astr.format(a)
     return nm_str
 
@@ -183,7 +181,8 @@ with open('papers.bib') as bibtex_file:
             print "\n{}\n".format(p.year)
             current_year = p.year
 
-        p.jprint()
-        print ""
+        t, o, l = p.jstring()
+        print "{}\n{}\n{}\n".format(t, o, l)
+
 
 
