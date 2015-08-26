@@ -4,8 +4,8 @@ import bibtexparser
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import *
 
-accent_replace = {
-    '\"u', "ue"
+replace_str = {
+    r"$^{4}$": r"<sup>4</sup>"
 }
 
 
@@ -37,6 +37,9 @@ class Paper(object):
 
     def jstring(self):
         t_str = self.title
+        for k, v in replace_str.items():
+            t_str = t_str.replace(k,v)
+
         out_str = name_string(self.authors)
 
 
