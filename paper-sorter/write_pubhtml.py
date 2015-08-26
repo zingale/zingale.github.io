@@ -20,7 +20,11 @@ for p in papers:
         current_year = p.year
 
     t, o, l = p.jstring()
-    print ("<dt>{} <a href='{}'>[link]</a></dt>\n".format(t, l))
+    if not l == "":
+        print ("<dt>{} <a href='{}'>[link]</a></dt>\n".format(t, l))
+    else:
+        print ("<dt>{}</dt>\n".format(t))
+
     print ("<dd>{}</dd>\n".format(o))
 
 

@@ -10,8 +10,8 @@ replace_str = {
 
 
 class Paper(object):
-    def __init__(self, authors, title, year, journal, 
-                 month=None, booktitle=None, editors=None, 
+    def __init__(self, authors, title, year, journal,
+                 month=None, booktitle=None, editors=None,
                  volume=None, pages=None, link=None, note=None):
 
         self.authors = list(authors)
@@ -53,7 +53,7 @@ class Paper(object):
 
         if not self.editors == None:
             out_str += "ed. {}, ".format(name_string(self.editors))
-            
+
         if not self.volume == None:
             out_str += "{}, ".format(self.volume)
 
@@ -71,11 +71,11 @@ class Paper(object):
 
         if not self.link == None:
             l_str = "{}".format(self.link)
-
+        else:
+            l_str = ""
 
         return t_str, out_str, l_str
 
-        
 
 def name_string(names):
     nm_str = ""
@@ -174,7 +174,7 @@ def parse_bibfile(bibfile):
 
             authors = clean_names(authors)
 
-            volume = get_item(e, "volume")        
+            volume = get_item(e, "volume")
             journal = translate_journal(get_item(e, "journal"))
             year = get_item(e, "year")
             month = get_item(e, "month")
@@ -182,22 +182,23 @@ def parse_bibfile(bibfile):
             booktitle = get_item(e, "booktitle")
             pages = fix_pages(get_item(e, "pages"))
             note = get_item(e, "note")
-        
+
             if "adsurl" in e.keys():
                 link = get_item(e, "adsurl")
             else:
                 l = get_item(e, "link")
                 if not l == None:
                     link = l[0]["url"]
+                else:
+                    link = None
 
             papers.append(Paper(authors, title, year, journal,
-                                month=month, editors=editors, 
+                                month=month, editors=editors,
                                 booktitle=booktitle,
-                                volume=volume, pages=pages, 
+                                volume=volume, pages=pages,
                                 link=link, note=note))
 
 
     papers.sort(reverse=True)
 
     return papers
-
