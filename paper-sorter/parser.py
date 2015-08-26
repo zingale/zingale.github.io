@@ -136,7 +136,7 @@ def customizations(record):
     :returns: -- customized record
 
     """
-    #record = convert_to_unicode(record)
+    record = convert_to_unicode(record)
     record = type(record)    # lowercase
     record = author(record)
     record = editor(record)
