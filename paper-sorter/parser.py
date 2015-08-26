@@ -10,7 +10,7 @@ accent_replace = {
 class Paper(object):
     def __init__(self, authors, title, year, journal, 
                  month=None, booktitle=None, editors=None, 
-                 volume=None, pages=None, link=None):
+                 volume=None, pages=None, link=None, note=None):
 
         self.authors = list(authors)
         self.title = title
@@ -22,6 +22,7 @@ class Paper(object):
         self.volume = volume
         self.pages = pages
         self.link = link
+        self.note = note
 
     def __cmp__(self, other):
         if not self.year == other.year:
@@ -54,6 +55,9 @@ class Paper(object):
         if not self.pages == None:
             out_str += "p. {}, ".format(self.pages)
 
+        if not self.note == None:
+            out_str += "{}, ".format(self.note)
+
         out_str = out_str.strip()
 
         if len(out_str) > 0:
@@ -70,12 +74,15 @@ class Paper(object):
 
 def name_string(names):
     nm_str = ""
-    for n, a in enumerate(names):
-        if n < len(names)-1:
-            astr = "{}, "
-        else:
-            astr = "&amp; {}"
-        nm_str += astr.format(a)
+    if len(names) == 1:
+        nm_str = "{}".format(names[0])
+    else:
+        for n, a in enumerate(names):
+            if n < len(names)-1:
+                astr = "{}, "
+            else:
+                astr = "&amp; {}"
+            nm_str += astr.format(a)
     return nm_str
 
 def get_item(dict, name):
@@ -109,6 +116,15 @@ def clean_names(a):
         a_new = []
         for name in a:
             a_new.append(name.replace("{","").replace("}","").replace("~"," "))
+        return a_new
+
+def clean_ednames(a):
+    if a == None:
+        return None
+    else:
+        a_new = []
+        for ed_dict in a:
+            a_new.append(ed_dict["name"].replace("{","").replace("}","").replace("~"," "))
         return a_new
 
 def customizations(record):
@@ -156,10 +172,10 @@ def parse_bibfile(bibfile):
             journal = translate_journal(get_item(e, "journal"))
             year = get_item(e, "year")
             month = get_item(e, "month")
-            editors = clean_names(get_item(e, "editors"))
+            editors = clean_ednames(get_item(e, "editor"))
             booktitle = get_item(e, "booktitle")
             pages = fix_pages(get_item(e, "pages"))
-
+            note = get_item(e, "note")
         
             if "adsurl" in e.keys():
                 link = get_item(e, "adsurl")
@@ -167,12 +183,12 @@ def parse_bibfile(bibfile):
                 l = get_item(e, "link")
                 if not l == None:
                     link = l[0]["url"]
-            
+
             papers.append(Paper(authors, title, year, journal,
                                 month=month, editors=editors, 
                                 booktitle=booktitle,
                                 volume=volume, pages=pages, 
-                                link=link))
+                                link=link, note=note))
 
 
     papers.sort(reverse=True)
