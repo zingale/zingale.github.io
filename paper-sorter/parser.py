@@ -12,7 +12,8 @@ replace_str = {
 class Paper(object):
     def __init__(self, authors, title, year, journal,
                  month=None, booktitle=None, editors=None,
-                 volume=None, pages=None, link=None, note=None):
+                 volume=None, pages=None, link=None, note=None, 
+                 subject=None):
 
         self.authors = list(authors)
         self.title = title
@@ -25,6 +26,7 @@ class Paper(object):
         self.pages = pages
         self.link = link
         self.note = note
+        self.subject = subject
 
     def __lt__(self, other):
         if not self.year == other.year:
@@ -182,6 +184,7 @@ def parse_bibfile(bibfile):
             booktitle = get_item(e, "booktitle")
             pages = fix_pages(get_item(e, "pages"))
             note = get_item(e, "note")
+            subject = get_item(e, "subject")
 
             if "adsurl" in e.keys():
                 link = get_item(e, "adsurl")
@@ -196,7 +199,7 @@ def parse_bibfile(bibfile):
                                 month=month, editors=editors,
                                 booktitle=booktitle,
                                 volume=volume, pages=pages,
-                                link=link, note=note))
+                                link=link, note=note, subject=subject))
 
 
     papers.sort(reverse=True)
