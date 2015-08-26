@@ -9,13 +9,15 @@ accent_replace = {
 
 class Paper(object):
     def __init__(self, authors, title, year, journal, 
-                 month=None, editors=None, volume=None, pages=None, link=None):
+                 month=None, booktitle=None, editors=None, 
+                 volume=None, pages=None, link=None):
 
         self.authors = list(authors)
         self.title = title
         self.year = int(year)
         self.journal = journal
         self.month = month
+        self.booktitle = booktitle
         self.editors = editors
         self.volume = volume
         self.pages = pages
@@ -37,14 +39,26 @@ class Paper(object):
         print name_string(self.authors)
 
         other_str = ""
+
+        other_str += "{}, ".format(self.year)
+
         if not self.journal == None:
             other_str += "{}, ".format(self.journal)
 
+        if not self.booktitle == None:
+            other_str += "in {}, ".format(self.booktitle)
+
+        if not self.editors == None:
+            other_str += "ed. {}, ".format(name_string(self.editors))
+            
         if not self.volume == None:
             other_str += "{}, ".format(self.volume)
 
         if not self.pages == None:
             other_str += "p. {}, ".format(self.pages)
+
+        if not self.link == None:
+            other_str += "{}".format(self.link)
 
         other_str = other_str.strip()
 
@@ -143,11 +157,20 @@ with open('papers.bib') as bibtex_file:
         year = get_item(e, "year")
         month = get_item(e, "month")
         editors = clean_names(get_item(e, "editors"))
+        booktitle = get_item(e, "booktitle")
         pages = fix_pages(get_item(e, "pages"))
-        link = get_item(e, "link")
 
+        
+        if "adsurl" in e.keys():
+            link = get_item(e, "adsurl")
+        else:
+            l = get_item(e, "link")
+            if not l == None:
+                link = l[0]["url"]
+            
         papers.append(Paper(authors, title, year, journal,
-                            month=month, editors=editors, volume=volume, pages=pages, 
+                            month=month, editors=editors, booktitle=booktitle,
+                            volume=volume, pages=pages, 
                             link=link))
 
 
