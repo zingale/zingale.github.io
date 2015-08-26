@@ -35,6 +35,8 @@ for p in papers:
 
     ostr += "<dd>{}</dd>\n".format(o)
 
+ostr += "</dl>\n"
+
 for line in tf:
     dh.write(line.replace("@@pub-list@@", ostr))
 
