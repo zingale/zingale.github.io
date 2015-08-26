@@ -26,14 +26,14 @@ class Paper(object):
         self.link = link
         self.note = note
 
-    def __cmp__(self, other):
+    def __lt__(self, other):
         if not self.year == other.year:
-            return cmp(self.year, other.year)
+            return self.year < other.year
         else:
             if not (self.month == None or other.month == None):
-                return cmp(self.month, other.month)
+                return self.month < other.month
             else:
-                return cmp(self.year, other.year)
+                return self.year < other.year
 
     def jstring(self):
         t_str = self.title
