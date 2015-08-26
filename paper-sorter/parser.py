@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import *
@@ -134,6 +136,7 @@ def customizations(record):
     :returns: -- customized record
 
     """
+    #record = convert_to_unicode(record)
     record = type(record)    # lowercase
     record = author(record)
     record = editor(record)
@@ -155,13 +158,13 @@ def parse_bibfile(bibfile):
 
         for e in bib_database.entries:
             if not "title" in e.keys():
-                print "no title: ", e
+                print( "no title: ", e)
                 continue
             else:
                 title = e["title"]
 
             if not "author" in e.keys():
-                print "no author: ", e
+                print( "no author: ", e)
                 continue
             else:
                 authors = e["author"]
