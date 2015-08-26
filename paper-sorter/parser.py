@@ -128,61 +128,54 @@ def customizations(record):
     record = doi(record)
     return record
 
-with open('papers.bib') as bibtex_file:
-    parser = BibTexParser()
-    parser.customization = customizations
-    bib_database = bibtexparser.load(bibtex_file, parser=parser)
+def parse_bibfile(bibfile):
 
-    papers = []
+    with open(bibfile) as bibtex_file:
+        parser = BibTexParser()
+        parser.customization = customizations
+        bib_database = bibtexparser.load(bibtex_file, parser=parser)
 
-    for e in bib_database.entries:
-        if not "title" in e.keys():
-            print "no title: ", e
-            continue
-        else:
-            title = e["title"]
+        papers = []
 
-        if not "author" in e.keys():
-            print "no author: ", e
-            continue
-        else:
-            authors = e["author"]
+        for e in bib_database.entries:
+            if not "title" in e.keys():
+                print "no title: ", e
+                continue
+            else:
+                title = e["title"]
 
-        authors = clean_names(authors)
+            if not "author" in e.keys():
+                print "no author: ", e
+                continue
+            else:
+                authors = e["author"]
 
-        volume = get_item(e, "volume")        
-        journal = translate_journal(get_item(e, "journal"))
-        year = get_item(e, "year")
-        month = get_item(e, "month")
-        editors = clean_names(get_item(e, "editors"))
-        booktitle = get_item(e, "booktitle")
-        pages = fix_pages(get_item(e, "pages"))
+            authors = clean_names(authors)
+
+            volume = get_item(e, "volume")        
+            journal = translate_journal(get_item(e, "journal"))
+            year = get_item(e, "year")
+            month = get_item(e, "month")
+            editors = clean_names(get_item(e, "editors"))
+            booktitle = get_item(e, "booktitle")
+            pages = fix_pages(get_item(e, "pages"))
 
         
-        if "adsurl" in e.keys():
-            link = get_item(e, "adsurl")
-        else:
-            l = get_item(e, "link")
-            if not l == None:
-                link = l[0]["url"]
+            if "adsurl" in e.keys():
+                link = get_item(e, "adsurl")
+            else:
+                l = get_item(e, "link")
+                if not l == None:
+                    link = l[0]["url"]
             
-        papers.append(Paper(authors, title, year, journal,
-                            month=month, editors=editors, booktitle=booktitle,
-                            volume=volume, pages=pages, 
-                            link=link))
+            papers.append(Paper(authors, title, year, journal,
+                                month=month, editors=editors, 
+                                booktitle=booktitle,
+                                volume=volume, pages=pages, 
+                                link=link))
 
 
     papers.sort(reverse=True)
 
-    current_year = 3000
-
-    for p in papers:
-        if p.year < current_year:
-            print "\n{}\n".format(p.year)
-            current_year = p.year
-
-        t, o, l = p.jstring()
-        print "{}\n{}\n{}\n".format(t, o, l)
-
-
+    return papers
 
