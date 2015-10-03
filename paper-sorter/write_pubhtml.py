@@ -15,6 +15,9 @@ first = True
 ostr = ""
 
 # by year
+years = list(set([p.year for p in papers]))
+years.sort(reverse=True)
+
 for p in papers:
     if p.year < current_year:
         if not first:
@@ -22,7 +25,7 @@ for p in papers:
         else:
             first = False
 
-        ostr += "<p><h2>{}</h2>\n".format(p.year)
+        ostr += "<p><h2><a name='{}'></a>{}</h2>\n".format(p.year, p.year)
         ostr += "<dl>\n"
 
         current_year = p.year
@@ -37,8 +40,13 @@ for p in papers:
 
 ostr += "</dl>\n"
 
+year_index = "<ul>\n"
+for y in years:
+    year_index += "<li><a href='\#{}'>{}</a></li>\n".format(y, y)
+year_index += "</ul>\n"
+
 for line in tf:
-    dh.write(line.replace("@@pub-list@@", ostr))
+    dh.write(line.replace("@@pub-list@@", ostr).replace("@@year-index@@", year_index).replace("@@sub-index@@", ""))
 
 dh.close()
 tf.close()
@@ -46,6 +54,9 @@ tf.close()
 # by subject
 tf = open("pub_template.html", "r")
 dh = open("pub_subj.html", "w")
+
+subs = list(set([p.subject for p in papers]))
+subs.sort()
 
 papers_by_subj = {}
 
@@ -56,13 +67,19 @@ for p in papers:
     else:
         papers_by_subj[subj].append(p)
 
+sub_index = "<ul>\n"
+for s in subs:
+    sub_index += "<li><a href='\#{}'>{}</a></li>\n".format(s, s)
+sub_index += "</ul>\n"
+
+
 # now loop over subject
 ostr = ""
 for s in sorted(papers_by_subj, key=str.lower):
     ps = papers_by_subj[s]
     ps.sort(reverse=True)
 
-    ostr += "<p><h2>{}</h2>\n".format(s)
+    ostr += "<p><h2><a name='{}'></a>{}</h2>\n".format(s, s)
     ostr += "<dl>\n"
 
     for p in ps:
@@ -78,7 +95,7 @@ for s in sorted(papers_by_subj, key=str.lower):
     ostr += "</dl>\n"
 
 for line in tf:
-    dh.write(line.replace("@@pub-list@@", ostr))
+    dh.write(line.replace("@@pub-list@@", ostr).replace("@@year-index@@", "").replace("@@sub-index@@", sub_index))
 
 dh.close()
 tf.close()
