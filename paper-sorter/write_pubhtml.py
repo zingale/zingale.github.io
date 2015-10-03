@@ -42,7 +42,7 @@ ostr += "</dl>\n"
 
 year_index = "<ul>\n"
 for y in years:
-    year_index += "<li><a href='\#{}'>{}</a></li>\n".format(y, y)
+    year_index += "<li><a href='#{}'>{}</a></li>\n".format(y, y)
 year_index += "</ul>\n"
 
 for line in tf:
@@ -69,7 +69,7 @@ for p in papers:
 
 sub_index = "<ul>\n"
 for s in subs:
-    sub_index += "<li><a href='\#{}'>{}</a></li>\n".format(s, s)
+    sub_index += "<li><a href='#{}'>{}</a></li>\n".format(s, s)
 sub_index += "</ul>\n"
 
 
