@@ -3,11 +3,13 @@ from __future__ import print_function
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import *
+import re
 
 replace_str = {
     r"$^{4}$": r"<sup>4</sup>"
 }
 
+mdash1 = "-{2,3}"
 
 class Paper(object):
     def __init__(self, authors, title, year, journal,
@@ -41,8 +43,9 @@ class Paper(object):
         t_str = self.title
         for k, v in replace_str.items():
             t_str = t_str.replace(k,v)
+        t_str = re.sub(mdash1, "&mdash;", t_str)
 
-        out_str = name_string(self.authors)
+        out_str = name_string(self.authors) + " "
 
 
         out_str += "{}, ".format(self.year)
