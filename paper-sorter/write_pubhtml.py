@@ -41,8 +41,20 @@ for p in papers:
 ostr += "</dl>\n"
 
 year_index = "<ul>\n"
-for y in years:
-    year_index += "<li><a href='#{}'>{}</a></li>\n".format(y, y)
+for n, y in enumerate(years):
+    if n % 3 == 0:
+        year_index += "<li>"
+    else:
+        year_index += "&nbsp;&nbsp;&nbsp;"
+
+    year_index += "<a href='#{}'>{}</a>".format(y, y)
+
+    if n % 3 == 2:
+        year_index += "</li>\n"
+
+if not len(year_index) % 3 == 0: 
+    year_index += "</li>\n"
+
 year_index += "</ul>\n"
 
 for line in tf:
