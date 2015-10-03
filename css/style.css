@@ -222,7 +222,8 @@ ul.index li ul li {border: none;
 
 ul.index li ul {
     margin: 0em 0em 0.0em 0em;
-    padding: 0em 0em 0.0em 0em;}
+    padding: 0em 0em 0.0em 0em;
+}
 
 ul.index li:first-child {
     border-top: none;
