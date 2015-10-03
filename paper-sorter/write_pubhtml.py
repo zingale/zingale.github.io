@@ -56,7 +56,7 @@ tf = open("pub_template.html", "r")
 dh = open("pub_subj.html", "w")
 
 subs = list(set([p.subject for p in papers]))
-subs.sort()
+subs.sort(key=str.lower)
 
 papers_by_subj = {}
 
