@@ -24,7 +24,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
   </head>
   <body>
-    
+
     <!-- Wrapper -->
     <div class="wrapper style1">
 
@@ -45,11 +45,11 @@
 	</nav>
       </div>
       <!-- Header -->
-      
+
       <!-- Page -->
       <div id="page" class="container">
 	<div class="row">
-	  
+
 	  <!-- Sidebar -->
 	  <div id="sidebar" class="4u">
 	    <section>
@@ -61,7 +61,7 @@
 		<li>publication list: <a href="./cv/publications.pdf">PDF</a></li>
 	      </ul>
 	    </section>
-	    
+
 	    <section>
 	      <header class="major">
 		<h2>Education</h2>
@@ -76,7 +76,7 @@
 		  University of Rochester (1996)</li>
 	      </ul>
 	    </section>
-	    
+
 	    <section>
 	      <header class="major">
 		<h2>Awards</h2>
@@ -100,19 +100,19 @@
 		    Using Adaptive Mesh Refinement on Thousands of
 		    Processors</em>, Calder et al. 2000. (SC 2000
 		  conference)
-		  
+
 	      </ul>
 	    </section>
-	    
+
 	  </div>
-	  
+
 	  <!-- Content -->
 	  <div id="content" class="8u skel-cell-important">
 	    <section>
 	      <header class="major">
 		<h2>About Me</h2>
 	      </header>
-	      
+
 	      <p>I am an Associate Professor in
 		the <a href="http://physics.sunysb.edu">Department of
 		Physics and Astronomy</a> at
@@ -120,7 +120,7 @@
 		of New York (SUNY) Stony Brook</A>, working in
 		the <a href="http://astro.sunysb.edu">Astronomy
 		Group</a>.</p>
-              
+
 	      <p>Before coming to Stony Brook, I was a postgraduate
 		researcher in the Astronomy and Astrophysics
 		department at <A HREF="http://www.ucsc.edu">UC Santa
@@ -140,7 +140,7 @@
 	      <span class="about_pic">
 		<img src="./about_images/PA080027.JPG" alt="me">
 	      </span>
-	      
+
 	      <p>My main research interests involve <em>computational
 		  astrophysics</em> (particularly the development of
 		  new hydrodynamics methods for low Mach number
@@ -148,19 +148,31 @@
 		  astrophysics</em> (in particular, studying anything
 		  that blows up).  This work is done in collaboration
 		  with the <a href="http://ccse.lbl.gov/">Center for
-		  Computational Sciences and Engineering at LBL</a>.
-		  Recently, we finished extending this low Mach number
-		  method to the full star, creating
-		  the <a href="http://bender.astro.sunysb.edu/Maestro/">Maestro
-		  code</a>.  This method is more general than the
-		  traditional anelastic method, as it can evolve
-		  finite-amplitude density and temperature
-		  perturbations to a hydrostatic background and can
-		  also evolve this background state in response to the
-		  local heating.</p>
+		  Computational Sciences and Engineering at
+		  LBL</a>.</p>
 
-	      <p>I apply these low Mach number methods to studying
-		problems in nuclear astrophysics, such as Type Ia
+	      <p>My main simulation tools are low Mach number
+		hydrodynamics.  Recently, we finished extending this low
+		Mach number hydrodynamics
+		code, <a href="https://boxlib-codes.github.io/MAESTRO/">Maestro</a>
+		that filters soundwaves from the system of
+		hydrodynamics equations and is able to efficiently
+		model convection and reactions in stratified flows.
+		Maestro is more general than the traditional anelastic
+		method, as it can evolve finite-amplitude density and
+		temperature perturbations to a hydrostatic background
+		and can also evolve this background state in response
+		to the local heating. Its sister code, <a href=
+		"https://ccse.lbl.gov/Research/CASTRO/">Castro</a>
+		models the fully compressible Euler equations with
+		self-gravity, reactions, and multigrid flux-limited
+		diffusion for radiation.  Both of these codes use
+		the <a href="https://ccse.lbl.gov/BoxLib/index.html">BoxLib</a>
+		library to manage the adaptive mesh grid hierarchy and
+		parallelization.</p>
+	      
+	      <p>I apply these codes to studying problems in nuclear
+		astrophysics, such as various models for Type Ia
 		supernovae and X-ray bursts.
 
 	      <p>Examples of SNe Ia applications
@@ -177,25 +189,30 @@
 		models</a>. This work is ongoing.</p>
 
 	      <p>Earlier work in XRBs involved using fully
-		compressible hydrodynamics methods to study 
+		compressible hydrodynamics methods to study
 		spreading of perturbations
 		and somewhat related <a href="./simulations/xray_gallery/">helium
 		detonations</a>.  Currently, I am working with Chris
 		Malone to model convection
 		in <a href="./simulations/xrb/">mixed H/He X-ray bursts</a>.</p>
 
-	      <p>I'm also working with the
-		compressible <a href="https://ccse.lbl.gov/Research/CASTRO/index.html">Castro
-		code</a> to model merging white dwarfs (this is
-		together with Alan Calder and Doug Swesty).</p>
+	      <p>I'm also using Castro to model merging white dwarfs
+		(this is together with Alan Calder and Doug
+		Swesty).</p>
 
-	      <p>I have a number
-		of <a href="codes.html">code
-		examples online</a> and I am developing
-		a <a href="http://bender.astro.sunysb.edu/hydro_by_example/">set
-		of notes and associated code (pyro)</a> to teach
-		students the basic methods of hydrodynamics used in
-		astrophysics.</p>
+	      <p>I have a number of <a href="codes.html">code examples
+		online</a> (also on
+		my <a href="https://github.com/zingale/">github
+		page</a>, including a hydrodynamics teaching code,
+		<a href="https://zingale.github.io/pyro2/">pyro</a>.  To 
+		go along with pyro, I have written a set of notes on
+		<a href="https://github.com/Open-Astrophysics-Bookshelf/numerical_exercises"><em>Computational
+		Hydrodynamics for Astrophysics</em></a>.  To make
+		these notes freely available, and encourage
+		contributions from the community, I started a project
+		called
+		the <a href="https://open-astrophysics-bookshelf.github.io/">Open
+		Astrophysics Bookshelf</a>.</p>
 
 	      <P>Further back, I was one of the original developers of
 		the <A HREF="http://flash.uchicago.edu/site/flashcode">FLASH
@@ -209,11 +226,11 @@
 
 	    </section>
 	  </div>
-	  
+
 	</div>
       </div>
       <!-- /Page -->
-      
-    </div>    
+
+    </div>
   </body>
 </html>
