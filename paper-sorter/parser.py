@@ -5,6 +5,17 @@ from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import *
 import re
 
+"""
+This is a general parser that will take ADS bibtex listings for
+papers and output a list of Paper objects that contain the
+bibliographic information in convenient form.  This can then be used
+to write a webpage listing of papers.
+
+It optionally supports a list of ADS URLs, and will fetch the bibtex
+for each paper.
+"""
+
+
 replace_str = {
     r"$^{4}$": r"<sup>4</sup>"
 }
@@ -46,8 +57,6 @@ class Paper(object):
         t_str = re.sub(mdash1, "&mdash;", t_str)
 
         out_str = name_string(self.authors) + " "
-
-
         out_str += "{}, ".format(self.year)
 
         if not self.journal == None:
