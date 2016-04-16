@@ -175,6 +175,16 @@ footer.major {
     display: none;
 }
 
+
+
+/* see https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php */
+.h_iframe_fourthree {position: relative; width: 100%; padding-bottom: 75%;}
+.video {position: absolute; top:0;left:0;width:100%; height:100%;}
+
+.h_iframe_sixteennine {position: relative; width: 100%; padding-bottom: 56.25%;}
+
+
+
 /* Lists */
 
 ol.default {
@@ -217,7 +227,7 @@ ul.index li {
     border-color: rgba(0, 0, 0, 0.1);
 }
 
-ul.index li ul li {border: none; 
+ul.index li ul li {border: none;
                    padding: 0.2em;}
 
 ul.index li ul {
@@ -354,7 +364,7 @@ ul.style span.collab {
 .button a {
     color: #522969;
 }
-		  
+
 .button:hover {
     background: #ffffca;
 }
@@ -372,7 +382,7 @@ ul.style span.collab {
 
 .button.medium {
     padding: 0.80em 2em;
-    font-size: 1.6em;    
+    font-size: 1.6em;
 }
 
 /* Wrapper */
@@ -415,7 +425,7 @@ ul.style span.collab {
 }
 
 #logo h1 {
-    font-size: 1.2em;    
+    font-size: 1.2em;
     display: inline-block;
     text-transform: uppercase;
 }
@@ -526,7 +536,7 @@ ul.style span.collab {
     padding: 0em;
     margin: 0;
 }
-    
+
 
 /* Main */
 
@@ -537,10 +547,10 @@ ul.style span.collab {
     color: #FFFFFF;
 }
 
-#footer .major h2, 
-#footer .major .byline { 
+#footer .major h2,
+#footer .major .byline {
     color: #FFF !important;
-} 
+}
 
 /* Page */
 
@@ -667,4 +677,3 @@ ul.research span.collab {
     max-width: 100%;
     padding-bottom: 1em;
 }
-
