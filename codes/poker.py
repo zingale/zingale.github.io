@@ -41,7 +41,10 @@ class Card(object):
         return r +':'+suits[self.suit-1]
 
     def __str__(self):
-        return unicode(self).encode('utf-8')
+        return self.__unicode__().encode('utf-8')
+
+    def __repr__(self):
+        return self.__unicode__()
 
 
 class Deck(object):
@@ -89,16 +92,25 @@ def play(nmax):
     n_two_pair = 0
     n_pair = 0
 
+    mydeck = Deck()
+    mydeck.shuffle()
+
     for n in range(nmax):
 
-        mydeck = Deck()
-        mydeck.shuffle()
-
         # get a hand
-        hand = mydeck.deal(5)
+        try:
+            hand = mydeck.deal(5)
+        except IndexError:
+            mydeck = Deck()
+            mydeck.shuffle()
+            hand = mydeck.deal(5)
+
         hand.sort()
 
         found = False
+
+        suits = set([c.suit for c in hand])
+        ranks = [c.rank for c in hand]
 
         # check for the different hands...
 
@@ -107,101 +119,85 @@ def play(nmax):
         # the hand is sorted by rank then suit, make sure
         # that they all have the same suit and that they are
         # sequential
-        if (not found and
-            (hand[0].suit == \
-             hand[1].suit == \
-             hand[2].suit == \
-             hand[3].suit == \
-             hand[4].suit) and
-            (hand[0].rank == \
-             hand[1].rank - 1 == \
-             hand[2].rank - 2 == \
-             hand[3].rank - 3 == \
-             hand[4].rank - 4)):
-            n_straight_flush += 1
-            found = True
+        if not found:
+
+            # if they are all the same suite, then we need
+            # hand[0].rank = hand[4].rank - 4 for a straight
+            # also allow for ace low straight
+            if len(suits) == 1 and (ranks[0] == ranks[4] - 4 or
+                                    ranks[4] == 14 and ranks[0] == ranks[3] - 3 == 2):
+                n_straight_flush += 1
+                found = True
 
         # four of a kind
 
         # they are sorted so either cards 0,1,2,3 have the same rank
         # or 1,2,3,4 have the same rank.
-        if (not found and
-            ((hand[0].rank == hand[1].rank == hand[2].rank == hand[3].rank) or
-             (hand[1].rank == hand[2].rank == hand[3].rank == hand[4].rank))):
-            n_four_of_a_kind += 1
-            found = True
+        if not found:
+            if ranks[0] == ranks[3] or ranks[1] == ranks[4]:
+                n_four_of_a_kind += 1
+                found = True
 
         # full house
 
-        # we are sorted again, so make sure that the first two are equal
+        # since we are sorted, just make sure that first two are equal
         # and then the last three are equal or reverse
-        if (not found and
-            (((hand[0].rank == hand[1].rank) and
-              (hand[2].rank == hand[3].rank == hand[4].rank)) or
-             ((hand[0].rank == hand[1].rank == hand[2].rank) and
-              (hand[3].rank == hand[4].rank)))):
-            n_full_house += 1
-            found = True
+        if not found:
+            if (ranks[0] == ranks[1] and ranks[2] == ranks[4]) or \
+               (ranks[0] == ranks[2] and ranks[3] == ranks[4]):
+                n_full_house += 1
+                found = True
 
         # flush
 
         # look for all the same suit
-        if (not found and
-            (hand[0].suit == \
-             hand[1].suit == \
-             hand[2].suit == \
-             hand[3].suit == \
-             hand[4].suit)):
-            n_flush += 1
-            found = True
+        if not found:
+            if len(suits) == 1:
+                n_flush += 1
+                found = True
 
         # straight
 
         # we are already sorted, so just look at the rank
-        if (not found and
-            (hand[0].rank == \
-             hand[1].rank - 1 == \
-             hand[2].rank - 2 == \
-             hand[3].rank - 3 == \
-             hand[4].rank - 4)):
-            n_straight += 1
-            found = True
+        if not found:
+            if ranks[0] == ranks[1]-1 == ranks[2]-2 == ranks[3]-3 == ranks[4]-4 or \
+               (ranks[4] == 14 and ranks[0] == ranks[1]-1 == ranks[2]-2 == ranks[3] - 3 == 2):
+                n_straight += 1
+                found = True
 
 
         # three of a kind
 
         # since we are sorted, only 0,1,2 or 1,2,3, or 2,3,4 can be
         # equal
-        if (not found and
-            ((hand[0].rank == hand[1].rank == hand[2].rank) or
-             (hand[1].rank == hand[2].rank == hand[3].rank) or
-             (hand[2].rank == hand[3].rank == hand[4].rank))):
-            n_three_of_a_kind += 1
-            found = True
+        if not found:
+            if ranks[0] == ranks[2] or ranks[1] == ranks[3] or ranks[2] == ranks[4]:
+                n_three_of_a_kind += 1
+                found = True
 
 
         # two pair and one pair
         if not found:
 
-            numPairs = 0
+            num_pairs = 0
 
             if hand[0].rank == hand[1].rank:
-                numPairs += 1
+                num_pairs += 1
 
             if hand[1].rank == hand[2].rank:
-                numPairs += 1
+                num_pairs += 1
 
             if hand[2].rank == hand[3].rank:
-                numPairs += 1
+                num_pairs += 1
 
             if hand[3].rank == hand[4].rank:
-                numPairs += 1
+                num_pairs += 1
 
-            if numPairs == 2:
+            if num_pairs == 2:
                 n_two_pair += 1
                 found = True
 
-            elif numPairs == 1:
+            elif num_pairs == 1:
                 n_pair += 1
                 found = True
 
@@ -219,4 +215,4 @@ def play(nmax):
 
 
 if __name__== "__main__":
-    play(1000000)
+    play(10000000)
