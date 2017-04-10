@@ -596,6 +596,14 @@ ul.style span.collab {
     font-size: 1.8em;
 }
 
+#sidebar img {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
 /* Copyright */
 
 #copyright {
