@@ -597,9 +597,9 @@ ul.style span.collab {
 }
 
 #sidebar img {
-    width: 80%;
-    display: block;
+    width: 60%;
     margin: 0 auto;
+    display: block;
     text-align: center;
 }
 
