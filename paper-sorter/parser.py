@@ -26,7 +26,7 @@ mdash1 = "-{2,3}"
 class Paper(object):
     def __init__(self, authors, title, year, journal,
                  month=None, booktitle=None, editors=None,
-                 volume=None, pages=None, link=None, note=None,
+                 volume=None, number=None, pages=None, link=None, note=None,
                  subject=None):
 
         self.authors = list(authors)
@@ -37,6 +37,7 @@ class Paper(object):
         self.booktitle = booktitle
         self.editors = editors
         self.volume = volume
+        self.number = number
         self.pages = pages
         self.link = link
         self.note = note
@@ -71,6 +72,9 @@ class Paper(object):
 
         if not self.volume == None:
             out_str += "{}, ".format(self.volume)
+
+        if not self.number == None:
+            out_str += "{}, ".format(self.number)
 
         if not self.pages == None:
             out_str += "p. {}, ".format(self.pages)
@@ -186,6 +190,7 @@ def extract_paper_info(e):
     authors = clean_names(authors)
 
     volume = get_item(e, "volume")
+    number = get_item(e, "number")
     journal = translate_journal(get_item(e, "journal"))
     year = get_item(e, "year")
     month = get_item(e, "month")
@@ -207,7 +212,7 @@ def extract_paper_info(e):
     return Paper(authors, title, year, journal,
                  month=month, editors=editors,
                  booktitle=booktitle,
-                 volume=volume, pages=pages,
+                 volume=volume, number=number, pages=pages,
                  link=link, note=note, subject=subject)
 
 
