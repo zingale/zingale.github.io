@@ -1,0 +1,16 @@
+language: python
+python:
+ - "3.6"
+addons:
+  apt:
+    packages:
+      - openjdk-8-jre  # install Java8 as required by vnu.jar
+
+branches:
+  only:
+    - master
+
+install:
+ - pip install html5validator
+
+script: html5validator --root .
