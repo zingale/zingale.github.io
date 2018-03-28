@@ -172,15 +172,21 @@ td.anim_image {padding: 4px;
                border-width: 3px 3px 0 0;
                border-style: solid; }
 
-#ref {font-size: small;}
+#ref {font-size: 90%;
+      text-align: center;}
 
 p.center {text-align: center;}
 
-table {margin-left: auto;
+table {margin-top: 1em;
+       margin-left: auto;
        margin-right: auto;}
 
 th {text-align: center;}
 
 td.center {text-align: center;}
+
+td.description {text-align: center;
+                background: yellow;
+                color: black;}
 
 tr.smaller {font-size: 80%;}
