@@ -1,7 +1,12 @@
-BODY, H1, H2, H3, H4, H5  {font-family: "Bitstream Vera Sans",
+BODY, H1, H2, H3, H4, H5  {font-family: "Carlito",
                                         "Arial",
                                         "Helvetica",
                                         sans-serif;}
+
+body {font-size: 14pt;
+      line-height: 1.65em;
+      margin-top: 1em;}
+
 
 BODY {background-color: #000000;
       color: #EEDDEE;
@@ -32,8 +37,7 @@ A:HOVER {text-decoration: underline;
          color: white;}
 
     
-H1   {font-size: x-large;
-      color: red;
+H1   {color: red;
       font-weight: normal;
      text-align: center;}
 
