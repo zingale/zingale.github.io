@@ -81,7 +81,7 @@ for p in papers:
 
 sub_index = "<ul>\n"
 for s in subs:
-    sub_index += "<li><a href='#{}'>{}</a></li>\n".format(s, s)
+    sub_index += "<li><a href='#{}'>{}</a></li>\n".format(s.replace(" ", "_").replace(":", ""), s)
 sub_index += "</ul>\n"
 
 
@@ -91,7 +91,7 @@ for s in sorted(papers_by_subj, key=str.lower):
     ps = papers_by_subj[s]
     ps.sort(reverse=True)
 
-    ostr += "<p><h2><a name='{}'></a>{}</h2>\n".format(s, s)
+    ostr += "<p><h2><a name='{}'></a>{}</h2>\n".format(s.replace(" ", "_").replace(":", ""), s)
     ostr += "<dl>\n"
 
     for p in ps:
