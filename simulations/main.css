@@ -4,10 +4,14 @@ BODY, H1, H2, H3, H4, H5  {font-family: "Bitstream Vera Sans",
                                         sans-serif;}
 
 BODY {background-color: #000000;
-      color: #EEDDEE;}
+      color: #EEDDEE;
+      margin-left: 2em;
+      margin-right: 2em;}
 
 BODY.white {background-color: #FFFFFF;
-            color: #222222;}
+            color: #222222;
+            margin-left: 2em;
+            margin-right: 2em;}
 
 PRE {font-family: "Bitstream Vera Sans Mono",
                   "Monospace",
@@ -31,22 +35,21 @@ A:HOVER {text-decoration: underline;
 H1   {font-size: x-large;
       color: red;
       font-weight: normal;
-      font-variant: small-caps}
+     text-align: center;}
 
 H1.title {display:inline;}
 
 H2   {font-size: large;
       color: red;
-      font-weight: normal;
-      font-variant: small-caps}
+      font-weight: normal;}
 
 H3   {font-size: medium;
       color: yellow;
       line-height: 1.0;
       display: inline; 	
       padding-bottom: 0em;
-      font-weight: normal;
-      font-variant: small-caps}
+      font-weight: normal;}
+
 
 TABLE.contact {color: white;
 	       margin-top: 4em; 
@@ -167,3 +170,13 @@ td.anim_image {padding: 4px;
 
 #ref {font-size: small;}
 
+p.center {text-align: center;}
+
+table {margin-left: auto;
+       margin-right: auto;}
+
+th {text-align: center;}
+
+td.center {text-align: center;}
+
+tr.smaller {font-size: 80%;}
