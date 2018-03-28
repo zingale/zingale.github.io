@@ -1,282 +1,272 @@
+<!DOCTYPE HTML>
 <html>
 
-<head>
-<title>I/O from parallel hydro codes (using HDF5)</title>
-<meta NAME="DESCRIPTION" CONTENT="I/O from parallel hydro codes">
-<meta NAME="KEYWORDS" CONTENT="i/o, io, hydro, parallel, hdf, hdf5, mpi-io">
-</head>
-
-<body BGCOLOR="#ffffff" TEXT="#000000" LINK="3366ff" VLINK="ee33ee"> 
-
-<p ALIGN=Center>
-<font COLOR="Black" FACE="Arial,Geneva,MS Sans Serif, Helvetica">
-
-<p align="center"><font size="+2">I/O from Parallel Hydro Codes (using HDF5)</font>
-
-<p>This page attempts to discuss how to take data from a parallel
-hydrodynamics code and store it in a single file on disk.  We choose
-to use the <a href="hdf.ncsa.uiuc.edu">HDF5</a> format for this
-tutorial.
-
-<p>Two methods are presented here: serial and parallel I/O.  The
-ultimate goal is to have a single file containing our data from all
-the processors.  The parallel I/O method is preferred (and much
-simpler to code), but requires that the machine have a parallel file
-system (i.e. GPFS, <a
-href="http://parlweb.parl.clemson.edu/pvfs/">PVFS</a>) for best
-performance.  NFS mounted disks probably may not perform too well (see
-the <a
-href="http://www-unix.mcs.anl.gov/mpi/mpich/buglist-tbl.html">MPICH
-bugs page</a>).
-
-
-<p>&nbsp;
-<p><font size="+1" color="red">Advantages of HDF5 over native binary</font>
-
-<p>The HDF5 library provides a set of high level library functions for
-describing and storing simple and complex data structures.  The
-library automatically stores datatype information and metadata
-describing the rank, dimensions, and other data properties.
-Conversion functions between datatypes are also provided, and the data
-is stored portably, so no byte swapping is necessary when reading the
-data in on a platform with a different endianness.
-
-<p>Data is stored in datasets, which can be queried to find out the
-size, layout, etc.  Data can be read by specifying the name of the
-dataset (like 'density'), instead of having to know the details of how
-the file is laid out.  This allows anyone to be able to query and read
-in the data without having to know the details of how it was written out.
-
-<p>Finally, HDF5 allows for parallel I/O (through MPI-IO), while
-maintaining the flexibility of the file format.  Data written out in
-parallel can be read in serially on another platform without any
-conversion.
-
-<p>&nbsp;
-<p><font size="+1" color="red">Description of our data structures</font>
-
-<p>It is assumed that the hydro code carries around a (set of) data
-structure(s) that are basically an array with a perimeter of
-guardcells.  This arrangement is very common in hydrodynamics -- the
-guardcells serve to hold the data from off processor, or to implement
-the boundary conditions.
-
-<p>Each processor contains a data array with <em>NX</em> zones in the
-x-direction, and <em>NY</em> zones in the y-direction., and <em>NG</em>
-guardcells.
-
-<p align="center"><img src="data_array.png" width="330" height="330">
-
-<p>A further simpliciation is that the domain decomposition is in
-one-dimension only (we choose x).  The total number of zones comprising the
-computational domain is NPES*NX x NY.  This is illustrated below:
-
-<p align="center"><img src="dataspace.png" width="703" height="217">
-
-<p>The dashed line indicates that actual extend of the 2nd processor's
-sub-domain -- showing the perimeter of guardcells.  
-
-<p>We want to write the data out into a single file, and organize it like
-it as pictured above.  The benefit to this arrangemnent (as compared to storing
-each proc's data in a separate array), is that it is then relatively easy to
-restart on a different number of processors.  The computational domain can
-be cut into a different number of pieces upon restart, and those chucks can 
-just be read from the since record in the file.
-
-<p>&nbsp;
-<p><font size="+1" color="red">Using hyperslabs to select the interior zones</font>
-
-<p>The first example serves to familiarize the user with the HDF5 library
-and how to select only a portion of an array for storage -- in our case,
-the interior zones.
-
-<p>HDF5 uses the concept of dataspaces and memory spaces to deal with the 
-passing data from memory to file.  The memory space describes the layout 
-of the data to be written as it exists in memory.  The memory space does
-not need to be contiguous.
-
-<p>The dataspace describes the layout of the data as it will be stored in the
-file.  As with the memory space, there is no constraint that the elements 
-in the dataspace be contiguous.  
-
-<p>When data is written (via the H5Dwrite call), the data is transfered 
-from memory to disk.  It is required that the number of elements in the 
-memory space be the same as that in the dataspace -- the layouts do not need 
-to match however.  If the data is non-contiguous, a gather/scatter is 
-performed during the write operation.
-
-<p>The first example defines a dataspace in the HDF5 file large enough to
-hold the interior elements of one of our patches.  A memory space is
-created describing the array, and the interior cells are picked out 
-using a hyperslab select call.
-
-<p>The source code implementing this procedure is here: <a
-href="HDF5_simple/hdf5_simple.c">hdf5_simple.c</a>
-
-
-
-
-<p>&nbsp;
-<p><font size="+1" color="red">Writing out the data serially</font>
-
-<p>One way to get the data from multiple processors into a single file
-on disk is to explicitly send it all to one processor, and have only
-that master processor open the file, do the writing, and close the
-file.  The code this more complicated than the parallel I/O version we
-look at below, but on some systems (i.e. those lacking a parallel
-filesystem), it may be the only option.
-
-<p>We assume tha each processors has one or more data arrays declared
-as<br> 
+  <head>
+    <title>I/O from parallel hydro codes (using HDF5)</title>
+    <meta NAME="DESCRIPTION" CONTENT="I/O from parallel hydro codes">
+    <meta NAME="KEYWORDS" CONTENT="i/o, io, hydro, parallel, hdf, hdf5, mpi-io">
+    <LINK REL="stylesheet" TYPE="text/css" HREF="main.css" />
+  </head>
+
+  <body>
+
+    <h1>I/O from Parallel Hydro Codes (using HDF5)</h1>
+
+    <p>This page attempts to discuss how to take data from a parallel
+      hydrodynamics code and store it in a single file on disk.  We choose
+      to use the <a href="hdf.ncsa.uiuc.edu">HDF5</a> format for this
+      tutorial.
+      
+    <p>Two methods are presented here: serial and parallel I/O.  The
+      ultimate goal is to have a single file containing our data from all
+      the processors.  The parallel I/O method is preferred (and much
+      simpler to code), but requires that the machine have a parallel file
+      system (i.e. GPFS, <a
+                           href="http://parlweb.parl.clemson.edu/pvfs/">PVFS</a>) for best
+      performance.  NFS mounted disks probably may not perform too well (see
+      the <a
+            href="http://www-unix.mcs.anl.gov/mpi/mpich/buglist-tbl.html">MPICH
+        bugs page</a>).
+
+
+      <h2>Advantages of HDF5 over native binary</h2>
+
+    <p>The HDF5 library provides a set of high level library functions for
+      describing and storing simple and complex data structures.  The
+      library automatically stores datatype information and metadata
+      describing the rank, dimensions, and other data properties.
+      Conversion functions between datatypes are also provided, and the data
+      is stored portably, so no byte swapping is necessary when reading the
+      data in on a platform with a different endianness.
+
+    <p>Data is stored in datasets, which can be queried to find out the
+      size, layout, etc.  Data can be read by specifying the name of the
+      dataset (like 'density'), instead of having to know the details of how
+      the file is laid out.  This allows anyone to be able to query and read
+      in the data without having to know the details of how it was written out.
+
+    <p>Finally, HDF5 allows for parallel I/O (through MPI-IO), while
+      maintaining the flexibility of the file format.  Data written out in
+      parallel can be read in serially on another platform without any
+      conversion.
+
+      <h2>Description of our data structures</h2>
+
+    <p>It is assumed that the hydro code carries around a (set of) data
+      structure(s) that are basically an array with a perimeter of
+      guardcells.  This arrangement is very common in hydrodynamics -- the
+      guardcells serve to hold the data from off processor, or to implement
+      the boundary conditions.
+
+    <p>Each processor contains a data array with <em>NX</em> zones in the
+      x-direction, and <em>NY</em> zones in the y-direction., and <em>NG</em>
+      guardcells.
+
+    <p class="center"><img src="data_array.png" width="330" height="330" alt="data array">
+
+    <p>A further simpliciation is that the domain decomposition is in
+      one-dimension only (we choose x).  The total number of zones comprising the
+      computational domain is NPES*NX x NY.  This is illustrated below:
+
+    <p class="center"><img src="dataspace.png" width="703" height="217" alt="dataspace">
+
+    <p>The dashed line indicates that actual extend of the 2nd processor's
+      sub-domain -- showing the perimeter of guardcells.  
+
+    <p>We want to write the data out into a single file, and organize it like
+      it as pictured above.  The benefit to this arrangemnent (as compared to storing
+      each proc's data in a separate array), is that it is then relatively easy to
+      restart on a different number of processors.  The computational domain can
+      be cut into a different number of pieces upon restart, and those chucks can 
+      just be read from the since record in the file.
+
+      <h2>Using hyperslabs to select the interior zones</h2>
+
+    <p>The first example serves to familiarize the user with the HDF5 library
+      and how to select only a portion of an array for storage -- in our case,
+      the interior zones.
+
+    <p>HDF5 uses the concept of dataspaces and memory spaces to deal with the 
+      passing data from memory to file.  The memory space describes the layout 
+      of the data to be written as it exists in memory.  The memory space does
+      not need to be contiguous.
+
+    <p>The dataspace describes the layout of the data as it will be stored in the
+      file.  As with the memory space, there is no constraint that the elements 
+      in the dataspace be contiguous.  
+
+    <p>When data is written (via the H5Dwrite call), the data is transfered 
+      from memory to disk.  It is required that the number of elements in the 
+      memory space be the same as that in the dataspace -- the layouts do not need 
+      to match however.  If the data is non-contiguous, a gather/scatter is 
+      performed during the write operation.
+
+    <p>The first example defines a dataspace in the HDF5 file large enough to
+      hold the interior elements of one of our patches.  A memory space is
+      created describing the array, and the interior cells are picked out 
+      using a hyperslab select call.
 
-&nbsp;<br> 
-<tt>double data[2*NG+NY][2*NG+NX]</tt>.<br>
-&nbsp;<br> 
-
-Alternately, there could be a single data array with an
-extra dimension to hold the different variables carried by the hydro
-code<br>
-
-&nbsp;<br>
-<tt>double data[2*NG+NY][2*NG+NV][NVAR]</tt>.<br> 
-&nbsp;<br>
-
-In the example below, we assume a single variable.  Adding multiple
-variables simply requires an extra loop over the number of variables
-wrapping the code shown below.
-
-<p>In addition to the data array(s), we need a single buffer array
-that will just hold the interior zones (i.e. excluding the guardcells)
-from the data array for the current variable.  This array is just of
-size NX x NY<br>
-
-&nbsp;<br>
-<tt>double buffer[NY][NX]</tt>.<br>
-&nbsp;<br>
-
-Furthermore, it is important that the elements in these arrays be contiguous
-in memory.  In Fortran, declaring a multidimension array as:<br>
-
-&nbsp;<br>
-<tt>real (kind = dp), dimension (NX, NY) :: buffer<br></tt>
-&nbsp;<br>
-
-guarantees that the elements are contiguous.  In C, it is necessary to 
-allocate a 1-d array of size NX*NY to guarantee that the elements are
-contiguous (see the examples).
+    <p>The source code implementing this procedure is here: <a
+                                                              href="HDF5_simple/hdf5_simple.c">hdf5_simple.c</a>
 
-<p>The basic algorithm for writing the data is to designate one processor
-as the master processor -- this is the processor that will open the
-file, do the writing, and then close the file.  All other processors
-will need to send their data to the buffer array on the master processor
-in order for it to be written out.  We assume that the master processor
-is processor 0.
 
-<p>To start, each processor (including the master processor) copies the 
-interior cells from the data array into the buffer array on they've 
-allocated.  Then, a loop over all processors is performed, and the
-data is written out in processor order.  The first processor to write
-out its data is processor 0 (our master processor).  It already contains the
-data it needs in its buffer array, so it simple writes its data to
-the file.  
+
 
-<p>When writing to the HDF file, we need to create a dataspace in the
-file.  This describes how the data will be stored in the file.  We
-tell the library that our dataspace is NPES*NX x NY cells.  Each
-processor only writes to a subset of that dataspace, and we need to
-tell the HDF5 library which subset to write to before the actual
-write.  This is accomplished via the hyperslab function in the HDF5
-library.  We give it a starting point, a size, and a stride, and it
-knows which portion of the dataspace to write to.
+      <h2>Writing out the data serially</h2>
 
-<p>After processor 0's data is written, we move to the next processor.
-Now we need to move the data from the buffer on processor 1 to the
-buffer on processor 0.  This is accomplished by an MPI_Send/Recv pair.
-Once the data is sent, processor 0 can write it's buffer (no holding
-processor 1's data) to the file.  This process is outlined in the
-figure below.
+    <p>One way to get the data from multiple processors into a single file
+      on disk is to explicitly send it all to one processor, and have only
+      that master processor open the file, do the writing, and close the
+      file.  The code this more complicated than the parallel I/O version we
+      look at below, but on some systems (i.e. those lacking a parallel
+      filesystem), it may be the only option.
 
-<p align="center"><img src="serial_io.png" width="789" height="541">
+    <p>We assume tha each processors has one or more data arrays declared
+      as<br> 
 
-<p>The source code implementing this procedure is here: <a
-href="HDF5_serial/hdf5_serial.c">hdf5_serial.c</a>, <a href="HDF5_serial/Makefile">Makefile</a>
+      &nbsp;<br> 
+      <tt>double data[2*NG+NY][2*NG+NX]</tt>.<br>
+      &nbsp;<br> 
+
+      Alternately, there could be a single data array with an
+      extra dimension to hold the different variables carried by the hydro
+      code<br>
+
+      &nbsp;<br>
+      <tt>double data[2*NG+NY][2*NG+NV][NVAR]</tt>.<br> 
+      &nbsp;<br>
+
+      In the example below, we assume a single variable.  Adding multiple
+      variables simply requires an extra loop over the number of variables
+      wrapping the code shown below.
+
+    <p>In addition to the data array(s), we need a single buffer array
+      that will just hold the interior zones (i.e. excluding the guardcells)
+      from the data array for the current variable.  This array is just of
+      size NX x NY<br>
+
+      &nbsp;<br>
+      <tt>double buffer[NY][NX]</tt>.<br>
+      &nbsp;<br>
+
+      Furthermore, it is important that the elements in these arrays be contiguous
+      in memory.  In Fortran, declaring a multidimension array as:<br>
+
+      &nbsp;<br>
+      <tt>real (kind = dp), dimension (NX, NY) :: buffer<br></tt>
+      &nbsp;<br>
 
+      guarantees that the elements are contiguous.  In C, it is necessary to 
+      allocate a 1-d array of size NX*NY to guarantee that the elements are
+      contiguous (see the examples).
 
-<p>&nbsp;
-<p><font size="+1" color="red">Writing out the data in parallel</font>
+    <p>The basic algorithm for writing the data is to designate one processor
+      as the master processor -- this is the processor that will open the
+      file, do the writing, and then close the file.  All other processors
+      will need to send their data to the buffer array on the master processor
+      in order for it to be written out.  We assume that the master processor
+      is processor 0.
 
-<p>A better way to get the data from multiple processors into a single file
-on disk is to rely on the underlying MPI-IO layer of HDF5 to perform the
-necessary communication.  MPI-IO implementations on different systems are 
-usually optimized for their platform and can perform quite well.
+    <p>To start, each processor (including the master processor) copies the 
+      interior cells from the data array into the buffer array on they've 
+      allocated.  Then, a loop over all processors is performed, and the
+      data is written out in processor order.  The first processor to write
+      out its data is processor 0 (our master processor).  It already contains the
+      data it needs in its buffer array, so it simple writes its data to
+      the file.  
 
-<p>As above, we assume tha each processors has one or more data arrays
-declared as<br>
+    <p>When writing to the HDF file, we need to create a dataspace in the
+      file.  This describes how the data will be stored in the file.  We
+      tell the library that our dataspace is NPES*NX x NY cells.  Each
+      processor only writes to a subset of that dataspace, and we need to
+      tell the HDF5 library which subset to write to before the actual
+      write.  This is accomplished via the hyperslab function in the HDF5
+      library.  We give it a starting point, a size, and a stride, and it
+      knows which portion of the dataspace to write to.
 
-&nbsp;<br> 
-<tt>double data[2*NG+NY][2*NG+NX]</tt>.<br>
-&nbsp;<br> 
+    <p>After processor 0's data is written, we move to the next processor.
+      Now we need to move the data from the buffer on processor 1 to the
+      buffer on processor 0.  This is accomplished by an MPI_Send/Recv pair.
+      Once the data is sent, processor 0 can write it's buffer (no holding
+      processor 1's data) to the file.  This process is outlined in the
+      figure below.
 
-<p>In contrast to the serial example, we do not require a buffer array,
-rather, we rely of the HDF5 hyperslab functionality to pick out only
-the interior of our array when writing to disk.  Each processor opens
-the file (in parallel), creates the dataspaces and memoryspaces, and writes
-the data directly to the file.  There is no explicit communication here.
+    <p class="center"><img src="serial_io.png" width="789" height="541" alt="serial I/O">
 
-<p align="center"><img src="parallel_io.png" width="789" height="375">
+    <p>The source code implementing this procedure is here: <a
+                                                              href="HDF5_serial/hdf5_serial.c">hdf5_serial.c</a>, <a href="HDF5_serial/Makefile">Makefile</a>
 
-<p>The source code implementing this procedure is here: <a
-href="HDF5_parallel/hdf5_parallel.c">hdf5_parallel.c</a>
 
-<p>In addition to performing the I/O, an MPI_Info object is created
-and passed to the MPI-IO implementation through the HDF5 library.
-This object contains hints, described in the <a
-href="http://www.mpi-forum.org/docs/mpi-20-html/node172.htm#Node172">MPI-2
-I/O chapter</a>.  These <a
-href="http://www.mpi-forum.org/docs/mpi-20-html/node182.htm#Node183">hints</a>
-should be experimented with in order to find the best performance.
+      <h2>Writing out the data in parallel</h2>
 
-<p>&nbsp;
-<p><font size="+1" color="red">IDL Interface</font>
+    <p>A better way to get the data from multiple processors into a single file
+      on disk is to rely on the underlying MPI-IO layer of HDF5 to perform the
+      necessary communication.  MPI-IO implementations on different systems are 
+      usually optimized for their platform and can perform quite well.
 
-<p>At present, there is no native support for HDF5 in <a
-href="http://www.rsinc.com/idl/index.asp">IDL</a>.  To read in a HDF5
-file, it is necessary to wrap the HDF5 library calls in a library that
-IDL can handle.  One way to do this is to create a shared-object
-library containing the read routines and use <tt>call_external</tt> to
-interface with it.  <tt>call_external</tt> passes void pointers to the IDL data
-through argc/v.  These need to be recast as pointers to the proper
-datatype inside the wrapper and then can be used with the HDF5 calls.
+    <p>As above, we assume tha each processors has one or more data arrays
+      declared as<br>
 
-<p>An example of such wrappers are provided here: <a href="IDL_HDF5/idl_hdf5.tar">
-idl_hdf5.tar</a>.  Included are the C wrappers, a header file, and a 
-Makefile for a Linux box.  Other platforms should be able to handle this
-without much modification.  Refer to the call_external documentation for
-the proper compilation/link flags for your platform.
+      <pre>
+      double data[2*NG+NY][2*NG+NX]
+      </pre>
 
+    <p>In contrast to the serial example, we do not require a buffer array,
+      rather, we rely of the HDF5 hyperslab functionality to pick out only
+      the interior of our array when writing to disk.  Each processor opens
+      the file (in parallel), creates the dataspaces and memoryspaces, and writes
+      the data directly to the file.  There is no explicit communication here.
 
-<p>&nbsp;
-<p><font size="+1" color="red">References</font>
+    <p class="center"><img src="parallel_io.png" width="789" height="375" alt="parallel I/O">
 
-<p>May, J. M., "Parallel I/O for High Performance Computing", Morgan Kaufmann Publishers, 2001.
+    <p>The source code implementing this procedure is here: <a
+                                                              href="HDF5_parallel/hdf5_parallel.c">hdf5_parallel.c</a>
 
-<p><a href="http://hdf.ncsa.uiuc.edu">HDF homepage</a>
+    <p>In addition to performing the I/O, an MPI_Info object is created
+      and passed to the MPI-IO implementation through the HDF5 library.
+      This object contains hints, described in the <a
+                                                     href="http://www.mpi-forum.org/docs/mpi-20-html/node172.htm#Node172">MPI-2
+        I/O chapter</a>.  These <a
+                                  href="http://www.mpi-forum.org/docs/mpi-20-html/node182.htm#Node183">hints</a>
+      should be experimented with in order to find the best performance.
 
-<p><a href="http://flash.uchicago.edu/~zingale/flash_benchmark_io/">FLASH I/O Benchmark</a>
+      <h2>IDL Interface</h2>
 
-<p>Ross, R., Nurmi, D., Cheng, A., and Zingale, M., "A Case Study in
-Application I/O on Linux Clusters", 2001, <A
-HREF="http://www.sc2001.org/papers/pap.pap166.pdf">[PDF]</A> (from <A
-HREF="http://www.sc2001.org">sc2001.org</A>)<P>
+    <p>At present, there is no native support for HDF5 in <a
+                                                            href="http://www.rsinc.com/idl/index.asp">IDL</a>.  To read in a HDF5
+      file, it is necessary to wrap the HDF5 library calls in a library that
+      IDL can handle.  One way to do this is to create a shared-object
+      library containing the read routines and use <tt>call_external</tt> to
+      interface with it.  <tt>call_external</tt> passes void pointers to the IDL data
+      through argc/v.  These need to be recast as pointers to the proper
+      datatype inside the wrapper and then can be used with the HDF5 calls.
 
+    <p>An example of such wrappers are provided here: <a href="IDL_HDF5/idl_hdf5.tar">
+        idl_hdf5.tar</a>.  Included are the C wrappers, a header file, and a 
+      Makefile for a Linux box.  Other platforms should be able to handle this
+      without much modification.  Refer to the call_external documentation for
+      the proper compilation/link flags for your platform.
 
-<p>&nbsp;
-<hr>
-<a HREF="mailto:zingale@ucolick.org">zingale@ucolick.org</a>
 
+      <h2>References</h2>
 
-</font>
-</body>
+    <p>May, J. M., "Parallel I/O for High Performance Computing", Morgan Kaufmann Publishers, 2001.
+
+    <p><a href="http://hdf.ncsa.uiuc.edu">HDF homepage</a>
+
+    <p><a href="http://flash.uchicago.edu/~zingale/flash_benchmark_io/">FLASH I/O Benchmark</a>
+
+    <p>Ross, R., Nurmi, D., Cheng, A., and Zingale, M., "A Case Study in
+      Application I/O on Linux Clusters", 2001, <A
+                                                  HREF="http://www.sc2001.org/papers/pap.pap166.pdf">[PDF]</A> (from <A
+                                                                                                                       HREF="http://www.sc2001.org">sc2001.org</A>)<P>
+
+
+    <p>&nbsp;
+      <hr>
+      <a HREF="mailto:zingale@ucolick.org">zingale@ucolick.org</a>
+
+  </body>
 </html>
 
 
