@@ -1,5 +1,7 @@
 
-body {font-family: "Arial", san-serif;}
+body {font-family: "Arial", san-serif;
+      margin-left: 2em;
+      margin-right: 2em;}
 
 h1 {font-family: "Tahoma","Arial", sans-serif;
     color: #333333;
@@ -88,4 +90,7 @@ th {background-color: grey;
 
 
 p.center {text-align: center;}
+
+
+span.type {font-family: monospace;}
 

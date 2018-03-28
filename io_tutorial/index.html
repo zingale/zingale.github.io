@@ -124,17 +124,17 @@
     <p>We assume tha each processors has one or more data arrays declared
       as<br> 
 
-      &nbsp;<br> 
-      <tt>double data[2*NG+NY][2*NG+NX]</tt>.<br>
-      &nbsp;<br> 
+      <pre>
+        double data[2*NG+NY][2*NG+NX]
+      </pre>
 
       Alternately, there could be a single data array with an
       extra dimension to hold the different variables carried by the hydro
       code<br>
 
-      &nbsp;<br>
-      <tt>double data[2*NG+NY][2*NG+NV][NVAR]</tt>.<br> 
-      &nbsp;<br>
+      <pre>
+        double data[2*NG+NY][2*NG+NV][NVAR]
+      </pre>
 
       In the example below, we assume a single variable.  Adding multiple
       variables simply requires an extra loop over the number of variables
@@ -145,16 +145,16 @@
       from the data array for the current variable.  This array is just of
       size NX x NY<br>
 
-      &nbsp;<br>
-      <tt>double buffer[NY][NX]</tt>.<br>
-      &nbsp;<br>
+      <pre>
+        double buffer[NY][NX]
+      </pre>
 
       Furthermore, it is important that the elements in these arrays be contiguous
       in memory.  In Fortran, declaring a multidimension array as:<br>
 
-      &nbsp;<br>
-      <tt>real (kind = dp), dimension (NX, NY) :: buffer<br></tt>
-      &nbsp;<br>
+      <pre>
+        real (kind = dp), dimension (NX, NY) :: buffer
+      </pre>
 
       guarantees that the elements are contiguous.  In C, it is necessary to 
       allocate a 1-d array of size NX*NY to guarantee that the elements are
@@ -230,22 +230,6 @@
                                   href="http://www.mpi-forum.org/docs/mpi-20-html/node182.htm#Node183">hints</a>
       should be experimented with in order to find the best performance.
 
-      <h2>IDL Interface</h2>
-
-    <p>At present, there is no native support for HDF5 in <a
-                                                            href="http://www.rsinc.com/idl/index.asp">IDL</a>.  To read in a HDF5
-      file, it is necessary to wrap the HDF5 library calls in a library that
-      IDL can handle.  One way to do this is to create a shared-object
-      library containing the read routines and use <tt>call_external</tt> to
-      interface with it.  <tt>call_external</tt> passes void pointers to the IDL data
-      through argc/v.  These need to be recast as pointers to the proper
-      datatype inside the wrapper and then can be used with the HDF5 calls.
-
-    <p>An example of such wrappers are provided here: <a href="IDL_HDF5/idl_hdf5.tar">
-        idl_hdf5.tar</a>.  Included are the C wrappers, a header file, and a 
-      Makefile for a Linux box.  Other platforms should be able to handle this
-      without much modification.  Refer to the call_external documentation for
-      the proper compilation/link flags for your platform.
 
 
       <h2>References</h2>
@@ -262,9 +246,6 @@
                                                                                                                        HREF="http://www.sc2001.org">sc2001.org</A>)<P>
 
 
-    <p>&nbsp;
-      <hr>
-      <a HREF="mailto:zingale@ucolick.org">zingale@ucolick.org</a>
 
   </body>
 </html>
