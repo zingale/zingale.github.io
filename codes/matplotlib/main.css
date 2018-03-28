@@ -2,7 +2,8 @@
 body {font-family: "Arial", san-serif;}
 
 h1 {font-family: "Tahoma","Arial", sans-serif;
-    color: #333333;}
+    color: #333333;
+    text-align: center;}
 
 h3 {display: inline;}
 
@@ -84,4 +85,7 @@ th {background-color: grey;
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;}
+
+
+p.center {text-align: center;}
 
