@@ -191,3 +191,9 @@ em.ack {color: gray}
 
 
 
+iframe {display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 0px;}
+
+p.center {text-align: center;}

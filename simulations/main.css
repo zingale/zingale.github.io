@@ -181,6 +181,15 @@ table {margin-top: 1em;
        margin-left: auto;
        margin-right: auto;}
 
+table.border {padding: 0.5em;
+              border: 1px solid yellow;
+              border-collapse: collapse;}
+
+
+.border td {padding: 0.5em;
+            border: 1px solid yellow;
+            border-collapse: collapse;}
+
 th {text-align: center;}
 
 td.center {text-align: center;}
@@ -190,3 +199,8 @@ td.description {text-align: center;
                 color: black;}
 
 tr.smaller {font-size: 80%;}
+
+iframe {display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 0px;}
