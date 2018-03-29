@@ -191,5 +191,6 @@ em.ack {color: gray}
 
 
 iframe {border: 0pt;
+        display: block;
         margin-left: auto;
         margin-right: auto;}
