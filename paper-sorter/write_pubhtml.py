@@ -25,7 +25,7 @@ for p in papers:
         else:
             first = False
 
-        ostr += "<p><h2><a name='{}'></a>{}</h2>\n".format(p.year, p.year)
+        ostr += "<p><h2><a name='{}'></a>{}</h2>\n\n".format(p.year, p.year)
         ostr += "<dl>\n"
 
         current_year = p.year
@@ -36,9 +36,9 @@ for p in papers:
     else:
         ostr += "<dt>{}</dt>\n".format(t)
 
-    ostr += "<dd>{}</dd>\n".format(o)
+    ostr += "<dd>{}</dd>\n\n".format(o)
 
-ostr += "</dl>\n"
+ostr += "</dl>\n\n"
 
 year_index = "<ul>\n"
 for n, y in enumerate(years):
