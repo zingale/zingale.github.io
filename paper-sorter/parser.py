@@ -226,6 +226,8 @@ def extract_paper_info(e):
 
     if "adsurl" in e.keys():
         link_url = get_item(e, "adsurl")
+    elif "url" in e.keys():
+        link_url = get_item(e, "url")
     else:
         l = get_item(e, "link")
         if not l is None:
