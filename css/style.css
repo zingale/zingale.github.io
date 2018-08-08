@@ -1,4 +1,4 @@
-@import url("font-awesome.min.css");
+@import url("all.css");
 @import url("http://fonts.googleapis.com/css?family=Raleway:100,200,300,500,600,700,800,900");
 
 /*
@@ -165,9 +165,9 @@ footer.major {
     content: "";
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
+    font-family: "Font Awesome\ 5 Free";
     font-style: normal;
-    font-weight: normal;
+    font-weight: 900;
     text-transform: none !important;
 }
 
