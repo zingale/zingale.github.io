@@ -60,14 +60,18 @@ class Paper(object):
 
         return self.year < other.year
 
-    def jstring(self):
+    def jstring(self, et_al_len=20):
         """return the string used to cite the paper"""
         t_str = self.title
         for k, v in replace_str.items():
             t_str = t_str.replace(k, v)
         t_str = re.sub(mdash1, "&mdash;", t_str)
 
-        out_str = name_string(self.authors) + " "
+        if len(self.authors) < et_al_len:
+            out_str = name_string(self.authors) + " "
+        else:
+            out_str = self.authors[0] + "et al. "
+
         if self.entry_type == "presentation":
             out_str += "{} {}, ".format(self.month, self.year)
         else:
