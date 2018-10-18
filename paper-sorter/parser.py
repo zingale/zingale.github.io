@@ -17,6 +17,8 @@ import bibtexparser
 from bibtexparser.bparser import BibTexParser
 import bibtexparser.customization as bc
 
+_months = ["", "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+
 replace_str = {
     r"$^{4}$": r"<sup>4</sup>"
 }
@@ -56,7 +58,10 @@ class Paper(object):
             return self.year < other.year
 
         if not (self.month is None or other.month is None):
-            return self.month < other.month
+            smonth = _months.index(self.month.lower())
+            omonth = _months.index(other.month.lower())
+
+            return smonth < omonth
 
         return self.year < other.year
 
