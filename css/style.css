@@ -195,6 +195,11 @@ ol.default {
 
 ol.default li {
     padding-left: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+ol.default li ol {
+    list-style: lower-alpha;
 }
 
 ul.default {
