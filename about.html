@@ -155,23 +155,23 @@
 		  Computational Sciences and Engineering at
 		  LBL</a>.</p>
 
-	      <p>My main simulation tools are low Mach number
-		hydrodynamics Maestro, and its compressible
-		counterpart,
-		Castro.  <a href="https://amrex-astro.github.io/MAESTRO/">Maestro</a>
-		solves a low Mach number system of hydrodynamics
-		equations that filters soundwaves, enabling it to
-		efficiently model convection and reactions in
-		stratified flows.  Maestro is more general than the
-		traditional anelastic method, as it can evolve
-		finite-amplitude density and temperature perturbations
-		to a hydrostatic background and can also evolve this
-		background state in response to the local heating. Its
-		sister code, <a href=
-		"https://amrex-astro.github.io/Castro/">Castro</a>
-		models the fully compressible Euler equations with
-		self-gravity, reactions, and multigrid flux-limited
-		diffusion for radiation.  Both of these codes use
+	      <p>My main simulation tools are the low Mach number
+		hydrodynamics
+		code <a href="https://github.com/AMReX-Astro/MAESTROeX">MAESTROeX</a>,
+		and its compressible
+		counterpart <a href="https://github.com/AMReX-Astro/Castro">Castro</a>.
+		MAESTROeX solves a low Mach number system of
+		hydrodynamics equations that filters soundwaves,
+		enabling it to efficiently model convection and
+		reactions in stratified flows.  MAESTROeX is more
+		general than the traditional anelastic method, as it
+		can evolve finite-amplitude density and temperature
+		perturbations to a hydrostatic background and can also
+		evolve this background state in response to the local
+		heating.  Castro models the fully compressible Euler
+		equations with self-gravity, reactions, and multigrid
+		flux-limited diffusion for radiation.  Both of these
+		codes use
 		the <a href="http://github.com/AMReX-Codes/">AMReX</a>
 		library to manage the adaptive mesh grid hierarchy and
 		parallelization.</p>
@@ -194,22 +194,23 @@
 		models</a>. This work is ongoing.</p>
 
 	      <p>Earlier work in XRBs involved using fully
-		compressible hydrodynamics methods to study
-		spreading of perturbations
-		and somewhat related <a href="./simulations/xray_gallery/">helium
-		detonations</a>.  Currently, I am working with Chris
-		Malone to model convection
-		in <a href="./simulations/xrb/">mixed H/He X-ray bursts</a>.</p>
+		compressible hydrodynamics methods to study spreading
+		of perturbations and somewhat
+		related <a href="./simulations/xray_gallery/">helium
+		detonations</a>.  Using Maestro, we modeled the
+		convection in <a href="./simulations/xrb/">mixed H/He
+		X-ray bursts</a> and now are using Castro to model the
+		lateral flame spreading.</p>
 
-	      <p>I'm also using Castro to model merging white dwarfs
-		(this is together with Alan Calder and Doug
-		Swesty).</p>
+	      <p>We are also using Castro to
+	      model <a href="../simulations/wdmerger/">merging white
+	      dwarfs</a>.</p>
 
 	      <p>I have a number of <a href="codes.html">code examples
 		online</a> (also on
 		my <a href="https://github.com/zingale/">github
 		page</a>), including a hydrodynamics teaching code,
-		<a href="https://python-hydro.github.io/pyro2//">pyro</a>.  To 
+		<a href="https://python-hydro.github.io/pyro2/">pyro</a>.  To 
 		go along with pyro, I have written a set of notes on
 		<a href="https://github.com/Open-Astrophysics-Bookshelf/numerical_exercises"><em>Computational
 		Hydrodynamics for Astrophysics</em></a>.  To make
@@ -227,7 +228,8 @@
 	      <p>My XRB/supernovae and low Mach number hydrodynamics
 		research is supported primarily by a grant from the
 		the Dept. of Energy, Office of Nuclear Physics.  The
-		white dwarf merger studies are supported by the NSF.</p>
+		white dwarf merger studies were supported by the NSF
+		and now DOE.</p>
 
 	    </section>
 	  </div>
