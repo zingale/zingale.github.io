@@ -704,11 +704,9 @@ ul.research span.collab {
 
 
 .about_pic img {
-    display: block;  /* this allows us to center it */
-    text-align: center;
-    margin: 0 auto;
-    max-width: 100%;
-    padding-bottom: 1em;
+    display: inline;
+    float: right;
+    padding: 1em;
 }
 
 
