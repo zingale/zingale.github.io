@@ -5,10 +5,8 @@ BODY, H1, H2, H3, H4, H5  {font-family: "Carlito",
 
 body {font-size: 14pt;
       line-height: 1.65em;
-      margin-top: 1em;}
-
-
-BODY {background-color: #000000;
+      margin-top: 1em;
+      background-color: #000000;
       color: #EEDDEE;
       margin-left: 2em;
       margin-right: 2em;}
@@ -17,6 +15,12 @@ BODY.white {background-color: #FFFFFF;
             color: #222222;
             margin-left: 2em;
             margin-right: 2em;}
+
+.content {max-width: 750px;
+          margin: auto;}
+
+.contentw {max-width: 850px;
+          margin: auto;}
 
 PRE {font-family: "Bitstream Vera Sans Mono",
                   "Monospace",
