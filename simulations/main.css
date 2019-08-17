@@ -87,6 +87,7 @@ A.classtitle:HOVER {background: blue;
                     text-decoration: none;}
 	      
 IMG.me {float: right;
+        display: inline;
         margin: 2em; }
 
 
@@ -213,3 +214,12 @@ img {
    width: 100%;
   display: inline-block;
 }
+
+
+IMG.bubble_right {float: right;
+                  width: auto;
+                  margin: 2em;
+                  display: inline; }
+
+IMG.bubble {display: inline; 
+            width: auto;}
