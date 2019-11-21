@@ -156,6 +156,8 @@ footer.major {
 .image.featured img {
     display: block;
     width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 /* Icon */
@@ -654,8 +656,19 @@ ul.style span.collab {
     border-radius: 0px 0px 6px 6px;
 }
 
+.codebox {
+    padding: 1.5em 1.25em;
+    background: #FFF;
+    text-align: left;
+    border-radius: 0px 0px 6px 6px;
+}
+
 .box p {
     margin-bottom: 1em;
+}
+
+.codebox h3 {
+    margin-bottom: 0.5em;
 }
 
 /* research */
