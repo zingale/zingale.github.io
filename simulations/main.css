@@ -87,6 +87,7 @@ A.classtitle:HOVER {background: blue;
                     text-decoration: none;}
 	      
 IMG.me {float: right;
+	width: 50%;
         display: inline;
         margin: 2em; }
 
