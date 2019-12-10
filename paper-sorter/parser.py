@@ -119,6 +119,9 @@ class Paper(object):
 
         return t_str, out_str, l_str
 
+    def __str__(self):
+        return self.title
+
 
 def name_string(names):
     """string together the authors into a single string"""
