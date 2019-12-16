@@ -545,6 +545,10 @@ ul.papers > :first-child {
     color: #fff;
 }
 
+h3 a:hover {
+    border-bottom: 1px dotted #555;
+}
+
 /* Banner */
 
 #banner {
