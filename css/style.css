@@ -40,6 +40,7 @@ p, ul, ol, dl, table, blockquote {
 
 p {
     line-height: 2em;
+    margin-bottom: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -399,13 +400,14 @@ ul.style2 span {
 /* papers */
 
 ul.papers {
+    padding: 0;
     padding-top: 0.25em;
     margin-top: 0em;
 }
 
 ul.papers li {
     position: relative;
-    padding: 0.5em 0.5em 0.5em 0;
+    padding: 0.25em 0.5em 0.5em 0;
     border-top: solid 1px rgba(200, 200, 200, 0.6);
 }
 
@@ -809,4 +811,20 @@ ul.research span.collab {
     margin: 1em;
 }
 
+img.center {
+   width: 80%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 5px;
 
+}
+
+p.caption {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    font-size: 0.9em;
+}
+ 
+             
