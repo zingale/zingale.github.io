@@ -181,10 +181,22 @@
 		<h2>Performance portability</h2>
 	      </header>
 
-              <p>blah
+              <p>All of our codes are written to be performance
+              portable%mdash;able to run on anything from a laptop to
+              a supercomputer.  Through
+              the <a href="https://amrex-codes.github.io/amrex/">AMReX</a>
+              library, we write our compute kernels in C++ and use
+              Parallel-For loops that loop over the zones in a grid.
+              On GPUs, each zone is assigned to a GPU thread, while on
+              CPUs, we use logical tiling and OpenMP to distribute the
+              work over processor codes.
 
               <p><img class="center" src="wdmerger_gpu.png" alt="GPU vs. CPU scaling for the WD merger problem">
 
+              <p class="caption">Comparison of GPU (6 NVIDIA V100 /
+              node) and CPU (42 Power9 cores / node) on the OLCF
+              Summit machine for a merge white dwarf simulation
+              (hydrodynamics and full self-gravity).
 
 
 	    </section>
