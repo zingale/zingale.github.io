@@ -32,7 +32,7 @@
       <div id="header" class="skel-panels-fixed">
 	<div id="logo">
 	  <h1><a href="../../index.html">Michael Zingale</a></h1>
-	  <span class="tag">X-ray bursts</span>
+	  <span class="tag">algorithms</span>
 	</div>
 	<nav id="nav">
 	  <ul>
@@ -136,10 +136,39 @@
 		<h2>Reactive flows</h2>
 	      </header>
 
-              <p>blah
+              <p>All of our simulations involve reacting
+              flows&emdash;the immense energy release from nuclear
+              burning drives hydrodynamic flows.  These two processes
+              need to be tightly coupled together to ensure that we
+              accurately capture the dynamics and nucleosynthesis.
+              The traditional method of coupling hydrodynamics and
+              reactions in astrophysics has been Strang splitting, a
+              type of operator splitting where the reactions and
+              hydrodynamics operations each act on the state left
+              behind from the other process, but there is no explicit
+              coupling.  We have been developing spectral deferred
+              correction (SDC) techniques to strongly couple the two
+              processes.  In SDC methods, the hydrodynamics explicitly
+              sees a reaction source and the reactions take into
+              account how advection alters the state during the burn.
+              Iteration is used to fully couple the processes.  SDC
+              methods are integrated into both Castro and MAESTROeX.
 
                 <p><img class="center" src="sdc_plot.png" alt="two timesteps comparing the SDC and Strang approaches to coupling reactions and hydrodynamics">
 
+                  <p class="caption">Two timesteps from a Castro
+                  detonation calculation, showing the helium mass
+                  fraction.  The orange points show the state in the
+                  SDC evolution where each point represents substep
+                  used in integrating the reaction network.  By
+                  coupling the advection directly to the reaction
+                  evolution, we see the evolution is smooth an
+                  continuous.  In the Strang case, we see the
+                  reactions in the first Δt/2 of the evolution take
+                  the state far from the smooth SDC solution.
+                  Advection at the midpoint in time over-corrects the
+                  solution, and then the final Δt/2 of reaction brings
+                  us back to the SDC solution.
 
 
               <a name="gpus"></a>
