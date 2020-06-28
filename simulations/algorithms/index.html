@@ -97,13 +97,35 @@
 
               <p><h3 class="subsection">Castro: compressible flows</h3>
 
-                <p>blah
+                <p>Our group develops
+                the <a href="https://amrex-astro.github.io/Castro/">Castro</a>
+                compressible (magneto-, radiation) hydrodynamics code.
+                Castro supports a general equation of state, arbitrary
+                nuclear reaction network, full self gravity w/
+                isolated boundary conditions, thermal diffusion,
+                flux-limited diffusion (multigroup) radiation,
+                rotation, and more.
+
+                <p>Castro runs on anything from laptops to
+                supercomputers, using MPI+OpenMP for CPUs and MPI+CUDA
+                for GPUs.
 
                 <p><img class="center" src="slice_grid.png" alt="the adaptive mesh refinement grid in Castro">
 
+                <p>We use Castro for our <a href="../wdmerger">white
+                dwarf merger</a> and <a href="../xrb">X-ray burst</a>
+                simulations.
+
               <p><h3 class="subsection">MAESTROeX: low Mach number stellar flows</h3>
 
-                <p>blah
+                <p>We also develop (together with LBNL)
+                the <a href="https://amrex-astro.github.com/MAESTROeX">MAESTROeX</a>
+                low Mach number stellar hydrodynamics code.  MAESTROeX
+                filters soundwaves from the equations of hydrodynamics
+                while keeping compressibility effects due to
+                stratification and local heat release.  This enables
+                it to take large timesteps, not constrained by the
+                soundspeed, for subsonic flows.
 
 
 
