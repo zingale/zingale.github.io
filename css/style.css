@@ -281,6 +281,8 @@ ul.actions.vertical li:first-child {
     padding: 0;
 }
 
+/* style */
+
 ul.style {
     padding-top: 1em;
 }
@@ -295,21 +297,6 @@ ul.style > :first-child {
     border-top: none;
 }
 
-
-ul.papers {
-    padding-top: 0.25em;
-    margin-top: 0em;
-}
-
-ul.papers li {
-    position: relative;
-    padding: 0.5em 0.5em 0.5em 0;
-    border-top: solid 1px rgba(200, 200, 200, 0.6);
-}
-
-ul.papers > :first-child {
-    border-top: none;
-}
 
 /* -- this does the font-awesome symbol */
 /* ul.style li:before { */
@@ -357,6 +344,73 @@ ul.style span.collab {
     max-width: 100%;
     min-width: 95%;
     height: auto;
+}
+
+
+/* style2 -- for codes */
+
+ul.style2 {
+    padding: 0em;
+    margin: 0em;
+}
+
+ul.style2 li {
+    position: relative;
+    padding: 0em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /* border-top: solid 1px rgba(255, 255, 255, 0.2); */
+}
+
+ul.style2 > :first-child {
+    border-top: none;
+}
+
+ul.style2 h3 {
+    margin-bottom: 0.80em;
+    font-weight: 700;
+    font-size: 1.25em;
+    color: #555;
+}
+
+ul.style2 sup {
+    text-transform: none;
+}
+
+ul.style2 span {
+    margin: 0em;
+    padding: none;
+    line-height: 180%;
+    color: #555;
+}
+
+
+.style2 img
+{
+    position: static;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 95%;
+    height: auto;
+}
+
+
+/* papers */
+
+ul.papers {
+    padding-top: 0.25em;
+    margin-top: 0em;
+}
+
+ul.papers li {
+    position: relative;
+    padding: 0.5em 0.5em 0.5em 0;
+    border-top: solid 1px rgba(200, 200, 200, 0.6);
+}
+
+ul.papers > :first-child {
+    border-top: none;
 }
 
 
@@ -489,6 +543,10 @@ ul.style span.collab {
 
 #nav ul li a:hover {
     color: #fff;
+}
+
+h3 a:hover {
+    border-bottom: 1px dotted #555;
 }
 
 /* Banner */
@@ -656,20 +714,48 @@ ul.style span.collab {
     border-radius: 0px 0px 6px 6px;
 }
 
+.code section {
+    padding-bottom: 1em;
+}
+
 .codebox {
-    padding: 1.5em 1.25em;
+    padding: 0.75em 0.75em;
     background: #FFF;
     text-align: left;
     border-radius: 0px 0px 6px 6px;
 }
 
+.codebox h3 {
+    margin-bottom: 0.5em;
+}
+
+.codebox p {
+    margin: 0em;
+    margin-top: 0.25em;
+}
+
+.codebox_simple {
+    padding: 0.75em 0.75em;
+    background: #FFF;
+    text-align: left;
+    border-radius: 6px 6px 6px 6px;
+}
+
+.codebox_simple h3 {
+    margin-bottom: 0.5em;
+}
+
+.codebox_simple p {
+    margin: 0em;
+    margin-top: 0.25em;
+}
+
+
+
 .box p {
     margin-bottom: 1em;
 }
 
-.codebox h3 {
-    margin-bottom: 0.5em;
-}
 
 /* research */
 .research img

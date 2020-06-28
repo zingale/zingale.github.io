@@ -4,6 +4,9 @@ import parser
 
 papers = parser.parse_bibfile("papers.bib")
 
+for p in papers:
+    print(p)
+
 
 # sorted by date
 tf = open("pub_template.html", "r")
