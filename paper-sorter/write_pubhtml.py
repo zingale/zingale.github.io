@@ -35,7 +35,7 @@ for p in papers:
 
     t, o, l = p.jstring()
     if not l == "":
-        ostr += "<dt>{} <a href='{}'>[link]</a></dt>\n".format(t, l)
+        ostr += "<dt><a href='{}'>{}</a></dt>\n".format(l, t)
     else:
         ostr += "<dt>{}</dt>\n".format(t)
 
@@ -101,7 +101,7 @@ for s in sorted(papers_by_subj, key=str.lower):
 
         t, o, l = p.jstring()
         if not l == "":
-            ostr += "<dt>{} <a href='{}'>[link]</a></dt>\n".format(t, l)
+            ostr += "<dt><a href='{}'>{}</a></dt>\n".format(l, t)
         else:
             ostr += "<dt>{}</dt>\n".format(t)
 
