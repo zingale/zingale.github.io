@@ -72,10 +72,10 @@ class Paper(object):
             t_str = t_str.replace(k, v)
         t_str = re.sub(mdash1, "&mdash;", t_str)
 
-        if len(self.authors) < et_al_len:
+        if len(self.authors) < et_al_len and not self.authors[min(1, len(self.authors)-1)].startswith("others"): 
             out_str = name_string(self.authors) + " "
         else:
-            out_str = self.authors[0] + "et al. "
+            out_str = self.authors[0] + " et al. "
 
         if self.entry_type == "presentation":
             out_str += "{} {}, ".format(self.month, self.year)
