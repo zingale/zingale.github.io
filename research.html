@@ -27,7 +27,7 @@
 
     <!-- Wrapper -->
     <div class="wrapper style1">
-      
+
       <!-- Header -->
       <div id="header" class="skel-panels-fixed">
 	<div id="logo">
@@ -45,198 +45,262 @@
       </div>
       <!-- Header -->
 
-      
       <!-- Page -->
-      <div class="container">
+      <div id="page" class="container">
+	<div class="row">
 
-	<div class="blackheading">
-	  <section>
-	    <p>Current Research</p>
-	  </section>
-	</div>
+	  <!-- Sidebar -->
+	  <div id="sidebar" class="4u">
+	    <section>
+	      <header class="major">
+		<h2>Current Group</h2>
+	      </header>
+	      <ul class="default">
+		<li>Alice Harpole (postdoc)</li>
+		<li>Xinlong Li (grad student)</li>
+              </ul>
+            </section>
 
-	<div class="row"> 
-	    
+	    <section>
+	      <header class="major">
+		<h2>Former Students</h2>
+	      </header>
+	      <ul class="default">
+
+                <li>Chris Malone (PhD 2011)</li>
+
+                <li>Max Katz (PhD 2016)</li>
+
+                <li>Adam Jacobs (PhD 2016)</li>
+
+                <li>Mu-Hung Chang (MA 2017)</li>
+
+                <li>Hengrui Zhang (MA 2019)</li>
+
+                <li>Maria Barrios Sazo (PhD 2020)</li>
+
+	      </ul>
+	    </section>
+
+	    <section>
+	      <header class="major">
+		<h2>Funding and Support</h2>
+	      </header>
+	      <ul class="default">
+
+                <li>
+                  <span>Support for developing the codes here is
+                  provided by the Department of Energy Office of
+                  Nuclear Physics, the Department of Energy Exascale
+                  Compute Project, and the Department of Energy SciDAC
+                  Program.</span>
+                </li>
+
+	      </ul>
+	    </section>
+
+	  </div>
+
 	  <!-- Content -->
-	  <div class="6u">
+	  <div id="content" class="8u skel-cell-important">
 	    <section>
-	      <ul class="style">
-		
-		<li><h3>White Dwarf Mergers</h3>
-		  <span>
-		    <A HREF="./simulations/wdmerger/">
-		      <IMG SRC="research_images/wdmerger.png" ALT="wd merger"></A>
-		    <br>We are modeling the inspiral of binary white
-		    dwarfs with the compressible Castro code to
-		    explore the double degenerate mechanism for Type
-		    Ia supernovae.</span>
-		    
-		    <br><span class="collab">in collaboration with Max Katz, Alan
-		    Calder, Doug Swesty (Stony Brook); Ann
-		    Almgren, and John
-		    Bell <a HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
-		    supported by the NSF</span> </li>
 
-		<li><h3>Simulation Codes / Algorithms</h3>
-		  <span>
-		    <A HREF="simulations/algorithms/">
-		      <IMG SRC="research_images/lowMach_on.png"  ALT="algorithms"></a>
-		    
-		    <br>Traditional astrophysical hydrodynamics codes have
-		    timesteps that are limited by the sound-crossing
-		    time across a zone.  For very subsonic flows, this
-		    is inefficient.  We developed a new algorithm for
-		    the efficient simulation of reaction-driven
-		    convection in stars.  By filtering out soundwaves,
-		    we are able to evolve the star for long periods of
-		    time.  The resulting code, Maestro, is publicly
-		    available.</span>
+              <!-- ...................................................................... -->
 
-		    <br><span class="collab">in collaboration with Ann
-		    Almgren, John Bell, and Andy Nonaka
-		    <A HREF="http://ccse.lbl.gov/">(CCSE/LBL)</A>,
-		    supported by DOE Office of Nuclear Physics
-		    </span> </li>
-		
-	      </ul>
-	    </section>
-	  </div>
+	      <p><h1>Current Research</h1>
 
-	  <div class="6u">
-	    <section>
-	      <ul class="style">
-		<li><h3>X-ray bursts</h3>
-		  <span>
-		    <A HREF="./simulations/xrb/">
-		      <IMG SRC="images/xrb_square.png" ALT="sub Ch"></A>
-		    <br>X-ray bursts are the thermonuclear explosion
-		    of a thin H/He layer on the surface of a neutron
-		    star. Our multi-dimensional simulations capture
-		    the dynamics of the convection leading up to the
-		    burst, using the low Mach number hydrodynamics
-		    code, <a href="http://amrex-astro.github.io/MAESTRO/">Maestro</a>.</span>
 
-		    <br><span class="collab">in collaboration with
-                    Chris Malone (LANL) and Ann Almgren, John Bell,
-                    and Andy
-                    Nonaka <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
-                    supported by DOE Office of Nuclear
-                    Physics</span></li>
-
-	      </ul>
-	    </section>
-	  </div>
-	</div>  <!-- row div end -->
-
-	<div class="blackheading">
-	  <section>
-	    <p>Previous Research</p>
-	  </section>
-	</div>
-
-	
-	<div class="row"> 
+	      <div class="row half"> 
 	    
-	  <!-- Content -->
-	  <div class="6u">
-	    <section>
-	      <ul class="style">
-		
-		<li><h3>White Dwarf Convection</h3>
-		  <span>
-		    <A HREF="./simulations/wdconvect/">
-		      <IMG SRC="research_images/sm_wd_2304_convect.png" ALT="wd convection"></A>
-		    <br>For centuries preceding the explosion of a
-		    Type Ia supernova, reactions at the center of the
-		    white dwarf slowly heat the star, driving
-		    convection. Hot plumes buoyantly rise and cool via
-		    expansion. As the star continues to heat up,
-		    eventually the reactions proceed fast enough that
-		    a plume cannot cool via expansion, and ignition
-		    takes place. Understanding where the initial
-		    flames form is critical to understanding the
-		    subsequent explosion. We model the final
-		    stages of convection in a white dwarf, preceding
-		    the ignition and explosion of a Type Ia
-		    supernovae.</span>
-		    
-		    <br><span class="collab">in collaboration with Ann Almgren, John Bell,
-		    Andy Nonaka <a HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
-		    and Stan Woosley (UCSC); supported by the DOE Office of
-		    Nuclear Physics</span> </li>
-		
-		<li><h3>Reacting Buoyant Bubbles</h3>
-		  <span>
-		    <A HREF="./simulations/bubbles/">
-		      <IMG SRC="research_images/bubble_on.png" ALT="bubbles"></A>
-		    <br>When the first flames ignite in a Type Ia
-		    supernova, they buoyantly float upward as they
-		    burn outward. We have performed fully resolved
-		    studies of burning rising bubbles in both two and
-		    three dimensions in conditions appropriate to Type
-		    Ia supernovae to better understand these
-		    dynamics.</span>
-		    
-		    <br><span class="collab">in
-                    collaboration <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
-                    and Jonathan Dursi; supported by DOE Office of
-                    Nuclear Physics</span></li>
-	      </ul>
-	    </section>
-	  </div>
+	        <!-- Content -->
+	        <div class="6u">
+                  <section>
 
-	  <div class="6u">
-	    <section>
-	      <ul class="style">
-		<li><h3>sub-Chandra SN Ia</h3>
-		  <span>
-		    <A HREF="./simulations/subchandra/">
-		      <IMG SRC="images/subch_square.png" ALT="sub Ch"></A>
-		    <br>We are exploring the convective burning
-		    leading up to the ignition of a burning front in
-		    a helium layer on the surface of a white dwarf.</span>
-		    
-		    <br><span class="collab">in collaboration with Adam Jacobs, Ann
-                    Almgren, John Bell, and Andy
-                    Nonaka <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>,
-                    supported by DOE Office of Nuclear Physics</span></li>				
+                    <ul class="style2">
 
-		<li><h3>Reactive Rayleigh Taylor</h3>
-		  <span>
-		    <A HREF="./simulations/rt3d/">
-		      <IMG SRC="research_images/rt3d_on.png" ALT="3-d RT"></A>
-		    <br>The Rayleigh-Taylor instability plays a
-		    critical role in accelerating the burning front in
-		    Type Ia supernovae. We performed the first
-		    three-dimensional, direct numerical simulations of
-		    carbon flames in Type Ia supernovae undergoing the
-		    Rayleigh-Taylor instability and the transition to
-		    turbulence.</span>		    
+                      <li>
+	                <a href="./simulations/wdmerger/" class="image featured">
+		          <img src="research_images/wdmerger_narrow.png" alt="wd merger"></a>
 
-		    <br><span class="collab">in
-                    collaboration <A HREF="http://ccse.lbl.gov">(CCSE/LBL)</a>
-                    and Stan Woosley (UCSC)</span></li>
+                        <div class="codebox">
+                          <h3>White Dwarf Mergers</h3>
 
-		<li><h3>Helium Detonations on Neutron Stars</h3>
-		  <span>
-		    <A HREF="./simulations/xray_gallery">
-		      <IMG SRC="research_images/xray_on.png"  ALT="xrb"></a>
-		    
-		    <br>Two-dimensional calculations of the dynamics
-		    of the explosion from my thesis. We follow the
-		    detonation wave as it propagates 2 km across the
-		    surface of the neutron star.</span>
+                          We are modeling the inspiral of binary white
+		          dwarfs with the compressible Castro code to
+		          explore the double degenerate mechanism for Type
+		          Ia supernovae.
 
-		    <br><span class="collab">in collaboration with the
-		    Flash Center</span> </li>
-	      </ul>
-	    </section>
-	  </div>
-	</div>  <!-- row div end -->
-	
-      </div> <!-- page div end -->
-    </div> <!-- wrapper div end -->
+                        </div>
+                      </li>
 
-      
+                      <li>
+	                <a href="./simulations/algorithms/" class="image featured">
+		          <img src="research_images/lowMach_on.png" alt="algorithms"></a>
+
+                        <div class="codebox">
+                          <h3>Simulation Codes / Algorithms</h3>
+
+                          We develop the low Mach number hydrodynamics code <a href="https://github.com/AMReX-Astro/MAESTROeX">MAESTROeX</a>, the compressible simulation code <a href="https://github.com/AMReX-Astro/Castro">Castro</a>, and work on high performance computing and new time integration techniques for high fidelity simulations.
+                        </div>
+                      </li>
+
+                    </ul>
+	          </section>
+	        </div>
+
+	        <!-- Content -->
+	        <div class="6u">
+	          <section>
+
+                    <ul class="style2">
+
+                      <li>
+	                <a href="./simulations/xrb" class="image featured">
+		          <img src="images/xrb_square.png" alt=""></a>
+
+                        <div class="codebox">
+		          <h3>X-ray bursts</h3>
+
+                          We are exploring both the convection that precedes the runaway and the
+                          flame spreading across the neutron star in X-ray bursts.
+                        </div>
+
+                      </li>
+
+                    </ul>
+
+                  </section>
+	        </div>
+
+	      </div>
+
+
+              <!-- ...................................................................... -->
+
+	      <p><h1>Previous Research Topics</h1>
+
+
+	      <div class="row half"> 
+	    
+	        <!-- Content -->
+	        <div class="6u">
+                  <section>
+
+                    <ul class="style2">
+
+                      <li>
+	                <a href="./simulations/wdconvect" class="image featured">
+		          <img src="research_images/sm_wd_2304_convect.png" alt="wd convection"></a>
+
+                        <div class="codebox">
+		          <h3>White Dwarf Convection</h3>
+
+                          For centuries preceding the explosion of a
+		          Type Ia supernova, reactions at the center
+		          of the white dwarf slowly heat the star,
+		          driving convection. Hot plumes buoyantly
+		          rise and cool via expansion. As the star
+		          continues to heat up, eventually the
+		          reactions proceed fast enough that a plume
+		          cannot cool via expansion, and ignition
+		          takes place. Understanding where the initial
+		          flames form is critical to understanding the
+		          subsequent explosion. We model the final
+		          stages of convection in a white dwarf,
+		          preceding the ignition and explosion of a
+		          Type Ia supernovae.
+                        </div>
+
+                      </li>
+
+                      <li>
+	                <a href="./simulations/bubbles" class="image featured">
+		          <img src="research_images/bubble_on.png" alt="buoyant bubbles"></a>
+
+                        <div class="codebox">
+		          <h3>Reacting Buoyant Bubbles</h3>
+
+                          When the first flames ignite in a Type Ia
+		          supernova, they buoyantly float upward as
+		          they burn outward. We have performed fully
+		          resolved studies of burning rising bubbles
+		          in both two and three dimensions in
+		          conditions appropriate to Type Ia supernovae
+		          to better understand these dynamics.
+                        </div>
+
+                      </li>
+
+
+                    </ul>
+
+	          </section>
+	        </div>
+
+
+	        <div class="6u">
+                  <section>
+
+                    <ul class="style2">
+
+                      <li>
+	                <a href="./simulations/subchandra" class="image featured">
+		          <img src="images/subch_square.png" alt="Sub-Ch SN Ia"></a>
+
+                        <div class="codebox">
+                          <h3>sub-Chandra SN Ia</h3>
+
+                          We are exploring the convective burning leading up to the ignition of a
+                          burning front in a helium layer on the surface of a white dwarf.
+                        </div>
+                      </li>
+
+                      <li>
+	                <a href="./simulations/rt3d" class="image featured">
+		          <img src="research_images/rt3d_on.png" alt="3-d Rayleigh-Taylor"></a>
+
+                        <div class="codebox">
+                          <h3>Reactive Rayleigh-Taylor</h3>
+
+                          The Rayleigh-Taylor instability plays a
+		          critical role in accelerating the burning front in
+		          Type Ia supernovae. We performed the first
+		          three-dimensional, direct numerical simulations of
+		          carbon flames in Type Ia supernovae undergoing the
+		          Rayleigh-Taylor instability and the transition to
+		          turbulence.
+                        </div>
+                      </li>
+
+                      <li>
+	                <a href="./simulations/xray_gallery" class="image featured">
+		          <img src="research_images/xray_on.png" alt="helium detonation on NS"></a>
+
+                        <div class="codebox">
+                          <h3>Helium Detonations on Neutron Stars</h3>
+
+                          Two-dimensional calculations of the dynamics
+		          of the explosion from my thesis. We follow
+		          the detonation wave as it propagates 2 km
+		          across the surface of the neutron star.
+                        </div>
+                      </li>
+
+                    </ul>
+
+	          </section>
+	        </div>
+
+              </div>
+
+
+            </section>  <!-- content -->
+	  </div>  <!-- content -->
+
+        </div>
+      </div>
+      <!-- /Page -->
+
+    </div>
   </body>
 </html>
