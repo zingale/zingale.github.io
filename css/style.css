@@ -809,6 +809,7 @@ ul.research span.collab {
     float: right;
     padding: 1em;
     margin: 1em;
+    width: 50%;
 }
 
 img.center {

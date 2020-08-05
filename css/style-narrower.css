@@ -280,3 +280,9 @@ ul.style span {
     padding-bottom: 1em;
     font-size: 1em;
 }
+
+.about_pic img {
+    display: block;
+    width: 90%;
+    float: none;
+}
