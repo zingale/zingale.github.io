@@ -2272,3 +2272,12 @@ span.tiny {
 em {
     font-style: italic;
 }
+
+/* see https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php */
+.h_iframe_fourthree {position: relative; width: 100%; padding-bottom: 75%;}
+.video {position: absolute; top:0;left:0;width:100%; height:100%;}
+
+.h_iframe_sixteennine {position: relative; width: 100%; padding-bottom: 56.25%;}
+
+iframe {border: 0px;}
+
