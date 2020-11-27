@@ -270,7 +270,7 @@ def parse_urlfile(url_file):
 
     with open(url_file) as f:
 
-        parser = BibTexParser()
+        parser = BibTexParser(common_strings=True)
         parser.customization = customizations
         parser.ignore_nonstandard_types = False
 
@@ -322,7 +322,7 @@ def parse_bibfile(bibfile):
     """given a bibtex .bib file, parse it and return the papers found"""
 
     with open(bibfile) as bibtex_file:
-        parser = BibTexParser()
+        parser = BibTexParser(common_strings=True)
         parser.customization = customizations
         parser.ignore_nonstandard_types = False
         bib_database = bibtexparser.load(bibtex_file, parser=parser)
