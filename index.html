@@ -1,190 +1,201 @@
 <!DOCTYPE HTML>
 <!--
-	Phase Shift by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
+    Halcyonic by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
 <html>
   <head>
-    <title>Michael Zingale</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.dropotron.min.js"></script>
-    <script src="js/skel.min.js"></script>
-    <script src="js/skel-layers.min.js"></script>
-    <script src="js/init.js"></script>
-    <noscript>
-      <link rel="stylesheet" href="css/skel.css" />
-      <link rel="stylesheet" href="css/style.css" />
-      <link rel="stylesheet" href="css/style-wide.css" />
-    </noscript>
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+    <title>Michael Zingale's homepage</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="assets/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
-
-    <!-- Wrapper -->
-    <div class="wrapper style1">
+    <div id="page-wrapper">
 
       <!-- Header -->
-      <div id="header" class="skel-panels-fixed">
-	<div id="logo">
-	  <h1><a href="index.html">Michael Zingale</a></h1>
-	  <span class="tag">homepage</span>
-	</div>
-	<nav id="nav">
-	  <ul>
-	    <li class="active"><a href="research.html">Research</a></li>
-	    <li><a href="pub_year.html">Papers</a></li>
-	    <li><a href="classes.html">Classes</a></li>
-	    <li><a href="codes.html">Codes</a></li>
-	  </ul>
-	</nav>
-      </div>
-
-      <!-- Banner -->
-      <div id="banner" class="container">
-	<section>
-	  <p>Welcome to my homepage.  I am interested in developing
-	    algorithms for modeling convective burning and explosions
-	    in astrophysical environments, and applying these algorithms
-	    to studying X-ray bursts, Type Ia supernovae, and novae
-	    (<a href="about.html">more about me...</a>)</p>
-	</section>
-      </div>
-
-      <!-- Extra -->
-      <div id="extra">
-	<div class="container">
-	  <div class="row no-collapse-1">
-
-	    <section class="4u">
-	      <a href="./simulations/xrb/" class="image featured">
-		<img src="images/xrb_square.png" alt=""></a>
-	      <div class="box">
-		<p><strong>X-ray bursts:</strong> We are performing
-		  models of flame spreading through the accreted layer 
-                  on neutron stars.</p>
-		<a href="./simulations/xrb/" class="button">Read More</a> </div>
-	    </section>
-
-	    <section class="4u">
-	      <a href="./simulations/subchandra/" class="image featured">
-		<img src="images/subch_square.png" alt=""></a>
-	      <div class="box">
-		<p><strong>sub-Chandra SNe Ia:</strong> We are
-		  studying how ignition takes place in the helium
-		  layer on low mass white dwarfs.</p>
-		<a href="./simulations/subchandra/" class="button">Read More</a> </div>
-	    </section>
-
-	    <section class="4u">
-	      <a href="./simulations/wdmerger/" class="image featured">
-		<img src="images/wdmerger_square.png" alt=""></a>
-	      <div class="box">
-		<p><strong>merging WDs:</strong> We are modeling the
-		  final inspiral and merging of two white dwarfs as a
-		  model of SNe Ia.</p>
-		<a href="./simulations/wdmerger/" class="button">Read More</a> </div>
-	    </section>
-	  </div>
-
-	</div>
-      </div>   <!-- extra div close -->
-
-      <!-- subbanner -->
-      <div id="subbanner" class="container">
-	<section>
-	  <p>Learn more about what I do on
-	    my <a href="research.html">research page</a>.  All of this
-	    research is computationally intensive.  We develop a
-	    number of codes with our collaborators to model our
-	    astrophysical systems.  Our main codes are listed
-	    below.</p>
-	</section>
-      </div>
-
-      <!-- Main -->
-      <div id="main">
-
+      <section id="header">
 	<div class="container">
 	  <div class="row">
+	    <div class="col-12">
 
-	    <!-- Content -->
-	    <div class="6u">
-	      <section>
-		<ul class="style">
-		  <li> <!--  class="fa fa-minus"> -->
-		    <h3>MAESTROeX</h3>
-		    <span><a href="http://amrex-astro.github.io/MAESTROeX/">MAESTROeX</a>
-		      is a low Mach number hydrodynamics code that
-		      efficiently models convective burning in
-		      stratified astrophysical flows.  It is developed
-		      in collaboration with the <a href="http://ccse.lbl.gov/">Center for
-		      Computational Sciences and Engineering</a> at LBNL
-		      and is freely available.</span> </li>
-		  <li>
-		    <h3>Castro</h3>
-		    <span><a href="https://amrex-astro.github.io/Castro/">Castro</a>
-		      is a fully-compressible (magneto-/radiation-) hydrodynamics code.
-		      It supports self-gravity, reactions, diffusion,
-                      and rotation and is used for modeling stellar explosions.</span> </li>
-		  <li>
-		    <h3>pyro</h3>
-		    <span><a href="https://python-hydro.github.io/pyro2/">pyro</a>
-		      is a teaching code designed to be introduce
-		      students to some of the methods commonly used in
-		      astrophysical simulations.  Solvers include
-		      advection, compressible, incompressible, and low
-		      Mach number hydrodynamics, diffusion, and
-		      multigrid.</span> </li>
-		  <li>
-		    <h3>other codes</h3>
-		    <span>I make available a number of simple codes
-		      demonstrating astronomical concepts for
-		      introductory lectures and basic computational
-		      techniques.  These are available on my <a href="./codes.html">codes page</a>.</span> </li>
+	      <!-- Logo -->
+	      <h1><a href="index.html" id="logo">Michael Zingale</a></h1>
 
-		</ul>
-	      </section>
+	      <!-- Nav -->
+	      <nav id="nav">
+		<a href="index.html">Homepage</a>
+		<a href="research.html">Research</a>
+		<a href="pub_year.html">Papers</a>
+		<a href="classes.html">Classes</a>
+		<a href="codes.html">Codes</a>
+	      </nav>
+
 	    </div>
-	    <div class="6u">
-	      <section>
-		<ul class="style">
-		  <li><h3>@Michael_Zingale</h3>
-		  <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/Michael_Zingale" data-widget-id="683428892481335297">Tweets by @Michael_Zingale</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
-
-		</ul>
-	      </section>
-	    </div>
-	  </div>  <!-- row div end -->
+	  </div>
 	</div>
+      </section>
+
+      <!-- Features -->
+      <section id="features">
+	<div class="container">
+
+          <div id="subtitle">
+            <section>
+              <h2>Welcome to my homepage. I am interested in developing algorithms for modeling convective burning and explosions in astrophysical environments, and applying these algorithms to studying X-ray bursts, Type Ia supernovae, and novae (<a href="./about.html">more about me...</a>)</h2>
+            </section>
+          </div>
+
+	  <div class="row">
+	    <div class="col-4 col-12-medium col-12-small">
+
+	      <!-- XRBs -->
+	      <section>
+		<a href="./simulations/xrb/" class="bordered-feature-image">
+                  <img src="images/xrb_square.png" alt="" /></a>
+		<h2>X-ray bursts</h2>
+		<p>
+		  We are performing models of flame spreading through the
+                  accreted layer on neutron stars, as a model of X-ray bursts.
+		</p>
+	      </section>
+
+	    </div>
+	    <div class="col-4 col-12-medium col-12-small">
+
+	      <!-- sub-Chandra -->
+	      <section>
+		<a href="./simulations/subchandra/" class="bordered-feature-image">
+                  <img src="images/subch_square.png" alt="" /></a>
+		<h2>sub-Chandra SNe Ia</h2>
+		<p>
+		  We are studying how ignition takes place in the helium layer
+                  on low mass white dwarfs.
+		</p>
+	      </section>
+
+	    </div>
+	    <div class="col-4 col-12-medium col-12-small">
+
+	      <!-- wd merger -->
+	      <section>
+		<a href="./simulations/wdmerger/" class="bordered-feature-image">
+                  <img src="images/slice_grid.png" alt="" /></a>
+		<h2>merging WDs</h2>
+		<p>
+		  We are modeling the final inspiral and merging of two white dwarfs
+                  as a model of SNe Ia.
+		</p>
+	      </section>
+
+	    </div>
+
+	  </div>
+
+          <div id="codes">
+
+          <div id="subtitle2">
+            <section>
+              <h2>All of this research is computationally intensive. We develop a number of codes with our collaborators to model our astrophysical systems. All the software we develop is open source and freely available.  Our main codes are listed below.</h2>
+            </section>
+          </div>
+
+	    <div class="row aln-center">
+	      <div class="col-6 col-12-medium">
+
+	        <!-- Box #1 -->
+	        <section>
+		  <ul class="style">
+		    <li> <!--  class="fa fa-minus"> -->
+		      <h3>MAESTROeX</h3>
+		      <span><a href="http://amrex-astro.github.io/MAESTROeX/">MAESTROeX</a>
+		        is a low Mach number hydrodynamics code that
+		        efficiently models convective burning in
+		        stratified astrophysical flows.  It is developed
+		        in collaboration with the <a href="http://ccse.lbl.gov/">Center for
+		          Computational Sciences and Engineering</a> at LBNL
+		        and is freely available.</span>
+                    </li>
+		    <li>
+		      <h3>Castro</h3>
+		      <span><a href="https://amrex-astro.github.io/Castro/">Castro</a>
+		        is a fully-compressible hydrodynamics code
+		        developed at CCSE/LBNL.  We collaborate with
+		        that group on the hydrodynamics solvers in the
+		        code.</span>
+                    </li>
+                  </ul>
+	        </section>
+
+	      </div>
+	      <div class="col-6 col-6-medium col-12-small">
+
+	        <!-- Box #2 -->
+	        <section>
+		  <ul class="style">
+		    <li> <!--  class="fa fa-minus"> -->
+		      <h3>pyro</h3>
+		      <span><a href="https://python-hydro.github.io/pyro2/">pyro</a>
+		        is a teaching code designed to be introduce
+		        students to some of the methods commonly used in
+		        astrophysical simulations.  Solvers include
+		        advection, compressible, incompressible, and low
+		        Mach number hydrodynamics, diffusion, and
+		        multigrid.</span>
+                    </li>
+		    <li>
+		      <h3>other codes</h3>
+		      <span>I make available a number of simple codes
+		        demonstrating astronomical concepts for
+		        introductory lectures and basic computational
+		        techniques.  These are available on
+		        my <a href="./codes.html">codes
+		        page</a>.</span>
+                    </li>
+		  </ul>
+
+	        </section>
+
+	      </div>
+            </div>
+	  </div>
+	</div>
+      </section>
+
+      <!-- Footer -->
+      <section id="footer">
+	<div class="container">
+
+	  <!-- Links -->
+	  <section>
+	    <div>
+              Department of Physics & Astronomy &bull;
+              Stony Brook University &bull; Stony Brook, NY 11794-3800
+              <br>ESS 452 &bull; (631) 632-8225
+              <br>michael.zingale@stonybrook.edu
+              <p><span class="fab fa-youtube"></span>&nbsp; <a href="http://www.youtube.com/user/michaelzingale">http://www.youtube.com/user/michaelzingale</a>
+                <br><i class="fab fa-github"></i>&nbsp; <a href="https://github.com/zingale">https://github.com/zingale</a></p>
+	    </div>
+	  </section>
+
+	</div>
+      </section>
+
+      <!-- Copyright -->
+      <div id="copyright">
+	Design: <a href="http://html5up.net">HTML5 UP</a>
       </div>
-
-    </div> <!-- wrapper div end -->
-
-    <!-- Footer -->
-    <div id="footer" class="wrapper style2">
-      Department of Physics & Astronomy &bull;
-      Stony Brook University &bull; Stony Brook, NY 11794-3800
-      <br>ESS 452 &bull; (631) 632-8225
-      <br>michael.zingale@stonybrook.edu
-      <p><i class="fab fa-youtube"></i>&nbsp; <a href="http://www.youtube.com/user/michaelzingale">http://www.youtube.com/user/michaelzingale</a>
-      <br><i class="fab fa-github"></i>&nbsp; <a href="https://github.com/zingale">https://github.com/zingale</a></p>
 
     </div>
 
-    <!-- Copyright -->
-    <div id="copyright">
-      <div class="container">
-	<div class="copyright">
-	  <p>based on a design from <a href="http://templated.co">TEMPLATED</a></p>
-    	</div>
-      </div>
-    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 
   </body>
 </html>

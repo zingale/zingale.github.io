@@ -10,7 +10,7 @@ for p in papers:
 
 # sorted by date
 tf = open("pub_template.html", "r")
-dh = open("pub_year.html", "w")
+dh = open("../pub_year.html", "w")
 
 current_year = 3000
 first = True
@@ -68,7 +68,7 @@ tf.close()
 
 # by subject
 tf = open("pub_template.html", "r")
-dh = open("pub_subj.html", "w")
+dh = open("../pub_subj.html", "w")
 
 subs = list(set([p.subject for p in papers]))
 subs.sort(key=str.lower)
