@@ -1401,54 +1401,6 @@ input, select, textarea {
 			border-bottom: 0 !important;
 		}
 
-	.quote-list li {
-		padding: 1em 0 1em 0;
-		overflow: hidden;
-	}
-
-		.quote-list li:first-child {
-			padding-top: 0 !important;
-			border-top: 0 !important;
-		}
-
-		.quote-list li:last-child {
-			padding-bottom: 0 !important;
-			border-bottom: 0 !important;
-		}
-
-		.quote-list li img {
-			float: left;
-		}
-
-		.quote-list li p {
-			margin: 0 0 0 90px;
-			font-size: 1.2em;
-			font-style: italic;
-		}
-
-		.quote-list li span {
-			display: block;
-			margin-left: 90px;
-			font-size: 0.9em;
-			font-weight: 400;
-		}
-
-	.check-list li {
-		padding: 0.7em 0 0.7em 45px;
-		font-size: 1.2em;
-		background: url("images/icon-checkmark.png") 0px 1.05em no-repeat;
-	}
-
-		.check-list li:first-child {
-			padding-top: 0 !important;
-			border-top: 0 !important;
-			background-position: 0 0.3em;
-		}
-
-		.check-list li:last-child {
-			padding-bottom: 0 !important;
-			border-bottom: 0 !important;
-		}
 
 	.feature-image {
 		display: block;
@@ -1474,43 +1426,6 @@ input, select, textarea {
 			width: 100%;
 		}
 
-	.button-large {
-		background-image: -moz-linear-gradient(top, #ed391b, #ce1a00);
-		background-image: -webkit-linear-gradient(top, #ed391b, #ce1a00);
-		background-image: -ms-linear-gradient(top, #ed391b, #ce1a00);
-		background-image: linear-gradient(top, #ed391b, #ce1a00);
-		display: inline-block;
-		background-color: #ed391b;
-		color: #fff;
-		text-decoration: none;
-		font-size: 1.25em;
-		height: 2em;
-		line-height: 2.125em;
-		font-weight: 300;
-		padding: 0 45px;
-		outline: 0;
-		border-radius: 10px;
-		box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
-		text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
-	}
-
-		.button-large:hover {
-			background-image: -moz-linear-gradient(top, #fd492b, #de2a10);
-			background-image: -webkit-linear-gradient(top, #fd492b, #de2a10);
-			background-image: -ms-linear-gradient(top, #fd492b, #de2a10);
-			background-image: linear-gradient(top, #fd492b, #de2a10);
-			background-color: #fd492b;
-			box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
-		}
-
-		.button-large:active {
-			background-image: -moz-linear-gradient(top, #ce1a00, #ed391b);
-			background-image: -webkit-linear-gradient(top, #ce1a00, #ed391b);
-			background-image: -ms-linear-gradient(top, #ce1a00, #ed391b);
-			background-image: linear-gradient(top, #ce1a00, #ed391b);
-			background-color: #ce1a00;
-			box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
-		}
 
 /* Header */
 
@@ -1676,15 +1591,7 @@ input, select, textarea {
 			margin: 0 0 2em 0;
 		}
 
-		#content .quote-list li {
-			border-bottom: solid 1px #e2e6e8;
-		}
-
 		#content .link-list li {
-			border-bottom: solid 1px #e2e6e8;
-		}
-
-		#content .check-list li {
 			border-bottom: solid 1px #e2e6e8;
 		}
 
@@ -1723,14 +1630,9 @@ input, select, textarea {
 			color: #fff;
 		}
 
-		#footer .quote-list li {
-		}
-
 		#footer .link-list li {
 		}
 
-		#footer .check-list li {
-		}
 
 /* Copyright */
 
@@ -1752,40 +1654,8 @@ input, select, textarea {
 
 		/* Multi-use */
 
-			.check-list li {
-				font-size: 1em;
-				line-height: 2em;
-			}
-
-			.quote-list li {
-				padding: 1em 0 1em 0;
-			}
-
-				.quote-list li img {
-					width: 60px;
-				}
-
-				.quote-list li p {
-					margin: 0 0 0 80px;
-					font-size: 1em;
-					font-style: italic;
-					line-height: 1.8em;
-				}
-
-				.quote-list li span {
-					display: block;
-					margin-left: 80px;
-					font-size: 0.8em;
-					font-weight: 400;
-					line-height: 1.8em;
-				}
-
 			.feature-image {
 				margin: 0 0 1em 0;
-			}
-
-			.button-large {
-				font-size: 1.5em;
 			}
 
 
@@ -2020,18 +1890,6 @@ input, select, textarea {
 				padding: 0.75em 0 0.75em 0;
 			}
 
-			.quote-list li p {
-				margin-bottom: 0.5em;
-			}
-
-			.check-list li {
-				font-size: 1em;
-			}
-
-			.button-large {
-				width: 100%;
-			}
-
 
 		/* Content */
 
@@ -2181,12 +2039,14 @@ ul.style span.collab {
 
 /* style2 -- for codes */
 
-# code ul {
+#code ul {
     padding: 0em;
     margin: 0em;
 }
 
-# code ul li {
+
+
+#code ul li {
     position: relative;
     padding: 0em;
     padding-top: 1em;
@@ -2194,7 +2054,7 @@ ul.style span.collab {
     /* border-top: solid 1px rgba(255, 255, 255, 0.2); */
 }
 
-# code ul > :first-child {
+#code ul > :first-child {
     border-top: none;
 }
 
@@ -2210,7 +2070,7 @@ ul.style span.collab {
 
 #code p {
     margin: 0em;
-    padding: none;
+    padding: 0;
     font-size: 0.9em;
     line-height: 1.5em;
 }
