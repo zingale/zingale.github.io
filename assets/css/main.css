@@ -1600,6 +1600,8 @@ input, select, textarea {
                     padding-left: 0.25em;
                     padding-bottom: 0.25em;
                     color: black;
+                    font-style: italic;
+                    line-height: 1.25em;
                 }
 
                 #content dd {
