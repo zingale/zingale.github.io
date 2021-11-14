@@ -32,7 +32,7 @@ BODY
 {
    background-color: #ffff66;
    /* http://gradients.glrzad.com/ */
-background-image: linear-gradient(bottom, rgb(255,255,102) 100%, rgb(210,210,50) 0%);
+background-image: linear-gradient(to bottom, rgb(255,255,102) 100%, rgb(210,210,50) 0%);
 background-image: -o-linear-gradient(bottom, rgb(255,255,102) 100%, rgb(210,210,50) 0%);
 background-image: -moz-linear-gradient(bottom, rgb(255,255,102) 100%, rgb(210,210,50) 0%);
 background-image: -webkit-linear-gradient(bottom, rgb(255,255,102) 100%, rgb(210,210,50) 0%);
