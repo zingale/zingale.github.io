@@ -52,7 +52,7 @@ for n, y in enumerate(years):
 
     year_index += "<a href='#{}'>{}</a>".format(y, y)
 
-    if n % 3 == 2:
+    if n % 3 == 2 and n != len(years)-1:
         year_index += "</li>\n"
 
 if not len(year_index) % 3 == 0: 
