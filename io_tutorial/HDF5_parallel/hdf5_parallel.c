@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
 
   /*--------------------------------------------------------------------------
    * Now open the HDF5 file for output and write out the data array -- all
-   * processors do the openning
+   * processors do the opening
    *-------------------------------------------------------------------------*/
 
   
@@ -252,7 +252,7 @@ int main(int argc, char *argv[]) {
                             start_2d, stride_2d, count_2d, NULL);
      
   /* now create the dataset -- if it is the first time through, otherwise
-     open the exisiting dataset */
+     open the existing dataset */
   dataset = H5Dcreate(file_identifier, "data array", H5T_NATIVE_DOUBLE,
 		      dataspace, H5P_DEFAULT);
 

@@ -99,7 +99,7 @@ not need to be contiguous.
 file.  As with the memory space, there is no constraint that the elements 
 in the dataspace be contiguous.  
 
-<p>When data is written (via the H5Dwrite call), the data is transfered 
+<p>When data is written (via the H5Dwrite call), the data is transferred 
 from memory to disk.  It is required that the number of elements in the 
 memory space be the same as that in the dataspace -- the layouts do not need 
 to match however.  If the data is non-contiguous, a gather/scatter is 
@@ -126,7 +126,7 @@ file.  The code this more complicated than the parallel I/O version we
 look at below, but on some systems (i.e. those lacking a parallel
 filesystem), it may be the only option.
 
-<p>We assume tha each processors has one or more data arrays declared
+<p>We assume that each processors has one or more data arrays declared
 as<br> 
 
 &nbsp;<br> 
@@ -155,7 +155,7 @@ size NX x NY<br>
 &nbsp;<br>
 
 Furthermore, it is important that the elements in these arrays be contiguous
-in memory.  In Fortran, declaring a multidimension array as:<br>
+in memory.  In Fortran, declaring a multidimensional array as:<br>
 
 &nbsp;<br>
 <tt>real (kind = dp), dimension (NX, NY) :: buffer<br></tt>
@@ -210,7 +210,7 @@ on disk is to rely on the underlying MPI-IO layer of HDF5 to perform the
 necessary communication.  MPI-IO implementations on different systems are 
 usually optimized for their platform and can perform quite well.
 
-<p>As above, we assume tha each processors has one or more data arrays
+<p>As above, we assume that each processors has one or more data arrays
 declared as<br>
 
 &nbsp;<br> 
