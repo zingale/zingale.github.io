@@ -44,7 +44,7 @@ Usage:
 
  ./apjify orig.tex new.tex 
 
- orig.tex is the originial LaTeX file in AASTeX format (well, really it
+ orig.tex is the original LaTeX file in AASTeX format (well, really it
  only needs to conform to the same style of including figures.  new.tex
  is the desired name for the file whose figures are renamed.  
  

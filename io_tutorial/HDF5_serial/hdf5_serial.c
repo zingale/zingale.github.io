@@ -239,7 +239,7 @@ int main(int argc, char *argv[]) {
   
 
       /* now create the dataset -- if it is the first time through, otherwise
-	 open the exisiting dataset */
+	 open the existing dataset */
       if (proc == 0) {
 	dataset = H5Dcreate(file_identifier, "data array", H5T_NATIVE_DOUBLE,
 			    dataspace, H5P_DEFAULT);
