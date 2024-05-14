@@ -6,7 +6,7 @@ BODY, H1, H2, H3, H4, H5  {font-family: "Carlito",
 body {font-size: 14pt;
       line-height: 1.65em;
       margin-top: 1em;
-      background-color: #000000;
+      background-color: #222222;
       color: #EEDDEE;
       margin-left: 2em;
       margin-right: 2em;}
@@ -41,14 +41,14 @@ A:HOVER {text-decoration: underline;
          color: white;}
 
     
-H1   {color: red;
+H1   {color: #EE55EE;
       font-weight: normal;
      text-align: center;}
 
 H1.title {display:inline;}
 
 H2   {font-size: large;
-      color: red;
+      color: #EE55EE;
       font-weight: normal;}
 
 H3   {font-size: medium;
