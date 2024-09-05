@@ -9,7 +9,7 @@ for p in papers:
 
 
 # sorted by date
-tf = open("pub_template.html", "r")
+tf = open("pub_template.html")
 dh = open("../pub_year.html", "w")
 
 current_year = 3000
@@ -18,7 +18,7 @@ first = True
 ostr = ""
 
 # by year
-years = list(set([p.year for p in papers]))
+years = list({p.year for p in papers})
 years.sort(reverse=True)
 
 for p in papers:
@@ -28,18 +28,18 @@ for p in papers:
         else:
             first = False
 
-        ostr += "<p><h2><a name='{}'></a>{}</h2>\n\n".format(p.year, p.year)
+        ostr += f"<p><h2><a name='{p.year}'></a>{p.year}</h2>\n\n"
         ostr += "<dl>\n"
 
         current_year = p.year
 
     t, o, l = p.jstring()
     if not l == "":
-        ostr += "<dt><a href='{}'>{}</a></dt>\n".format(l, t)
+        ostr += f"<dt><a href='{l}'>{t}</a></dt>\n"
     else:
-        ostr += "<dt>{}</dt>\n".format(t)
+        ostr += f"<dt>{t}</dt>\n"
 
-    ostr += "<dd>{}</dd>\n\n".format(o)
+    ostr += f"<dd>{o}</dd>\n\n"
 
 ostr += "</dl>\n\n"
 
@@ -50,7 +50,7 @@ for n, y in enumerate(years):
     else:
         year_index += "&nbsp;&nbsp;&nbsp;"
 
-    year_index += "<a href='#{}'>{}</a>".format(y, y)
+    year_index += f"<a href='#{y}'>{y}</a>"
 
     if n % 3 == 2 and n != len(years)-1:
         year_index += "</li>\n"
@@ -67,10 +67,10 @@ dh.close()
 tf.close()
 
 # by subject
-tf = open("pub_template.html", "r")
+tf = open("pub_template.html")
 dh = open("../pub_subj.html", "w")
 
-subs = list(set([p.subject for p in papers]))
+subs = list({p.subject for p in papers})
 subs.sort(key=str.lower)
 
 papers_by_subj = {}
@@ -101,11 +101,11 @@ for s in sorted(papers_by_subj, key=str.lower):
 
         t, o, l = p.jstring()
         if not l == "":
-            ostr += "<dt><a href='{}'>{}</a></dt>\n".format(l, t)
+            ostr += f"<dt><a href='{l}'>{t}</a></dt>\n"
         else:
-            ostr += "<dt>{}</dt>\n".format(t)
+            ostr += f"<dt>{t}</dt>\n"
 
-        ostr += "<dd>{}</dd>\n".format(o)
+        ostr += f"<dd>{o}</dd>\n"
 
     ostr += "</dl>\n"
 
