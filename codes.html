@@ -48,26 +48,65 @@
 	        <!-- Sidebar -->
 	        <section>
                   <header>
-                    <h2>Science + Software</h2>
+		    <h3>Open Science</h3>
                   </header>
 
-	          <ul>
-		    <li><h4>Open Science</h4>
-                      <span>Publishing our methods is an important part of
-	            science&mdash;the codes here are a mix of teaching codes
-	            and research codes that I use for my work.
+                  <ul>
+                    <li>
+                      <span>Publishing our methods is an important
+	            part of science&mdash;the codes here are a mix of
+	            teaching codes and research codes that I use for
+	            my work.
 
 	            Check out my github page
 	            too: <a href="https://github.com/zingale/">https://github.com/zingale</a>.</span></li>
+                  </ul>
+                </section>
 
-		    <li><h4>Funding and Support</h4>
-                      <span>Support for developing the codes here is
-                        provided by the Department of Energy Office of
-                        Nuclear Physics, the Department of Energy Exascale
-                        Compute Project, and the Department of Energy SciDAC
-                        Program.</span>
+                <section>
+                  <header>
+                    <h3>Community Development</h3>
+                  </header>
+
+                  <ul>
+                    <li>
+                      <span><a href="https://github.com/amrex-codes/amrex">AMReX</a>:
+                      I am a contributor
+                      and <a href="https://github.com/AMReX-Codes/amrex/blob/development/GOVERNANCE.rst">
+                      member of the Technical Committee</a> for the
+                      AMReX adaptive mesh refinement library.
+                      </span>
                     </li>
 
+                    <li>
+                      <span><a href="https://yt-project.org/">yt</a>:
+                        I am a contributor to the yt analysis and
+                        visualization library.
+                      </span>
+                    </li>
+
+                    <li>
+                      <span><a href="https://vast-seminars.github.io/">VAST</a>:
+                      I am an organizer of the Virtual Astronomy
+                      Software Talks seminar series.</span>
+                    </li>
+                  </ul>
+                </section>
+
+                <section>
+                  <header>
+		    <h3>Funding and Support</h3>
+                  </header>
+
+                  <ul>
+                    <li>
+                      <span>Support for developing the codes here is
+                        provided by the Department of Energy Office of
+                        Nuclear Physics.  Past support has included
+                        the Department of Energy Exascale Compute
+                        Project and the Department of Energy SciDAC
+                        Program.</span>
+                    </li>
                   </ul>
 
 	        </section>
@@ -171,15 +210,14 @@
 
                         <li>
                           <div class="codebox_simple">
-                            <h3><a href="http://zingale.github.io/hydro1d/">hydro1d: a 1-d compressible hydro solver</a></h3>
+                            <h3><a href="http://python-hydro.github.io/ppmpy/">PPMpy: python piecewise parabolic method</a></h3>
 
-                            <a href="https://github.com/zingale/hydro1d">hydro1d</a>
+                            <a href="https://github.com/python-hydro/ppmpy">ppmpy</a>
                             is a simple 1-d compressible hydrodynamics
-                            code that implements piecewise constant
-                            (Godunov), piecewise linear, and piecewise
-                            parabolic (PPM) slope reconstruction in a
-                            finite-volume framework. Some simple test
-                            problems (e.g. Sod) are included.
+                            code that implements the piecewise parabolic
+                            method.  It is written in python and has many
+                            methods to visualize the steps that PPM is taking
+                            in the reconstruction of the data.
                           </div>
                         </li>
 
@@ -461,19 +499,6 @@
 
 		            <p><span class="fa fa-download"></span>
                               <a href="https://github.com/zingale/backup_machine/">backup-machine.py</a>
-                          </div>
-                        </li>
-
-                        <li>
-                          <div class="codebox_simple">
-		            <h3>Fortran Makefile Dependency Generator</h3>
-
-                            A simple simply python script to generate
-		            dependency pairs for Fortran 90 source
-		            files for use in makefiles.
-
-		            <p><span class="fa fa-download"></span>
-                              <a href="https://github.com/BoxLib-Codes/ode-openacc/blob/master/util/dep.py">dep.py</a>
                           </div>
                         </li>
 
