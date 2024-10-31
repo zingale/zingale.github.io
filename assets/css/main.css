@@ -42,6 +42,12 @@ ol, ul {
 	list-style: none;
 }
 
+.bullets li {
+    list-style: square;
+    margin-left: 2em;
+}
+
+
 blockquote, q {
 	quotes: none;
 }
