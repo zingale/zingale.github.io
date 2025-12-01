@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<!--
+    Halcyonic by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+  <head>
+    <title>Michael Zingale: Modeling Reactive Flows</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <script>
+      MathJax = {
+          tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+      };
+    </script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+  </head>
+  <body class="subpage">
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <section id="header">
+	<div class="container">
+	  <div class="row">
+	    <div class="col-12">
+
+	      <!-- Logo -->
+	      <h1><a href="../../index.html" id="logo">Michael Zingale</a></h1>
+
+	      <!-- Nav -->
+	      <nav id="nav">
+		<a href="../../index.html">Home</a>
+		<a href="../../about.html">About Me</a>
+		<a href="../../research.html">Research</a>
+		<a href="../../pub_year.html">Papers</a>
+		<a href="../../classes.html">Teaching</a>
+		<a href="../../codes.html">Codes</a>
+	      </nav>
+
+	    </div>
+	  </div>
+	</div>
+      </section>
+
+      <!-- Content -->
+      <section id="content">
+	<div class="container">
+	  <div class="row">
+	    <div class="col-4 col-12-medium">
+              <div id="sidebar">
+
+                <!-- Sidebar -->
+                <section>
+	          <ul>
+                    <li><h4>Support</h4>
+                      <span>Supported by the DOE Office of Nuclear Physics.</span></li>
+
+		    <li><h4>Open Science</h4>
+		      <span>All of our simulation codes are fully open source and
+                        <a href="https://github.com/amrex-astro/">available on github</a></span> </li>
+	          </ul>
+	        </section>
+
+              </div>   <!-- sidebar -->
+	    </div>
+
+	    <div class="col-8 col-12-medium imp-medium">
+
+              <section>
+                <a name="sdc"></a>
+	        <header class="major">
+		  <h2>Algorithms for Reactive flows</h2>
+	        </header>
+
+                <p>Modeling stellar convection and explosions requires
+                  coupling hydrodynamics and reactions.  We can write
+                  the system of evolution equations as:
+                  $$\mathcal{\boldsymbol{U}}_t =
+                  \mathcal{\boldsymbol{A}}(\mathcal{\boldsymbol{U}}) +
+                  {\bf R}(\mathcal{\boldsymbol{U}})$$ where
+                  $\mathcal{\boldsymbol{U}}$ is the conserved state of
+                  the fluid (density, momentum, energy, species
+                  densities),
+                  $\mathcal{\boldsymbol{A}}(\mathcal{\boldsymbol{U}})$
+                  are the hydrodynamic advective terms, and ${\bf
+                  R}(\mathcal{\boldsymbol{U}})$ are the reactive
+                  sources.
+
+                <p>Advection and reactions need to be tightly coupled
+                  together to ensure that we accurately capture the
+                  dynamics and nucleosynthesis in a simulation.  The
+                  traditional method of coupling hydrodynamics and
+                  reactions in astrophysics has been Strang splitting,
+                  a type of operator splitting where the reactions and
+                  hydrodynamics operations each act on the state left
+                  behind from the other process, but there is no
+                  explicit coupling.
+
+                <p>If the reactions are vigorous, then the reactions
+                  can dump an enormous about of energy into a zone,
+                  which should drive an expansion / cooling flow.  But
+                  with operator-splitting, this is not captured
+                  self-consistently, and the reactions and
+                  hydrodynamics can decouple.  A common fix for this
+                  is to cut the timestep severely, from the
+                  hydrodynamics (CFL) timescale to the reactive
+                  timescale.
+
+                <p>Our group has been developing methods that
+                  strongly couple hydrodynamics and reactions for
+                  astrophysical flows.  An overview of modeling reactive flows and a discussion
+                  of operator (Strang) splitting is given
+                  in the following papers:
+
+                <ul class="papers">
+                    <li><a href='https://dx.doi.org/10.1088/1742-6596/2997/1/012007'><em>The
+                          Challenges of Modeling Astrophysical
+                          Reacting Flows</em></a>, Zingale, Michael,
+                          Bhargava, Khanak, Brady, Ryan, Chen, Zhi,
+                          Guichandut, Simon, Johnson, Eric T., Katz,
+                          Max, &amp; Smith Clark, Alexander 2025,
+                          Journal of Physics: Conference Series, 2997,
+                          1, p. 012007</li>
+
+                    <li><a href='https://doi.org/10.3847/2515-5172/abf3cb'><em>Practical
+                          Effects of Integrating Temperature with
+                          Strang Split Reactions</em></a>, Zingale,
+                          M., Katz, M. P., Willcox, D. E., &amp;
+                          Harpole, A. 2021, Research Notes of the AAS,
+                          5, 4, p. 71</li>
+                </ul>
+
+
+                <p><h3 class="subsection">Spectral deferred corrections methods</h3>
+
+                <p>We have adapted the spectral deferred correction
+                  (SDC) techniques from the applied math community to
+                  astrophysical flows.  In SDC methods, the
+                  hydrodynamics explicitly sees a reaction source and
+                  the reactions take into account how advection alters
+                  the state during the burn.  Low-order methods are
+                  used for the update (forward-Euler for advection and
+                  backward-Euler for reactions) and iteration is used
+                  to fully couple the processes, with an iteratively-lagged
+                  integral over the temporal nodes giving the desired
+                  convergence.  
+
+
+                <p>The full SDC algorithm showing 2nd and 4th order convergence
+                  for reactive flows is given in these papers:
+
+                <p><ul class="papers">
+                    <li><a href='https://doi.org/10.1088/1742-6596/1623/1/012021'><em>The
+                          Castro AMR Simulation Code: Current and
+                          Future Developments</em></a>, Zingale, M.,
+                          Almgren, A. S., Barrios Sazo, M., Bell,
+                          J. B., Eiden, K., Harpole, A., Katz, M. P.,
+                          Nonaka, A. J., Willcox, D. E., &amp; Zhang,
+                          W. 2020, Journal of Physics: Conference
+                          Series, 1623, p. 012021, 14th Int. Conf. on
+                          Numerical Modeling of Space Plasma Flows:
+                          ASTRONUM-2019 1-5 July 2019, Paris,
+                          France</li>
+
+                    <li><a href='https://ui.adsabs.harvard.edu/abs/2019ApJ...886..105Z'><em>Improved
+                          Coupling of Hydrodynamics and Nuclear
+                          Reactions via Spectral Deferred
+                          Corrections</em></a>, Zingale, M., Katz,
+                          M. P., Bell, J. B., Minion, M. L., Nonaka,
+                          A. J., &amp; Zhang, W. 2019, ApJ, 886, 2,
+                          p. 105</li>
+
+                  </ul>
+
+
+                <p><h3 class="subsection">Simplified-SDC</h3>
+
+                <p><img class="center" src="sdc_plot.png" alt="two timesteps comparing the SDC and Strang approaches to coupling reactions and hydrodynamics">
+
+                <p class="caption">Two timesteps from a Castro
+                  detonation calculation, showing the helium mass
+                  fraction.  The orange points show the state in the
+                  SDC evolution where each point represents substep
+                  used in integrating the reaction network.  By
+                  coupling the advection directly to the reaction
+                  evolution, we see the evolution is smooth an
+                  continuous.  In the Strang case, we see the
+                  reactions in the first Δt/2 of the evolution take
+                  the state far from the smooth SDC solution.
+                  Advection at the midpoint in time over-corrects the
+                  solution, and then the final Δt/2 of reaction brings
+                  us back to the SDC solution.
+
+
+                <p><ul class="papers">
+
+                    <li><a href='https://dx.doi.org/10.3847/1538-4357/ad8a66'><em>Strong
+                          Coupling of Hydrodynamics and Reactions in
+                          Nuclear Statistical Equilibrium for Modeling
+                          Convection in Massive Stars</em></a>,
+                          Zingale, Michael, Chen, Zhi, Johnson, Eric
+                          T., Katz, Max P., &amp; Clark, Alexander
+                          Smith 2024, The Astrophysical Journal, 977,
+                          1, p. 30</li>
+
+                    <li><a href='https://dx.doi.org/10.3847/1538-4357/ad3441'><em>Sensitivity
+                          of Simulations of Double-detonation Type Ia
+                          Supernovae to Integration
+                          Methodology</em></a>, Zingale, Michael,
+                          Chen, Zhi, Rasmussen, Melissa, Polin,
+                          Abigail, Katz, Max, Clark, Alexander Smith,
+                          &amp; Johnson, Eric T. 2024, The
+                          Astrophysical Journal, 966, 2, p. 150</li>
+
+                    <li><a href='https://doi.org/10.3847/1538-4357/ac8478'><em>An
+                          Improved Method for Coupling Hydrodynamics
+                          with Astrophysical Reaction
+                          Networks</em></a>, Zingale, M., Katz, M. P.,
+                          Nonaka, A., &amp; Rasmussen, M. 2022, The
+                          Astrophysical Journal, 936, 1, p. 6</li>
+
+                  </ul>
+
+                <p><h3 class="subsection">Explicit integrators</h3>
+
+                <p><ul class="papers">
+
+                    <li><a href='https://dx.doi.org/10.3847/2515-5172/ad175d'><em>A
+                          Fully Explicit Integrator for Modeling
+                          Astrophysical Reactive Flows</em></a>,
+                          Johnson, Parker, Zingale, Michael, Johnson,
+                          Eric T., Smith, Alexander, &amp; Niemeyer,
+                          Kyle E. 2023, Research Notes of the AAS, 7,
+                          12, p. 282</li>
+                  </ul>
+
+              </section>
+
+	    </div>
+	  </div>
+	</div>
+      </section>
+
+      <!-- Footer -->
+      <section id="footer">
+	<div class="container">
+
+	  <!-- Links -->
+	  <section>
+	    <div>
+              Department of Physics & Astronomy &bull;
+              Stony Brook University &bull; Stony Brook, NY 11794-3800
+              <br>ESS 452 &bull; (631) 632-8225
+              <br>michael.zingale@stonybrook.edu
+              <p><span class="fab fa-youtube"></span>&nbsp; <a href="http://www.youtube.com/user/michaelzingale">http://www.youtube.com/user/michaelzingale</a>
+                <br><i class="fab fa-github"></i>&nbsp; <a href="https://github.com/zingale">https://github.com/zingale</a></p>
+	    </div>
+	  </section>
+
+	</div>
+      </section>
+
+      <!-- Copyright -->
+      <div id="copyright">
+	Design: <a href="http://html5up.net">HTML5 UP</a>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+  </body>
+</html>
