@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
+
     <div id="page-wrapper">
 
       <!-- Header -->
-      <section id="header">
+      <section id="header" role="banner">
 	<div class="container">
 	  <div class="row">
 	    <div class="col-12">
@@ -25,7 +26,7 @@
 	      <h1><a href="index.html" id="logo">Michael Zingale</a></h1>
 
 	      <!-- Nav -->
-	      <nav id="nav">
+	      <nav id="nav" aria-label="Primary">
 		<a href="index.html">Home</a>
 		<a href="about.html">About Me</a>
 		<a href="research.html">Research</a>
@@ -40,6 +41,7 @@
       </section>
 
       <!-- Features -->
+      <main id="main">
       <section id="features">
 	<div class="container">
 
@@ -162,9 +164,10 @@
 	  </div>
 	</div>
       </section>
+      </main>
 
       <!-- Footer -->
-      <section id="footer">
+      <section id="footer" role="contentinfo">
 	<div class="container">
 
 	  <!-- Links -->
@@ -179,15 +182,13 @@
 	    </div>
 	  </section>
 
-	</div>
+          <!-- Copyright -->
+          <div>
+	    Design: <a href="http://html5up.net">HTML5 UP</a>
+          </div>
+
+        </div>
       </section>
-
-      <!-- Copyright -->
-      <div id="copyright">
-	Design: <a href="http://html5up.net">HTML5 UP</a>
-      </div>
-
-    </div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
