@@ -115,7 +115,8 @@ input, select, textarea {
 	}
 
 	a {
-		text-decoration: none;
+		text-decoration: underline;
+                text-decoration-style: dotted;
 	}
 
 		a:hover {
@@ -2192,3 +2193,19 @@ ul.papers li {
 ul.papers > :first-child {
     border-top: none;
 }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  color: #000;
+  z-index: 100000;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
