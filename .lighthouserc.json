@@ -17,6 +17,10 @@
         "categories:seo": ["warn", { "minScore": 0.90 }]
       }
     }
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./lhci-reports"
+    }
   }
 }
 
