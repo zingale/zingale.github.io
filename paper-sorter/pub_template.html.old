@@ -30,7 +30,7 @@
       
       <!-- Header -->
       <div id="header" class="skel-panels-fixed">
-	<div id="logo">
+	<div id="logo" aria-label="Home">
 	  <h1><a href="index.html">Michael Zingale</a></h1>
 	  <span class="tag">publications</span>
 	</div>
