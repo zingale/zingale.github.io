@@ -4,7 +4,9 @@
       "staticDistDir": ".",
       "url": [
         "index.html",
-        "about.html"
+        "about.html",
+        "codes.html",
+        "research.html"
       ]
     },
     "assert": {
