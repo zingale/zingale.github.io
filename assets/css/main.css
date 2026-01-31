@@ -2073,6 +2073,13 @@ ul.style span.collab {
     border-top: none;
 }
 
+#code ul h2 {
+    margin-bottom: 0.40em;
+    font-weight: 700;
+    line-height: 1.5em;
+    font-size: 1.25em;
+}
+
 #code ul h3 {
     margin-bottom: 0.40em;
     font-weight: 700;
@@ -2112,6 +2119,11 @@ ul.style span.collab {
     border-radius: 0px 0px 6px 6px;
 }
 
+.codebox h2 {
+    margin-bottom: 0.5em;
+    display: block;
+}
+
 .codebox h3 {
     margin-bottom: 0.5em;
     display: block;
@@ -2127,6 +2139,10 @@ ul.style span.collab {
     background: #FFF;
     text-align: left;
     border-radius: 6px 6px 6px 6px;
+}
+
+.codebox_simple h2 {
+    margin-bottom: 0.5em;
 }
 
 .codebox_simple h3 {
