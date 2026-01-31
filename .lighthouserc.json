@@ -16,7 +16,7 @@
         "categories:best-practices": ["warn", { "minScore": 0.90 }],
         "categories:seo": ["warn", { "minScore": 0.90 }]
       }
-    }
+    },
     "upload": {
       "target": "filesystem",
       "outputDir": "./lhci-reports"
