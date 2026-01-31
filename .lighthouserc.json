@@ -5,7 +5,9 @@
       "url": [
         "index.html",
         "about.html",
+        "classes.html",
         "codes.html",
+        "pub_year.html",
         "research.html"
       ]
     },
@@ -16,10 +18,6 @@
         "categories:best-practices": ["warn", { "minScore": 0.90 }],
         "categories:seo": ["warn", { "minScore": 0.90 }]
       }
-    },
-    "upload": {
-      "target": "filesystem",
-      "outputDir": "./lhci-reports"
     }
   }
 }
