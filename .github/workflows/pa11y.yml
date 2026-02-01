@@ -33,9 +33,10 @@ jobs:
       - name: Run pa11y checks (and do not fail yet)
         run: |
           set +e
-          # Human-readable report
-          npx pa11y-ci --reporter cli > pa11y-report.txt
-          npx pa11y-ci --json > pa11y-report.json
+          # Capture CLI output for the artifact (don’t care about its exit)
+          npx pa11y-ci --reporter cli 2>&1 | tee pa11y-report.txt || true
+          # Run JSON for the real gate (this exit code controls the job)
+          npx pa11y-ci --json > pa11y-report.json 2>&1
           PA11Y_EXIT=$?
           echo "PA11Y_EXIT=$PA11Y_EXIT" >> $GITHUB_ENV
           set -e
