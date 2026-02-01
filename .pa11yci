@@ -1,0 +1,19 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 60000,
+    "threshold": 0,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    }
+  },
+  "urls": [
+    "http://127.0.0.1:8080/index.html",
+    "http://127.0.0.1:8080/about.html",
+    "http://127.0.0.1:8080/classes.html",
+    "http://127.0.0.1:8080/codes.html",
+    "http://127.0.0.1:8080/pub_year.html",
+    "http://127.0.0.1:8080/research.html",
+    "http://127.0.0.1:8080/simulations/algorithms/index.html"
+  ]
+}
