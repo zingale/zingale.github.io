@@ -14,6 +14,11 @@
     "http://127.0.0.1:8080/codes.html",
     "http://127.0.0.1:8080/pub_year.html",
     "http://127.0.0.1:8080/research.html",
-    "http://127.0.0.1:8080/simulations/algorithms/index.html"
+    "http://127.0.0.1:8080/simulations/algorithms/index.html",
+    "http://127.0.0.1:8080/simulations/stellar_convection/index.html",
+    "http://127.0.0.1:8080/simulations/wdmerger/index.html",
+    "http://127.0.0.1:8080/simulations/double_detonation/index.html",
+    "http://127.0.0.1:8080/simulations/xrb/index.html",
+    "http://127.0.0.1:8080/simulations/subchandra/index.html"
   ]
 }
