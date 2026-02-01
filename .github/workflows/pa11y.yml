@@ -44,7 +44,11 @@ jobs:
           for url in "${URLS[@]}"; do
             echo "=== pa11y: $url"
             # --standard can be WCAG2A / WCAG2AA / WCAG2AAA / Section508
-            npx pa11y "$url" --standard WCAG2AA --timeout 60000 --reporter json >> pa11y-report.json || EXIT=1
+            npx pa11y "$url" \
+              --standard WCAG2AA \
+              --timeout 60000 \
+              --chrome-launcher-flags="--no-sandbox --disable-setuid-sandbox" \
+              --reporter json >> pa11y-report.json || EXIT=1
           done
 
           exit $EXIT
