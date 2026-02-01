@@ -34,7 +34,7 @@ jobs:
         run: |
           set +e
           # Human-readable report
-          npx pa11y-ci --reporter cli > pa11y-report.txt
+          npx pa11y-ci --debug --reporter cli > pa11y-report.txt
           PA11Y_EXIT=$?
           echo "PA11Y_EXIT=$PA11Y_EXIT" >> $GITHUB_ENV
           set -e
