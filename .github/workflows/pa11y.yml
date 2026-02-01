@@ -1,0 +1,57 @@
+name: pa11y accessibility tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pa11y:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Install pa11y + server
+        run: |
+          npm install --no-save pa11y@latest http-server@latest
+
+      - name: Start static server
+        run: |
+          npx http-server . -p 8080 --silent &
+          # Give the server a moment to start
+          sleep 1
+
+      - name: Run pa11y checks
+        run: |
+          # List the pages you want checked:
+          URLS=(
+            "http://127.0.0.1:8080/index.html"
+            "http://127.0.0.1:8080/about.html"
+            "http://127.0.0.1:8080/research.html"
+            "http://127.0.0.1:8080/codes.html"
+          )
+
+          EXIT=0
+          for url in "${URLS[@]}"; do
+            echo "=== pa11y: $url"
+            # --standard can be WCAG2A / WCAG2AA / WCAG2AAA / Section508
+            npx pa11y "$url" --standard WCAG2AA --timeout 60000 --reporter json >> pa11y-report.json || EXIT=1
+          done
+
+          exit $EXIT
+
+      - name: Upload pa11y report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: pa11y-report
+          path: pa11y-report.json
