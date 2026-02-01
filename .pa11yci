@@ -13,6 +13,7 @@
     "http://127.0.0.1:8080/classes.html",
     "http://127.0.0.1:8080/codes.html",
     "http://127.0.0.1:8080/pub_year.html",
-    "http://127.0.0.1:8080/research.html"
+    "http://127.0.0.1:8080/research.html",
+    "http://127.0.0.1:8080/simulations/algorithms/index.html"
   ]
 }
