@@ -34,7 +34,8 @@ jobs:
         run: |
           set +e
           # Human-readable report
-          npx pa11y-ci --debug --reporter cli > pa11y-report.txt
+          npx pa11y-ci --reporter cli > pa11y-report.txt
+          npx pa11y-ci --json > pa11y-report.json
           PA11Y_EXIT=$?
           echo "PA11Y_EXIT=$PA11Y_EXIT" >> $GITHUB_ENV
           set -e
@@ -44,7 +45,9 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: pa11y-report
-          path: pa11y-report.txt
+          path: |
+            pa11y-report.txt
+            pa11y-report.json
 
       - name: Fail job if pa11y found issues
         run: |
