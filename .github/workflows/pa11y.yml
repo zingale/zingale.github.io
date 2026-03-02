@@ -43,12 +43,11 @@ jobs:
 
       - name: Upload pa11y report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: pa11y-report
-          path: |
-            pa11y-report.txt
-            pa11y-report.json
+          path: pa11y-report.txt
+          archive: false
 
       - name: Fail job if pa11y found issues
         run: |
