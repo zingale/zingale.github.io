@@ -173,7 +173,14 @@ def clean_names(a):
 
     a_new = []
     for name in a:
-        a_new.append(name.replace("{", "").replace("}", "").replace("~", " "))
+        _nm = name.replace("{", "").replace("}", "").replace("~", " ")
+
+        # special case
+        if _nm == "Team, AMReX-Astro Microphysics":
+            _nm = "AMReX-Astro Microphysics Team"
+
+        a_new.append(_nm)
+
     return a_new
 
 def clean_ednames(a):
