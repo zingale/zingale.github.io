@@ -224,3 +224,19 @@ IMG.bubble_right {float: right;
 
 IMG.bubble {display: inline; 
             width: auto;}
+
+/* Allow illustrations and code samples to fit narrow or zoomed views. */
+img { max-width: 100%; height: auto; }
+iframe { max-width: 100%; }
+pre { overflow-x: auto; }
+a:focus { outline: 2px solid currentColor; outline-offset: 3px; }
+a:link, a:visited { text-decoration: underline; }
+
+@media (max-width: 600px) {
+    body { margin-left: 1em; margin-right: 1em; padding: 0; }
+}
+
+/* The bubble gallery uses a white background. */
+body.white a:link, body.white a:visited { color: #075a70; }
+body.white a:hover { color: #003d50; }
+body.white h1, body.white h2 { color: #8a187c; }

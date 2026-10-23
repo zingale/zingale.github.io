@@ -1412,7 +1412,6 @@ input, select, textarea {
 	.feature-image {
 		display: block;
 		margin: 0 0 2em 0;
-		outline: 0;
 	}
 
 		.feature-image img {
@@ -1425,7 +1424,6 @@ input, select, textarea {
 		background: #fff url("images/bg04.png");
 		padding: 0px;
 		margin: 0 0 1.5em 0;
-		outline: 0;
 	}
 
 		.bordered-feature-image img {
@@ -1476,7 +1474,6 @@ input, select, textarea {
 				text-decoration: none;
 				font-size: 1.0em;
 				margin-left: 30px;
-				outline: 0;
 			}
 
 				#header nav a:hover {
@@ -1815,7 +1812,7 @@ input, select, textarea {
 						top: 15px;
 						left: 20px;
 						z-index: 1;
-						opacity: 0.25;
+						opacity: 1;
 					}
 
 					#titleBar .toggle:active:after {
@@ -1823,6 +1820,7 @@ input, select, textarea {
 					}
 
 			#navPanel {
+				visibility: hidden;
 				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
 				-ms-backface-visibility: hidden;
@@ -1880,6 +1878,7 @@ input, select, textarea {
 			}
 
 			body.navPanel-visible #navPanel {
+				visibility: visible;
 				-moz-transform: translateX(0);
 				-webkit-transform: translateX(0);
 				-ms-transform: translateX(0);
@@ -2231,3 +2230,15 @@ ul.papers > :first-child {
   top: 0.5rem;
 }
 
+/* Keep keyboard focus visible on both light and dark backgrounds. */
+a:focus, button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px #000;
+}
+
+img { max-width: 100%; height: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+    #page-wrapper, #titleBar, #navPanel { transition: none; }
+}
