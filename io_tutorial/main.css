@@ -94,3 +94,14 @@ p.center {text-align: center;}
 
 span.type {font-family: monospace;}
 
+
+/* Allow illustrations and code samples to fit narrow or zoomed views. */
+img { max-width: 100%; height: auto; }
+iframe { max-width: 100%; }
+pre { overflow-x: auto; }
+a:focus { outline: 2px solid currentColor; outline-offset: 3px; }
+a:link, a:visited { text-decoration: underline; }
+
+@media (max-width: 600px) {
+    body { margin-left: 1em; margin-right: 1em; padding: 0; }
+}
