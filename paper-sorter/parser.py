@@ -14,8 +14,12 @@ import re
 import urllib.request
 
 import bibtexparser
-from bibtexparser.bparser import BibTexParser
-import bibtexparser.customization as bc
+from bibtexparser.middlewares import (
+    BlockMiddleware, MergeNameParts, MonthAbbreviationMiddleware,
+    SeparateCoAuthors, SplitNameParts,
+)
+from bibtexparser.model import DuplicateBlockKeyBlock, Entry
+from pylatexenc.latex2text import LatexNodes2Text
 
 _months = ["", "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 
@@ -149,7 +153,7 @@ def translate_journal(j):
     if j is None:
         return None
 
-    jn = j["name"].strip()
+    jn = j.strip()
     if jn.lower() == r"\apj":
         return "ApJ"
     elif jn.lower() == r"\apjs":
@@ -164,7 +168,7 @@ def fix_pages(p):
     if p is None:
         return None
 
-    return p.replace("--", "&ndash;")
+    return re.sub(r"[-–—]+", "&ndash;", p)
 
 def clean_names(a):
     """remove braces and tildes from names"""
@@ -183,37 +187,46 @@ def clean_names(a):
 
     return a_new
 
-def clean_ednames(a):
-    """remove braces and tildes from editor names"""
-    if a is None:
-        return None
+class PublicationTextMiddleware(BlockMiddleware):
+    """Decode display text while preserving URLs and journal macros."""
 
-    a_new = []
-    for ed_dict in a:
-        a_new.append(ed_dict["name"].replace("{", "").replace("}", "").replace("~", " "))
-    return a_new
+    def __init__(self):
+        super().__init__()
+        self.decoder = LatexNodes2Text(math_mode="verbatim")
 
-def customizations(record):
-    """Use some functions delivered by the library
+    def transform_entry(self, entry, library):
+        for field in entry.fields:
+            if field.key not in {
+                "title", "author", "editor", "journal", "booktitle",
+                "note", "subject", "address", "organization",
+            }:
+                continue
+            value = field.value
+            if field.key == "journal":
+                value = translate_journal(value)
+            if isinstance(value, list):
+                field.value = [self.decoder.latex_to_text(name) for name in value]
+            else:
+                field.value = self.decoder.latex_to_text(value)
+        return entry
 
-    :param record: a record
-    :returns: -- customized record
 
-    """
-    record = bc.convert_to_unicode(record)
-    record = bc.type(record)    # lowercase
-    record = bc.author(record)
-    record = bc.editor(record)
-    record = bc.journal(record)
-    record = bc.keyword(record)
-    record = bc.link(record)
-    record = bc.page_double_hyphen(record)
-    record = bc.doi(record)
-    return record
+def parsing_middleware():
+    """Build a fresh v2 middleware stack for publication formatting."""
+    return [
+        MonthAbbreviationMiddleware(),
+        SeparateCoAuthors(),
+        SplitNameParts(),
+        MergeNameParts(style="last"),
+        PublicationTextMiddleware(),
+    ]
 
 
 def extract_paper_info(e):
-    """ take a BibDatabase entry and make a Paper object from it """
+    """Take a v2 Entry and make a Paper object from it."""
+
+    entry_type = e.entry_type.lower()
+    e = {field.key: field.value for field in e.fields}
 
     if not "title" in e.keys():
         print("no title: ", e)
@@ -234,14 +247,13 @@ def extract_paper_info(e):
     journal_name = translate_journal(get_item(e, "journal"))
     year = get_item(e, "year")
     month = get_item(e, "month")
-    editors = clean_ednames(get_item(e, "editor"))
+    editors = clean_names(get_item(e, "editor"))
     booktitle = get_item(e, "booktitle")
     pages = fix_pages(get_item(e, "pages"))
     note = get_item(e, "note")
     subject = get_item(e, "subject")
     address = get_item(e, "address")
     organization = get_item(e, "organization")
-    entry_type = get_item(e, "ENTRYTYPE")
 
     if "adsurl" in e.keys():
         link_url = get_item(e, "adsurl")
@@ -250,7 +262,7 @@ def extract_paper_info(e):
     else:
         l = get_item(e, "link")
         if not l is None:
-            link_url = l[0]["url"]
+            link_url = l.strip().splitlines()[0].split()[0]
         else:
             link_url = None
 
@@ -260,6 +272,25 @@ def extract_paper_info(e):
                  volume=volume, number=number, pages=pages,
                  link=link_url, note=note, subject=subject,
                  address=address, organization=organization)
+
+
+def library_papers(library):
+    """Extract papers, retaining entries with duplicate citation keys as in v1."""
+    papers = []
+    for block in library.blocks:
+        if isinstance(block, DuplicateBlockKeyBlock):
+            # v2 excludes duplicate keys from library.entries. Parse each such
+            # entry independently so existing bibliographies retain all papers.
+            duplicate = bibtexparser.parse_string(
+                block.raw, append_middleware=parsing_middleware())
+            papers.extend(library_papers(duplicate))
+        elif isinstance(block, Entry):
+            paper = extract_paper_info(block)
+            if paper is not None:
+                papers.append(paper)
+        elif block in library.failed_blocks:
+            raise ValueError(f"Could not parse BibTeX at line {block.start_line}: {block.error}")
+    return papers
 
 
 def parse_urlfile(url_file):
@@ -276,10 +307,6 @@ def parse_urlfile(url_file):
     papers = []
 
     with open(url_file) as f:
-
-        parser = BibTexParser(common_strings=True)
-        parser.customization = customizations
-        parser.ignore_nonstandard_types = False
 
         for line in f:
             if line.startswith("#") or line.strip() == "": continue
@@ -313,13 +340,12 @@ def parse_urlfile(url_file):
                     bibtex += bibline
 
             # parse the bibtex string
-            bib_database = bibtexparser.loads(bibtex, parser=parser)
+            library = bibtexparser.parse_string(
+                bibtex, append_middleware=parsing_middleware())
 
-            for e in bib_database.entries:
-                p = extract_paper_info(e)
-                if not e is None:
-                    p.subject = subject
-                    papers.append(p)
+            for p in library_papers(library):
+                p.subject = subject
+                papers.append(p)
 
     papers.sort(reverse=True)
     return papers
@@ -328,18 +354,9 @@ def parse_urlfile(url_file):
 def parse_bibfile(bibfile):
     """given a bibtex .bib file, parse it and return the papers found"""
 
-    with open(bibfile) as bibtex_file:
-        parser = BibTexParser(common_strings=True)
-        parser.customization = customizations
-        parser.ignore_nonstandard_types = False
-        bib_database = bibtexparser.load(bibtex_file, parser=parser)
-
-        papers = []
-
-        for e in bib_database.entries:
-            p = extract_paper_info(e)
-            if not e is None:
-                papers.append(p)
+    library = bibtexparser.parse_file(
+        bibfile, append_middleware=parsing_middleware())
+    papers = library_papers(library)
 
     papers.sort(reverse=True)
 
