@@ -266,6 +266,12 @@ def extract_paper_info(e):
         else:
             link_url = None
 
+    if link_url is None:
+        doi = get_item(e, "doi")
+        if doi and doi.strip():
+            doi = doi.strip()
+            link_url = doi if doi.lower().startswith(("http://", "https://")) else f"https://doi.org/{doi}"
+
     return Paper(entry_type, authors, title, year, journal_name,
                  month=month, editors=editors,
                  booktitle=booktitle,
